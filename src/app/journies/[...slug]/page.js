@@ -1,9 +1,9 @@
 // app/[id]/page.js
 
+import { fetchDataFromAPI } from "@/utils/api";
 import { use } from "react";
 
 async function fetchData(id) {
-  // Replace this with your data fetching logic
   let response;
   const userId = id.slug[0];
   if (userId === "2222") {
@@ -11,7 +11,7 @@ async function fetchData(id) {
       cache: "no-store",
     });
   } else {
-    response = await fetch("https://jsonplaceholder.typicode.com/users");
+    response = await fetch(`http://localhost:3000/api/users/${userId}`);
   }
 
   const products = await response.json();
@@ -20,7 +20,7 @@ async function fetchData(id) {
 
 export default function DynamicPage({ params }) {
   const data = use(fetchData(params));
-  console.log("data....", data);
+
   return (
     <div>
       <h1>Dynamic Page</h1>
@@ -39,14 +39,13 @@ export default function DynamicPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const response = await fetch("http://localhost:3000/api/utms", {
-    // cache: 'no-store',
+  const response = await fetchDataFromAPI("/api/utm-configs?populate=*", {
+    cache: "no-store",
   });
-  const utms = await response.json();
-  const paths = utms?.data?.flatMap((route) =>
-    route.pages.map((page) => ({ slug: [route.code, page.name] }))
+  const paths = response?.data?.flatMap((route) =>
+    route?.attributes?.pages?.data?.map((page) => ({
+      slug: [route.attributes.utmCode, page.attributes.slug],
+    }))
   );
-
-  console.log("paths....", paths);
   return paths;
 }
