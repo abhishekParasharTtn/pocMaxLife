@@ -40,29 +40,7 @@ const axisAppLayout = ({
       </Head>
       {children}
 
-      <style jsx>
-        {`
-          .header {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 72.625rem;
-            .payment {
-              font-size: var(--size-font-xs);
-              line-height: var(--line-height-xs);
-              display: flex;
-              align-items: center;
-              text-transform: uppercase;
-              img {
-                margin-right: 0.75rem /* 12px */;
-                width: 1.5rem;
-              }
-            }
-          }
-        `}
-      </style>
+    
     </div>
   )
 }

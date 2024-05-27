@@ -1,20 +1,16 @@
 
 import DefaultAppLayout from './DefaultAppLayout';
 import AxisAppLayout from './AxisAppLayout';
-import DefaultMainLayout from './defaultMainLayout';
+import DefaultMainLayout from './DefaultMainLayout';
 
 
-export const appLayout = ({
-    appConfig,
-    // showNavigation,
-    // groupType,
-    // page,
+
+export const AppLayout = ({
+    themeConfig,
     utmConfig,
 }) => {
 
-    console.log('loko');
-    // console.log('appconfig',appConfig);
-    console.log('utmConfig',utmConfig?.themeConfig?.layout?.layoutType?.name);
+
     const layoutMappings = {
         DefaultAppLayout: DefaultAppLayout,
         AxisAppLayout: AxisAppLayout,
@@ -23,9 +19,7 @@ export const appLayout = ({
 
     return Layout ? (
         <Layout
-            appConfig={appConfig}
-            showNavigation={showNavigation}
-            groupType={groupType}
+            themeConfig={themeConfig}
             utmConfig={utmConfig}
         >
             <DefaultMainLayout>
@@ -35,6 +29,7 @@ export const appLayout = ({
     ) : (
         <h2>Page not found</h2>
     );
+
 };
 
 

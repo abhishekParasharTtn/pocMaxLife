@@ -3,15 +3,26 @@
 import { api } from "@/utils/api";
 
 import {utmService} from "../../services/utmService";
+import { AppLayout } from "../../../shared-components/layouts/app/AppLayout";
 import { use } from "react";
 
 async function fetchData(params) {
   const {slug} = params; 
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfig(utmDetails);
+//common
 
-  console.log('utmDetails...', utmDetails);
-  console.log('themeConfig...', themeConfig);
+  return  (
+   
+    <AppLayout
+        themeConfig={themeConfig}
+        // showNavigation={page?.journeyInfo?.config?.showNavigation}
+        // groupType={page?.route?.meta?.groupType}
+        // page={page}
+        utmConfig={utmDetails}
+    />
+) 
+
 
 //  let response = await fetch(`http://localhost:3000/api/users/${userId}`);
 
@@ -22,28 +33,30 @@ async function fetchData(params) {
 export default function DynamicPage({ params }) {
   const data = use(fetchData(params));
    
-
-  return (
-    <div>
-      <h1>Dynamic Page</h1>
-      {/* <div>
-        {data?.map((data, index) => (
-          <>
-            <div key={index}>{data?.code}</div>
-            {data.pages.map((page, index) => {
-              return <div key={index}>{page.name}</div>;
-            })}
-          </>
-        ))}
-      </div> */}
-    </div>
-  );
+return data;
+  // return (
+  //   <div>
+  //     <h1 className = "text-xl">Dynamic Page</h1>
+  //     {/* <div>
+  //       {data?.map((data, index) => (
+  //         <>
+  //           <div key={index}>{data?.code}</div>
+  //           {data.pages.map((page, index) => {
+  //             return <div key={index}>{page.name}</div>;
+  //           })}
+  //         </>
+  //       ))}
+  //     </div> */}
+  //   </div>
+  // );
 }
 
 export async function generateStaticParams() {
   const response = await api.get("/api/utm-configs?populate=*", {
     cache: "no-store",
   });
+
+ 
   
   const paths = response?.data?.flatMap((route) =>
     route?.attributes?.pages?.data?.map((page) => ({
