@@ -1,7 +1,4 @@
-// app/[id]/page.js
-
 import { api } from "@/utils/api";
-
 import { utmService } from "../../services/utmService";
 import { use } from "react";
 
@@ -9,31 +6,14 @@ async function fetchData(params) {
   const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfig(utmDetails);
-
-  function flattenObject(obj) {
-    if (typeof obj !== "object" || obj === null) {
-      return obj;
-    }
-
-    if (Array.isArray(obj)) {
-      return obj.map(flattenObject);
-    }
-
-    return Object.entries(obj).reduce((acc, [key, value]) => {
-      if (key === "data" || key === "attributes") {
-        return { ...acc, ...flattenObject(value) };
-      }
-
-      return { ...acc, [key]: flattenObject(value) };
-    }, {});
-  }
-  console.log(flattenObject(utmDetails), "::test");
-  return flattenObject(utmDetails);
+  console.log(themeConfig, "::themeConfig");
+  console.log(utmDetails, "::utmDetails");
+  return { utmDetails, themeConfig };
 }
 
 export default function DynamicPage({ params }) {
   const data = use(fetchData(params));
-
+  console.log(data, "::data");
   return (
     <div>
       <h1>Dynamic Page</h1>
