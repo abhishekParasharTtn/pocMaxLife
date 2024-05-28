@@ -1,6 +1,6 @@
 import { api } from "@/utils/api";
 import {utmService} from "../../services/utmService";
-import { AppLayout } from "../../../shared-components/layouts/app/AppLayout";
+import { AppLayout } from "../../../common/layouts/app/AppLayout";
 import { use } from "react";
 
 async function fetchData(params) {

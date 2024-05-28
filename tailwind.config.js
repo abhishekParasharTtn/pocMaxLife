@@ -19,7 +19,7 @@ module.exports = {
         'grey-dark': 'var(--color-grey-dark)',
       },
       textColor: {
-        primary: 'var(--color-text-primary)',
+        primary: 'var(--color-primary)',
         secondary: 'var(--color-text-secondary)',
         'link-primary': 'var(--color-text-link-primary)',
         'link-secondary': 'var(--color-text-link-secondary)',
