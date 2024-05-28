@@ -1,15 +1,14 @@
-// app/[id]/page.js
-
 import { api } from "@/utils/api";
-
 import {utmService} from "../../services/utmService";
 import { AppLayout } from "../../../shared-components/layouts/app/AppLayout";
 import { use } from "react";
 
 async function fetchData(params) {
-  const {slug} = params; 
+  const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfig(utmDetails);
+  console.log('object',utmDetails);
+  console.log('theme',themeConfig);
 //common
 
   return  (
@@ -34,21 +33,7 @@ export default function DynamicPage({ params }) {
   const data = use(fetchData(params));
    
 return data;
-  // return (
-  //   <div>
-  //     <h1 className = "text-xl">Dynamic Page</h1>
-  //     {/* <div>
-  //       {data?.map((data, index) => (
-  //         <>
-  //           <div key={index}>{data?.code}</div>
-  //           {data.pages.map((page, index) => {
-  //             return <div key={index}>{page.name}</div>;
-  //           })}
-  //         </>
-  //       ))}
-  //     </div> */}
-  //   </div>
-  // );
+
 }
 
 export async function generateStaticParams() {
