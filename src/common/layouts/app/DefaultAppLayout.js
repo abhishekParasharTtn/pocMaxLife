@@ -1,5 +1,5 @@
 import Theme from './Theme'
-const defaultAppLayout = ({
+const DefaultAppLayout = ({
   children,
   themeConfig,
   utmConfig
@@ -20,4 +20,4 @@ const defaultAppLayout = ({
   )
 }
 
-export default defaultAppLayout
+export default DefaultAppLayout
