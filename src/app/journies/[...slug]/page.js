@@ -8,11 +8,6 @@ async function fetchData(params) {
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfig(utmDetails);
   const pages = await utmService.getPages(utmDetails);
-  console.log(utmDetails?.utmCode);
-  console.log(pages, "::pages");
-  console.log(utmDetails, "::utmDetails");
-  console.log("theme", themeConfig);
-  //common
 
   return (
     <AppLayout
