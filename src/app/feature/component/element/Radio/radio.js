@@ -4,7 +4,7 @@ import {Gender, formData} from "@/app/api/dummyData";
 
 const Radio = ({form}) => {
     const {customerDetails ,personalDetails} = form;
-    console.log(customerDetails,personalDetails,'-------------->Radio')
+  
 
     const [selectedOption, setSelectedOption] = useState('');
     const handleOptionChange = (event) => {

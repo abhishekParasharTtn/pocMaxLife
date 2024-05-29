@@ -2,7 +2,7 @@ import { API_URL } from "./urls";
 
 export const api = {
   get: async (endpoint, query) => {
-    console.log('endpoint',endpoint, query)
+
     try {
       const encodedQuery = encodeURIComponent(query);
       const url = endpoint ? endpoint : `/graphql?query=${encodedQuery}`;
