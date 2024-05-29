@@ -1,43 +1,16 @@
 
-
+import Theme from './Theme'
 const axisAppLayout = ({
   children,
-  appConfig = globalAppConfig,
-  groupType,
-  utmConfig
+  themeConfig,
+  
 }) => {
   
 
-
-//   const appComponentLayout = position => {
-//     const section = components[componentLayoutOrder[`${position}`]]
-//     if (section?.fieldName?.name === "logo") {
-//       const config = {
-//         logo: {
-//           src: section?.image?.url
-//             ? section?.image?.url
-//             : themeConfig?.logo.src,
-//           size: {
-//             width: appConfig?.themeConfig?.style?.logo?.width,
-//             height: appConfig?.themeConfig?.style?.logo?.height
-//           },
-//           width: section?.image?.width,
-//           height: section?.image?.height,
-//           alt: section?.altText
-//         },
-//         routes: []
-//       }
-//       section.logo = config?.logo
-//     }
-//     return section ? <Section section={section} /> : null
-//   }
   return (
-    <div className="default-app-layout">
+    <div className="axis-app-layout">
       <Theme themeConfig={themeConfig} />
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href={`${publicPath}/favicon.ico`} />
-      </Head>
+     <div>Axis App poc</div>
       {children}
 
     

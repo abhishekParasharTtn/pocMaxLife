@@ -5,7 +5,7 @@ const DefaultAppLayout = ({
   utmConfig
 }) => {
   
-   
+ 
 
   return (
     <div className="default-app-layout">
@@ -14,7 +14,7 @@ const DefaultAppLayout = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon"  />
       </head> */}
-      <div className={'text-primary'}>poc max life</div>
+      <div className={'text-primary'}>default max life</div>
       {children}
     </div>
   )
