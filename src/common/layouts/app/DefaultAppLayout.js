@@ -1,5 +1,5 @@
 import Theme from './Theme'
-const defaultAppLayout = ({
+const DefaultAppLayout = ({
   children,
   themeConfig,
   utmConfig
@@ -14,10 +14,10 @@ const defaultAppLayout = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon"  />
       </head> */}
-      <div className="color-background-light">jdjjddjk</div>
+      <div className={'text-primary'}>poc max life</div>
       {children}
     </div>
   )
 }
 
-export default defaultAppLayout
+export default DefaultAppLayout
