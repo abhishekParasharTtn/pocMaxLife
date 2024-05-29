@@ -41,7 +41,7 @@ export const utmService = {
     const updatedUtm = transformer.removeDatakeys(utmDetails);
     return this.transformUtmDetails(updatedUtm);
   },
-  getThemeConfig: async function (utmDetails) {
+  getThemeConfigData: async function (utmDetails) {
     const query = queries.getThemeConfig(utmDetails?.themeConfig?.name);
     const themeConfig = await api.get(null, query);
     return transformer.removeDatakeys(themeConfig);

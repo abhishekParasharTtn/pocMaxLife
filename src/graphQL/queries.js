@@ -168,12 +168,10 @@ export const queries = {
             ${components.layout}
             sections {
               ... on ComponentContainerFormContainer {
-                id
                 name
                 form {
                   ... on FormEntityResponse {
                     data {
-                      id
                       attributes {
                         name
                         title

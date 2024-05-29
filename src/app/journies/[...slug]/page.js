@@ -69,9 +69,9 @@ const page = {
 async function fetchData(params) {
   const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
-  const themeConfig = await utmService.getThemeConfig(utmDetails);
+  const themeConfig = await utmService.getThemeConfigData(utmDetails);
   const pages = await utmService.getPages(utmDetails);
-
+  console.log(pages);
   return (
     <AppLayout
       themeConfig={themeConfig}
