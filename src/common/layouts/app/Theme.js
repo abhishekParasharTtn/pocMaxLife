@@ -3,7 +3,7 @@
 
  const getProductsOfLogicalOR = (value1, value2) => value1 || value2;
  const  Theme = ({ themeConfig = globalThemeConfig }) => {
-console.log('themeConfighero ',themeConfig.themeConfigs )
+
 
 
     const {
