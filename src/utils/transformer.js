@@ -13,6 +13,10 @@ export const transformer = {
         return { ...acc, ...transformer.removeDataAttributes(value) };
       }
 
+      if (key === "0") {
+        return { ...acc, ...transformer.removeDataAttributes(value) };
+      }
+
       return { ...acc, [key]: transformer.removeDataAttributes(value) };
     }, {});
   },
