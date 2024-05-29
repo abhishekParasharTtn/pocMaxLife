@@ -1,4 +1,4 @@
-const globalThemeConfig  = {
+export const globalThemeConfig  = {
     logo: {
        
         alt: 'logo',
@@ -78,4 +78,78 @@ const globalThemeConfig  = {
     },
 };
 
-module.exports = globalThemeConfig ;
+
+export const axisThemeConfig = {
+    logo: {
+        // src: `${publicPath}/images/axis-logo.png`,
+        alt: 'logo',
+        size: { width: '140px', height: '100px' },
+    },
+    footer: {
+        // content: footerContent,
+        style: {
+            'footer-md-width': '50%',
+        },
+    },
+    style: {
+        colors: {
+            'text-link-secondary': '#97144d',
+            'border-primary': '#97144d',
+            'background-default-dark': '#f3f3f3',
+            default: '#fff',
+            'background-default': '#fff',
+            'text-primary': '#231f20',
+            primary: '#861f41',
+            'background-primary': '#97144d',
+            'text-success': '#02a552',
+            'grey-dark': '#707070',
+            'background-success': '#E6F2FD',
+            'background-active': '#d1d3d4',
+            active: '#97144d',
+            'shadow-secondary': '#171A210F',
+            'border-error': '#d93025',
+            'text-error': '#d93025',
+            'text-disable': '#c2c7d1',
+            'placeholder-primary': '#c2c7d1',
+            inactive: '#c2c7d1',
+            'text-link-primary': '#97144d',
+            'border-secondary': '#ae285d',
+            highlight: '#eafff3',
+            'text-secondary': '#6d6e71',
+            secondary: '#97144d',
+            'border-light': '#ebedf0',
+            'shadow-primary': '#171A211F',
+            'background-highlight': '#eafff3',
+            'background-secondary': '#871f42',
+            light: '#ebedf0',
+            dark: '#861f41',
+            'border-dark': '#d1d1d1',
+            'background-light': '#f3f3f3',
+            'text-title': '#97144d',
+        },
+        fontSize: {
+            '2xs': '0.512rem',
+            xs: '0.64rem',
+            sm: '0.8rem',
+            base: '1rem',
+            lg: '1.25rem',
+            xl: '1.563rem',
+            '2xl': '1.953rem',
+        },
+        lineHeight: {
+            '2xs': '0.687rem',
+            xs: '0.875rem',
+            sm: '1.125rem',
+            base: '1.437rem',
+            lg: '1.75rem',
+            xl: '2.187rem',
+            '2xl': '2.75rem',
+        },
+        fontFamily: {
+            'family-regular': 'Lato-Regular',
+            'family-semi-bold': 'Lato-Medium',
+            'family-bold': 'Lato-Bold',
+            'family-light': 'Lato-Light',
+        },
+    },
+}

@@ -29,7 +29,7 @@
              {`
     
                 html {
-                    background-color: var(--color-background-default-dark);
+                    
                     --color-default: ${getProductsOfLogicalOR(
                         colors.default,
                         defaultColors.default
@@ -68,6 +68,10 @@
                         colors['text-primary'],
                         defaultColors['text-primary']
                     )};
+                    --color-text-white: ${getProductsOfLogicalOR(
+                            colors.default,
+                            defaultColors.default
+                    )};
                     --color-text-secondary: ${getProductsOfLogicalOR(
                         colors['text-secondary'],
                         defaultColors['text-secondary']
@@ -104,6 +108,10 @@
                     --color-background-secondary: ${getProductsOfLogicalOR(
                         colors['background-secondary'],
                         defaultColors['background-secondary']
+                    )};
+                    --color-secondary2: ${getProductsOfLogicalOR(
+                        colors['secondary'],
+                        defaultColors['secondary']
                     )};
                     --color-background-success: ${getProductsOfLogicalOR(
                         colors['background-success'],

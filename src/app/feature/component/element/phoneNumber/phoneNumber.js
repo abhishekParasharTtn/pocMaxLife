@@ -1,22 +1,36 @@
-'use client'
-import {phoneData} from "@/app/api/dummyData";
-const PhoneNumber = () => {
 
+import React, { useEffect, useState } from 'react';
+
+const phoneCodeList = [
+    { "name": "India", "phCode": "+91" },
+    { "name": "Andorra", "phCode": "+376" },
+    { "name": "Anguilla", "phCode": "+1264" },
+    { "name": "Aruba", "phCode": "+297" }
+];
+
+const PhoneCodeDropdown = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredOptions, setFilteredOptions] = useState(phoneCodeList);
+
+    useEffect(() => {
+        setFilteredOptions(
+            phoneCodeList.filter(country =>
+                country.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        );
+    }, [searchTerm]);
 
     return (
-        <div>
-            <h1>Phone Number</h1>
-
-            <div className="relative">
-                <input type="text" id="floating_filled"
-                       className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                       placeholder=" "/>
-                <label htmlFor="floating_filled"
-                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Floating
-                    filled</label>
-            </div>
+        <div className='self-center'>
+            <select className="phoneCodeSelect bg-default">
+                {filteredOptions.map((country, index) => (
+                    <option key={index} value={country.phCode} className={'options'}>
+                        {country.phCode}
+                    </option>
+                ))}
+            </select>
         </div>
     );
 };
 
-export default PhoneNumber;
+export default PhoneCodeDropdown;

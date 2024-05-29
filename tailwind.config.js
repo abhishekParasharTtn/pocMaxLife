@@ -21,6 +21,7 @@ module.exports = {
       textColor: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-text-secondary)',
+        white:'var(--color-text-white)',
         'link-primary': 'var(--color-text-link-primary)',
         'link-secondary': 'var(--color-text-link-secondary)',
         error: 'var(--color-text-error)',
@@ -31,6 +32,7 @@ module.exports = {
       backgroundColor: {
         primary: 'var(--color-background-primary)',
         secondary: 'var(--color-background-secondary)',
+        secondary2:'var(--color-secondary2)',
         success: 'var(--color-background-success)',
         highlight: 'var(--color-background-highlight)',
         light: 'var(--color-background-light)',
