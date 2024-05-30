@@ -1,6 +1,7 @@
 [
   {
     "name": "personalDetails",
+    "utmCode": "1111",
     "route": {
       "current": "personal-details",
       "previous": "/customer-details",
@@ -23,51 +24,143 @@
           "components": [
             {
               "__typename": "ComponentFormInput",
-              "fieldName": {
-                "name": "firstName"
-              },
               "type": "text",
               "label": "First Name",
               "placeholder": "First Name",
               "suggestion": null,
               "visibility": true,
-              "style": null
+              "style": null,
+              "name": "firstName"
             },
             {
               "__typename": "ComponentFormInput",
-              "fieldName": {
-                "name": "lastName"
-              },
               "type": "text",
               "label": "Last Name",
               "placeholder": "Last Name",
               "suggestion": null,
               "visibility": true,
-              "style": null
+              "style": null,
+              "name": "lastName"
             },
             {
               "__typename": "ComponentFormDobSingleInput",
               "name": "dob",
               "label": "Date of birth",
               "placeholder": "DD/MM/YYYY",
-              "fieldName": {
-                "name": "dob"
-              },
               "visibility": true
             },
             {
               "__typename": "ComponentUiOption",
               "title": "Gender",
               "description": null,
-              "dataSourceName": {},
+              "dataSourceName": {
+                "name": "dataGenders"
+              },
               "componentType": "ButtonGroup",
               "style": null,
               "visibility": true,
               "label": "Gender",
               "placeholder": "Gender",
-              "fieldName": {
-                "name": "gender"
+              "popUp": {},
+              "dataFilter": [
+                {
+                  "key": "name",
+                  "value": "male"
+                }
+              ],
+              "name": "gender",
+              "data": [
+                {
+                  "name": "male",
+                  "label": "Male",
+                  "value": "M",
+                  "icon": {}
+                },
+                {
+                  "name": "female",
+                  "label": "Female",
+                  "value": "F",
+                  "icon": {}
+                },
+                {
+                  "name": "transgender",
+                  "label": "Transgender",
+                  "value": "T",
+                  "icon": {}
+                }
+              ]
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Product Name",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataProductName"
               },
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Product Name",
+              "placeholder": "Product Name",
+              "popUp": {},
+              "dataFilter": [],
+              "name": "productName"
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Premium Type",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataPremiumType"
+              },
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": null,
+              "placeholder": "Premium Type",
+              "popUp": {},
+              "dataFilter": [],
+              "name": "premiumType"
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Premium Payment Term",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Premium Payment Term",
+              "placeholder": "Premium Payment Term",
+              "fieldName": {},
+              "popUp": {},
+              "dataFilter": []
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Policy Term",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Policy Term",
+              "placeholder": "Policy Term",
+              "fieldName": {},
+              "popUp": {},
+              "dataFilter": []
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Mode of Payment",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Mode of Payment",
+              "placeholder": "Mode of Payment",
+              "fieldName": {},
               "popUp": {},
               "dataFilter": []
             }
@@ -78,9 +171,10 @@
   },
   {
     "name": "customerDetails",
+    "utmCode": "1111",
     "route": {
       "current": "customer-details",
-      "previous": "/personal-details",
+      "previous": "/customer-details",
       "next": "/personal-details"
     },
     "layout": {
@@ -108,9 +202,6 @@
               "visibility": true,
               "label": null,
               "placeholder": null,
-              "fieldName": {
-                "name": "residentialStatus"
-              },
               "popUp": {},
               "dataFilter": [
                 {
@@ -121,7 +212,8 @@
                   "key": "name",
                   "value": "NRI"
                 }
-              ]
+              ],
+              "name": "residentialStatus"
             },
             {
               "__typename": "ComponentUiOption",
@@ -135,9 +227,6 @@
               "visibility": true,
               "label": null,
               "placeholder": null,
-              "fieldName": {
-                "name": "nationality"
-              },
               "popUp": {},
               "dataFilter": [
                 {
@@ -156,28 +245,24 @@
                   "key": "name",
                   "value": "Foreign National"
                 }
-              ]
+              ],
+              "name": "nationality"
             },
             {
               "__typename": "ComponentFormInput",
-              "fieldName": {
-                "name": "email"
-              },
               "type": "email",
               "label": "email",
               "placeholder": "Email Address",
               "suggestion": null,
               "visibility": true,
-              "style": null
+              "style": null,
+              "name": "email"
             },
             {
               "__typename": "ComponentFormPhoneNumber",
               "name": "mobileNumber",
               "label": "Mobile Number",
               "placeholder": "Mobile Number",
-              "fieldName": {
-                "name": "mobileNumber"
-              },
               "visibility": true,
               "dataSourceName": {
                 "name": "dataCountries"

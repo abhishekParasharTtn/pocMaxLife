@@ -204,4 +204,53 @@ export const queries = {
     }
     `;
   },
+
+  getGenders: (utmCode) => {
+    return `query {
+    utmConfigs(filters: { utmCode: { eq: "${utmCode}" } }) {
+    data {
+      attributes {
+        dataConfig {
+          ... on DataConfigEntityResponse {
+            data {
+              ... on DataConfigEntity {
+                attributes {
+                  dataGenders {
+                    data {
+                      attributes {
+                        name
+                        label
+                        value
+                        icon {
+                          data {
+                            attributes {
+                              name
+                              alternativeText
+                              caption
+                              width
+                              height
+                              formats
+                              hash
+                              ext
+                              mime
+                              size
+                              url
+                              previewUrl
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+  },
 };

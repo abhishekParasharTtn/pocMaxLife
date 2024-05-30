@@ -2,22 +2,28 @@ import { api } from "@/utils/api";
 import { utmService } from "../../services/utmService";
 import { AppLayout } from "../../../common/layouts/app/AppLayout";
 import { use } from "react";
-
-
+const fs = require("fs");
 
 async function fetchData(params) {
   const { slug } = params; //customer detai
-  
+
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
   const pages = await utmService.getPages(utmDetails);
- 
+  fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
+    if (err) {
+      console.error("Error writing file", err);
+    } else {
+      console.log("Successfully wrote file");
+    }
+  });
+  console.log("pages", pages);
   return (
     <AppLayout
       themeConfig={themeConfig}
       // showNavigation={page?.journeyInfo?.config?.showNavigation}
       // groupType={page?.route?.meta?.groupType}
-      pageType = {slug[1]}
+      pageType={slug[1]}
       page={pages}
       utmConfig={utmDetails}
     />
