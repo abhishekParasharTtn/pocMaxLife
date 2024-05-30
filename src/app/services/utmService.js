@@ -6,7 +6,7 @@ export const utmService = {
   transformUtmDetails: function (utmDetails) {
     return utmDetails?.[0];
   },
-  transformPageData: function (data) {
+  transformPageData: function (data, utmCode) {
     const transformData = [];
     data?.map((pages) => {
       return pages.pages.map((_page) => {
@@ -18,6 +18,7 @@ export const utmService = {
 
         transformData.push({
           name: _page?.name,
+          utmCode,
           route: {
             current: _page?.slug,
             previous: _page?.next?.url,
@@ -60,6 +61,6 @@ export const utmService = {
       })
     );
     const filterPageData = transformer.removeDatakeys(pageData);
-    return this.transformPageData(filterPageData);
+    return this.transformPageData(filterPageData, utmDetails.utmCode);
   },
 };
