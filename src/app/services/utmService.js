@@ -9,12 +9,25 @@ export const utmService = {
   transformPageData: function (data, utmCode) {
     const transformData = [];
     data?.map((pages) => {
-      return pages?.pages?.map((_page) => {
+      return pages.pages.map((_page) => {
         const { sections = {}, layout = {} } = _page;
         const {
           layout: { name },
           ...layoutData
         } = layout;
+
+        const filteredSections = sections.map((section) => {
+          const filteredComponents = section.form.components.filter(
+            (component) => component.visibility !== false
+          );
+          return {
+            ...section,
+            form: {
+              ...section.form,
+              components: filteredComponents,
+            },
+          };
+        });
 
         transformData.push({
           name: _page?.name,
@@ -28,7 +41,7 @@ export const utmService = {
             name,
             ...layoutData,
           },
-          sections,
+          sections: filteredSections,
         });
       });
     });
@@ -61,7 +74,6 @@ export const utmService = {
       })
     );
     const filterPageData = transformer.removeDatakeys(pageData);
-    return this.transformPageData(filterPageData, utmDetails.utmCode);
     fs.writeFile(
       "output.json",
       JSON.stringify(this.transformPageData(filterPageData), null, 2),
@@ -73,7 +85,6 @@ export const utmService = {
         }
       }
     );
-
-    return this.transformPageData(filterPageData);
+    return this.transformPageData(filterPageData, utmDetails.utmCode);
   },
 };
