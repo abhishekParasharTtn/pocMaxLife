@@ -1,16 +1,32 @@
-import Section from "../Section/Section";
+import Component from "../component/Component"
 const Form = ({
 
   themeConfig,
   utmConfig,
-  page
+  page,
+  formData
 }) => {
   
 
+  const formComponents = () => {
+    return formData.form.components.map((component, index) => (
+      
+      <Component
+        key={index}
+        label={component.label || component.title || null}
+        type={component.type || component.componentType || null}
+        placeholder={component.placeholder || null}
+        name={component.fieldName ? component.fieldName.name : null}
+        dataFilter={component.dataFilter || []}
+        style={component.style || null}
+        title={component.title || null}
+      />
+    ));
+  };
 
   return (
     <div className="Form-layout">
-      <div className={'text-primary'}>Form</div>
+      {formComponents()}
      
     </div>
   )

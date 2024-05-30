@@ -11,7 +11,7 @@ const Journey = ({
   return (
     <div className="Journey-layout">
       <div className={'text-primary'}>Journey</div>
-      <Pages page={page} utmConfig={utmConfig}></Pages>
+      <Pages page={page} utmConfig={utmConfig} themeConfig={themeConfig}></Pages>
      
     </div>
   )

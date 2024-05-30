@@ -3,7 +3,7 @@ const DefaultMainLayout = ({ children }) => {
       <>
       
         <main className="mainContainer">
-          <div className="flex flex-wrap">{children}</div>
+          <div >{children}</div>
         </main>
        
       </>

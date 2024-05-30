@@ -12,7 +12,7 @@ export const AppLayout = ({
     page
 }) => {
 
-
+     console.log('utmConfig',utmConfig);
     const layoutMappings = {
         default: DefaultAppLayout,
         axis: AxisAppLayout,

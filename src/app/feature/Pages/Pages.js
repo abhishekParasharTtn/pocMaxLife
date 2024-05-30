@@ -5,13 +5,18 @@ const Pages = ({
     utmConfig,
     page
   }) => {
-    
-    console.log('page',page);
+   
   
     return (
       <div className="page-layout">
-        <div className={'text-primary'}>page</div>
-        <Section page={page} utmConfig={utmConfig}></Section>
+
+      {page[0]?.sections?.map(section => (
+        <div key={section?.name}>
+          <Section page={page} utmConfig={utmConfig} sectionData={section} ></Section>
+        </div>
+      ))}
+        
+        
        
       </div>
     )

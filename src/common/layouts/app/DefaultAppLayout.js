@@ -8,12 +8,9 @@ const DefaultAppLayout = ({
  
 
   return (
-    <div className="default-app-layout">
+    <div className="min-h-screen">
       <Theme themeConfig={themeConfig} />
-      {/* <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon"  />
-      </head> */}
+
       <div className={'text-primary'}>default max life</div>
       {children}
     </div>

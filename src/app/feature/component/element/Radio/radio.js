@@ -1,47 +1,49 @@
 'use client'
-import {useState} from "react";
-import {Gender, formData} from "@/app/api/dummyData";
-
-const Radio = ({form}) => {
-    const {customerDetails ,personalDetails} = form;
+const RadioButtonField = (props) => {
+    const { fieldName, label, option } = props;
   
-
-    const [selectedOption, setSelectedOption] = useState('');
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+    const onChange = (value) => {
+      
+    }
     return (
-        <div>
-            <h1>{customerDetails.title}</h1>
-            <h4>{customerDetails.subTitle}</h4>
-            <div className={'flex'}>
-                {Gender.map((option) => (
-                    <div key={option.id} className={'flex'}>
-                        <input
-                            type="radio"
-                            id={option.id}
-                            name="gender"
-                            value={option.value}
-                            checked={selectedOption === option.value}
-                            onChange={handleOptionChange}
-                            className=""
-                        />
-                        <label htmlFor={option.id} className="text-gray-700">
-                            {option.label}
-                        </label>
-                    </div>
-                ))}
-            </div>
-            <div className="relative">
-                <input type="text" id="floating_filled"
-                       className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                       placeholder=" "/>
-                <label htmlFor="floating_filled"
-                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Floating
-                    filled</label>
-            </div>
+        <div className="flex border border-gray-300 rounded-md overflow-hidden">
+            {option.map((option, index) => (
+                <label
+                    key={option.key}
+                    className={`gender-option flex-1 text-center py-2 cursor-pointer ${
+                        index !== option.length - 1 ? 'border-r' : ''
+                    } ${
+                        option.checked ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'
+                    }`}
+                >
+                    <input
+                        className="peer hidden"
+                        type="radio"
+                        value={option.value}
+                        checked={option.checked}
+                        onChange={() => onChange(option.value)}
+                    />
+                    {option.value}
+                </label>
+            ))}
+            <style jsx>{`
+                .gender-option {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+
+                .gender-option:not(:last-child) {
+                    border-right: 1px solid #D1D5DB; /* Tailwind border-gray-300 */
+                }
+
+                .gender-option:hover {
+                    background-color: #d1d5db; /* Tailwind gray-300 */
+                }
+            `}</style>
         </div>
     );
 };
 
-export default Radio;
+export default RadioButtonField;

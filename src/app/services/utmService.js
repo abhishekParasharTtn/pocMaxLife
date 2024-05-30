@@ -9,7 +9,7 @@ export const utmService = {
   transformPageData: function (data, utmCode) {
     const transformData = [];
     data?.map((pages) => {
-      return pages.pages.map((_page) => {
+      return pages?.pages?.map((_page) => {
         const { sections = {}, layout = {} } = _page;
         const {
           layout: { name },
@@ -49,7 +49,7 @@ export const utmService = {
   },
   getPages: async function (utmDetails) {
     const names = [];
-    for (const key in utmDetails.pages) {
+    for (const key in utmDetails?.pages) {
       if (utmDetails.pages.hasOwnProperty(key)) {
         names.push(utmDetails.pages[key].name);
       }
@@ -62,5 +62,18 @@ export const utmService = {
     );
     const filterPageData = transformer.removeDatakeys(pageData);
     return this.transformPageData(filterPageData, utmDetails.utmCode);
+    fs.writeFile(
+      "output.json",
+      JSON.stringify(this.transformPageData(filterPageData), null, 2),
+      (err) => {
+        if (err) {
+          console.error("Error writing file", err);
+        } else {
+          console.log("Successfully wrote file");
+        }
+      }
+    );
+
+    return this.transformPageData(filterPageData);
   },
 };

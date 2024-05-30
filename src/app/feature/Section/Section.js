@@ -3,15 +3,16 @@ const Section = ({
 
   themeConfig,
   utmConfig,
-  page
+  page,
+  sectionData
 }) => {
   
-  console.log('sectionPages',page);
+
 
   return (
     <div className="Section-layout">
-      <div className={'text-primary'}>section</div>
-     <Form page={page} utmConfig={utmConfig}></Form>
+      <div className={'text-primary'}>{sectionData.name}</div>
+     <Form page={page} utmConfig={utmConfig} formData={sectionData}></Form>
     </div>
   )
 }

@@ -8,7 +8,7 @@ const axisAppLayout = ({
   
 
   return (
-    <div className="axis-app-layout">
+    <div className="min-h-screen">
       <Theme themeConfig={themeConfig} />
      <div>Axis App poc</div>
       {children}
