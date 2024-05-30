@@ -1,7 +1,7 @@
 import { transformer } from "@/utils/transformer";
 import { api } from "@/utils/api";
 import { queries } from "@/graphQL/queries";
-const fs = require("fs");
+
 export const utmService = {
   transformUtmDetails: function (utmDetails) {
     return utmDetails?.[0];
@@ -17,9 +17,18 @@ export const utmService = {
         } = layout;
 
         const filteredSections = sections.map((section) => {
-          const filteredComponents = section.form.components.filter(
-            (component) => component.visibility !== false
-          );
+          const filteredComponents = section.form.components
+            .filter((component) => component.visibility !== false)
+            .map((component) => {
+              if (component?.fieldName && component?.fieldName?.name) {
+                const { fieldName, ...rest } = component;
+                return {
+                  ...rest,
+                  name: fieldName?.name,
+                };
+              }
+              return component;
+            });
           return {
             ...section,
             form: {
@@ -74,17 +83,6 @@ export const utmService = {
       })
     );
     const filterPageData = transformer.removeDatakeys(pageData);
-    fs.writeFile(
-      "output.json",
-      JSON.stringify(this.transformPageData(filterPageData), null, 2),
-      (err) => {
-        if (err) {
-          console.error("Error writing file", err);
-        } else {
-          console.log("Successfully wrote file");
-        }
-      }
-    );
     return this.transformPageData(filterPageData, utmDetails.utmCode);
   },
 };
