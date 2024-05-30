@@ -7,7 +7,7 @@ import { use } from "react";
 
 async function fetchData(params) {
   const { slug } = params; //customer detai
-  console.log('slug',slug);
+  
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
   const pages = await utmService.getPages(utmDetails);
