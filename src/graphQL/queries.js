@@ -21,6 +21,7 @@ const components = {
   }
   `,
   input: ` ... on ComponentFormInput {
+  __typename
   fieldName {
     data {
       attributes {
@@ -36,6 +37,7 @@ const components = {
   style
 }`,
   dobSingleInput: `... on ComponentFormDobSingleInput {
+  __typename  
   name
   label
   placeholder
@@ -49,6 +51,7 @@ const components = {
   visibility
 }`,
   gender: `... on ComponentUiOption {
+  __typename  
   title
   description
   dataSourceName {
@@ -84,12 +87,14 @@ const components = {
 }
 `,
   buttons: `... on ComponentUiButton {
+  __typename
   name
   type
   label
   link
 }`,
   phoneNumber: `... on ComponentFormPhoneNumber {
+  __typename  
   name
   label
   placeholder
@@ -114,10 +119,12 @@ const components = {
   }
 }`,
   checkBox: `... on ComponentUiCheckbox {
+  __typename  
   name
   label
 }`,
   toggleButton: ` ... on ComponentUiToggleSwitch {
+  __typename  
   name
   label
 }`,
