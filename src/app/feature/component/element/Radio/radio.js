@@ -1,13 +1,13 @@
 'use client'
 const RadioButtonField = (props) => {
-    const { fieldName, label, option } = props;
+    const { fieldName, label, dataFilter } = props;
   
     const onChange = (value) => {
       
     }
     return (
         <div className="flex border border-gray-300 rounded-md overflow-hidden">
-            {option.map((option, index) => (
+            {dataFilter.map((option, index) => (
                 <label
                     key={option.key}
                     className={`gender-option flex-1 text-center py-2 cursor-pointer ${

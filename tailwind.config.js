@@ -84,8 +84,8 @@ module.exports = {
         mono: ['var(--font-family-regular)', 'var(--font-family-mono)'],
       },
       boxShadow: {
-        primary: '0px 6px 12px var(--color-shadow-primary)',
-        secondary: '0px 6px 12px var(--color-shadow-secondary)',
+        type1: '0px 6px 12px var(--color-shadow-primary)',
+        type2: '0px 6px 12px var(--color-shadow-secondary)',
       },
       width: {
         'input-width': 'var(--input-width)',

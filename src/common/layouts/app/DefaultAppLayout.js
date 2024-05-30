@@ -8,10 +8,8 @@ const DefaultAppLayout = ({
  
 
   return (
-    <div className="min-h-screen">
+    <div className="">
       <Theme themeConfig={themeConfig} />
-
-      <div className={'text-primary'}>default max life</div>
       {children}
     </div>
   )

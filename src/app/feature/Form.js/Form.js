@@ -9,7 +9,7 @@ const Form = ({
   
 
   const formComponents = () => {
-    return formData.form.components.map((component, index) => (
+    return formData?.form.components.map((component, index) => (
       
       <Component
         key={index}
@@ -25,9 +25,8 @@ const Form = ({
   };
 
   return (
-    <div className="Form-layout">
+    <div className="Form-layout bg-default mt-6 shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-7xl">
       {formComponents()}
-     
     </div>
   )
 }

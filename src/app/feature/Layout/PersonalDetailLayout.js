@@ -5,8 +5,8 @@ import { extractDetailsSection } from '@/app/services/util';
 
 const PersonalDetailLayout = ({themeConfig,utmConfig,page}) => {
     const pageData = extractDetailsSection(page,"personalDetails")
-  
-  
+
+    console.log(pageData,'pageData-')
     const sectionHandler = () => {
         return ( pageData.components.map((data) => {
             // console.log(data,'data')

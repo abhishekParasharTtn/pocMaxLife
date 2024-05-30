@@ -9,10 +9,8 @@ const Journey = ({
 
 
   return (
-    <div className="Journey-layout">
-      <div className={'text-primary'}>Journey</div>
+    <div className="Journey-layout bg-light">
       <Pages page={page} utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType}></Pages>
-     
     </div>
   )
 }

@@ -2,82 +2,56 @@ import DateInput from "./element/DateInput/DateInput";
 import Button from "./element/Button/Button";
 import Input from "./element/Input/Input";
 import RadioButtonField from "./element/Radio/radio";
+import PhoneNumber from "@/app/feature/component/element/phoneNumber/phoneNumber";
 const Component = ({
 
   themeConfig,
   utmConfig,
   page,
-  key,
-  label,
-  type,
-  placeholder,
-  name,
-  dataFilter,
-  style,
-  title
+  section
   
 }) => {
-  const componentMapping = () => {
-     
-        switch (name) {
-          case 'firstName':
-          case 'lastName':
-              return (
-                  <Input
-                    
-                      fieldName={name}
-                      label={label}
-                  />
-              );
-          case 'gender':
-              return (
-                  <RadioButtonField
-                     
-                      fieldName={name}
-                      label={label}
-                      option={dataFilter}
-                  />
-              );
-          case 'dob':
-          return (
-              <DateInput
-               
-                  fieldName={name}
-                  label={label}
-              />
-          );
-          case 'save':
-          return (
-              <Button
-                  type={type}
-                  label={label}
-              />
-          );
-          case 'proceed':
-          return (
-              <Button
-               
-                  type={type}
-                  label={label}
-              />
-          );
-          default:
-              return null;
-      }
 
-  }
-  console.log('calluenjn d sdgn dsgsd')
+    console.log(page,'from form')
+
+    const sectionComponentMappings = {
+        ComponentUiOption: RadioButtonField,
+        ComponentFormInput: Input,
+        ComponentFormDobSingleInput:DateInput,
+        ComponentFormPhoneNumber: PhoneNumber,
+        ComponentUiButton: Button,
+    };
+    const SectionComponent = sectionComponentMappings[section?.__typename];
 
 
-  return (
-    <>
-    <div className="flex justify-center">
-    <div className="grid grid-cols-2 gap-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-     {componentMapping()}
-      </div>
-      </div>
-      </>
-  )
+    return SectionComponent ? (
+        <>
+            <SectionComponent
+                navigation={navigation}
+                {...sectionData}
+                popUps={popUps}
+                name={sectionData?.fieldName?.name || sectionData?.name}
+                route={route}
+                dataConfig={dataConfig}
+                pageConfig={pageConfig}
+                journeyInfo={journeyInfo}
+                utmConfig={utmConfig}
+                appConfig={appConfig}
+                linkAction={linkAction}
+                globalErrorMessage={globalErrorMessage}
+                onValueChange={onChangeHandler}
+                summaryData={summaryData}
+                toggle={customData.status}
+                productPlan={productPlan}
+                saveTag={saveTag}
+                handleOptionClick
+                renderForm={renderForm}
+                openPopUpId={openPopUpId}
+            />
+        </>
+    ) : (
+        <h2>Missing component</h2>
+    );
 }
 
 export default Component;
