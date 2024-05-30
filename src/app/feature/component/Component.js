@@ -66,7 +66,7 @@ const Component = ({
       }
 
   }
-  
+  console.log('calluenjn d sdgn dsgsd')
 
 
   return (

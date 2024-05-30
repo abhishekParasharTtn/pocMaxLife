@@ -11,12 +11,13 @@ async function fetchData(params) {
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
   const pages = await utmService.getPages(utmDetails);
-  console.log('pages',pages);
+ 
   return (
     <AppLayout
       themeConfig={themeConfig}
       // showNavigation={page?.journeyInfo?.config?.showNavigation}
       // groupType={page?.route?.meta?.groupType}
+      pageType = {slug[1]}
       page={pages}
       utmConfig={utmDetails}
     />

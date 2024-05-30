@@ -10,10 +10,8 @@ const Section = ({
 
 
   return (
-    <div className="Section-layout">
-      <div className={'text-primary'}>{sectionData.name}</div>
-     <Form page={page} utmConfig={utmConfig} formData={sectionData}></Form>
-    </div>
+   <div>hello</div>
+
   )
 }
 

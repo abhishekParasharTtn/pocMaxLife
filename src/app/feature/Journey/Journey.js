@@ -3,15 +3,15 @@ const Journey = ({
 
   themeConfig,
   utmConfig,
-  page
+  page,
+  pageType
 }) => {
-  
 
 
   return (
     <div className="Journey-layout">
       <div className={'text-primary'}>Journey</div>
-      <Pages page={page} utmConfig={utmConfig} themeConfig={themeConfig}></Pages>
+      <Pages page={page} utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType}></Pages>
      
     </div>
   )

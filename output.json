@@ -1,0 +1,216 @@
+[
+  {
+    "name": "personalDetails",
+    "route": {
+      "current": "personal-details",
+      "previous": "/customer-details",
+      "next": "/personal-details"
+    },
+    "layout": {
+      "name": "PersonalDetailsPageLayout",
+      "margin": null,
+      "padding": null,
+      "style": null,
+      "layoutOrder": []
+    },
+    "sections": [
+      {
+        "name": "personalDetails",
+        "form": {
+          "name": "personalDetails",
+          "title": "Personal Details",
+          "subTitle": "fill all the personal details",
+          "components": [
+            {
+              "__typename": "ComponentFormInput",
+              "fieldName": {
+                "name": "firstName"
+              },
+              "type": "text",
+              "label": "First Name",
+              "placeholder": "First Name",
+              "suggestion": null,
+              "visibility": true,
+              "style": null
+            },
+            {
+              "__typename": "ComponentFormInput",
+              "fieldName": {
+                "name": "lastName"
+              },
+              "type": "text",
+              "label": "Last Name",
+              "placeholder": "Last Name",
+              "suggestion": null,
+              "visibility": true,
+              "style": null
+            },
+            {
+              "__typename": "ComponentFormDobSingleInput",
+              "name": "dob",
+              "label": "Date of birth",
+              "placeholder": "DD/MM/YYYY",
+              "fieldName": {
+                "name": "dob"
+              },
+              "visibility": true
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Gender",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "ButtonGroup",
+              "style": null,
+              "visibility": true,
+              "label": "Gender",
+              "placeholder": "Gender",
+              "fieldName": {
+                "name": "gender"
+              },
+              "popUp": {},
+              "dataFilter": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "customerDetails",
+    "route": {
+      "current": "customer-details",
+      "previous": "/personal-details",
+      "next": "/personal-details"
+    },
+    "layout": {
+      "name": "CustomerDetailsPageLayout",
+      "margin": null,
+      "padding": null,
+      "style": null,
+      "layoutOrder": []
+    },
+    "sections": [
+      {
+        "name": "customerDetails",
+        "form": {
+          "name": "customerDetails",
+          "title": "Customer Details",
+          "subTitle": "fill all the customer details",
+          "components": [
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Residential Status for tax purposes",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "CheckBox",
+              "style": null,
+              "visibility": true,
+              "label": null,
+              "placeholder": null,
+              "fieldName": {
+                "name": "residentialStatus"
+              },
+              "popUp": {},
+              "dataFilter": [
+                {
+                  "key": "name",
+                  "value": "Indian"
+                },
+                {
+                  "key": "name",
+                  "value": "NRI"
+                }
+              ]
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Nationality",
+              "description": null,
+              "dataSourceName": {
+                "name": "nationality"
+              },
+              "componentType": "CheckBox",
+              "style": null,
+              "visibility": true,
+              "label": null,
+              "placeholder": null,
+              "fieldName": {
+                "name": "nationality"
+              },
+              "popUp": {},
+              "dataFilter": [
+                {
+                  "key": "name",
+                  "value": "Indian"
+                },
+                {
+                  "key": "name",
+                  "value": "NRI"
+                },
+                {
+                  "key": "name",
+                  "value": "PIO/OCI"
+                },
+                {
+                  "key": "name",
+                  "value": "Foreign National"
+                }
+              ]
+            },
+            {
+              "__typename": "ComponentFormInput",
+              "fieldName": {
+                "name": "email"
+              },
+              "type": "email",
+              "label": "email",
+              "placeholder": "Email Address",
+              "suggestion": null,
+              "visibility": true,
+              "style": null
+            },
+            {
+              "__typename": "ComponentFormPhoneNumber",
+              "name": "mobileNumber",
+              "label": "Mobile Number",
+              "placeholder": "Mobile Number",
+              "fieldName": {
+                "name": "mobileNumber"
+              },
+              "visibility": true,
+              "dataSourceName": {
+                "name": "dataCountries"
+              },
+              "dataFilter": []
+            },
+            {
+              "__typename": "ComponentUiToggleSwitch",
+              "name": "whatsappOptInStatus",
+              "label": "My customer would like to receive updates via WhatsApp"
+            },
+            {
+              "__typename": "ComponentUiCheckbox",
+              "name": "acceptanceDeclaration",
+              "label": "I hereby consent to and authorize Max Life Insurance and its representatives by submitting my details to contact me through call, SMS or E-mail overriding my DND registration. I further consent to share my information on confidential basis with third parties for KYC, bank details verification, evaluating and processing this proposal."
+            },
+            {
+              "__typename": "ComponentUiButton",
+              "name": "save",
+              "type": "button",
+              "label": "save",
+              "link": null
+            },
+            {
+              "__typename": "ComponentUiButton",
+              "name": "proceed",
+              "type": "submit",
+              "label": "Proceed",
+              "link": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

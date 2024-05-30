@@ -9,10 +9,10 @@ import  Journey  from '@/app/feature/Journey/Journey';
 export const AppLayout = ({
     themeConfig,
     utmConfig,
-    page
+    page,pageType
 }) => {
 
-     console.log('utmConfig',utmConfig);
+  
     const layoutMappings = {
         default: DefaultAppLayout,
         axis: AxisAppLayout,
@@ -26,7 +26,7 @@ export const AppLayout = ({
             utmConfig={utmConfig}
         >
             <DefaultMainLayout>
-                <Journey page={page} utmConfig={utmConfig} themeConfig={themeConfig} > </Journey>
+                <Journey page={page} utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType} > </Journey>
             </DefaultMainLayout>
         </Layout>
     ) : (
