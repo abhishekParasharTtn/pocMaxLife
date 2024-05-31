@@ -138,7 +138,6 @@ export const utmService = {
     };
 
     const updatedTransformData = mergeDataSources(pageData, transformData);
-    console.log(updatedTransformData, "::kysa");
     return updatedTransformData;
   },
 
