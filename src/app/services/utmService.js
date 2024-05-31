@@ -15,11 +15,8 @@ export const utmService = {
     }
   },
   transformPageData: async function (data, utmCode) {
-    const gendersData = await utmService.getGendersData(utmCode);
-    console.log(transformer.removeDatakeys(gendersData), "::test");
     const transformData = [];
     const dataStore = [];
-    console.log(dataStore, "::test");
     data?.map((pages) => {
       return pages.pages.map((_page) => {
         const { sections = {}, layout = {} } = _page;
@@ -42,7 +39,6 @@ export const utmService = {
               return component;
             })
             .map((component) => {
-              //----------------------------------------------------------------
               if (component?.dataSourceName?.name) {
                 const modifieUrl = component?.dataSourceName?.name
                   ?.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)
@@ -51,64 +47,7 @@ export const utmService = {
                   url: modifieUrl,
                   dataSourceName: component?.dataSourceName?.name,
                 });
-                const optionData = fetch(
-                  `http://localhost:1338/api/${modifieUrl}?populate=*`
-                )
-                  .then((res) => res.json())
-                  .then((data) => {
-                    //cb = data;
-                    if (data?.data?.length > 0) {
-                      // console.log();
-                      // console.log(
-                      //   utmService.dataFilter(
-                      //     transformer.removeDatakeys(optionData?.data),
-                      //     component?.dataFilter
-                      //   ),
-                      //   "::opetaionData"
-                      // );
-                      return {
-                        ...component,
-                        data: utmService.dataFilter(
-                          transformer.removeDatakeys(data?.data),
-                          component?.dataFilter
-                        ),
-                      };
-                    }
-                    console.log(data);
-                    //return data;
-                  });
-                //const cd = optionData.then((data) => data);
-                //console.log(optionData.then((data) => {}));
-
-                // api.get(
-                //   `/api/${modifieUrl}?populate=*`
-                // ).then;
-                //dataStore.push()
-                // if (optionData?.data?.length > 0) {
-                //   console.log();
-                //   console.log(
-                //     utmService.dataFilter(
-                //       transformer.removeDatakeys(optionData?.data),
-                //       component?.dataFilter
-                //     ),
-                //     "::opetaionData"
-                //   );
-                //   return {
-                //     ...component,
-                //     data: utmService.dataFilter(
-                //       transformer.removeDatakeys(optionData?.data),
-                //       component?.dataFilter
-                //     ),
-                //   };
-                // }
               }
-
-              // if (component.title === "Gender") {
-              //   return {
-              //     ...component,
-              //     data: gendersData?.utmConfigs[0]?.dataConfig?.dataGenders,
-              //   };
-              // }
               return component;
             });
           return {
@@ -136,17 +75,67 @@ export const utmService = {
         });
       });
     });
-    console.log(dataStore, "::test");
-    const dataConfig = [api.get(`/api/${utmCode}?populate=*`)];
-    Promise.allSettled(
-      dataStore?.map((item) => {
-        let data = api.get(`/api/${item.url}?populate=*`);
-        return { data, dataSourceName: item?.dataSourceName };
-      })
-    ).then((data) => {
-      console.log(data, "::datayyy");
-    });
-    return transformData;
+
+    const pageData =
+      dataStore.length !== 0
+        ? await Promise.all(
+            dataStore?.map(async (item) => {
+              const response = await api.get(`/api/${item.url}?populate=*`);
+              return {
+                data: response?.data,
+                dataSourceName: item?.dataSourceName,
+              };
+            })
+          )
+        : [];
+    const mergeDataSources = (arr1, arr2) => {
+      const dataSourceMap = new Map();
+
+      // Create a map of dataSourceName to data from array1
+      arr1.forEach((item) => {
+        if (item.data) {
+          dataSourceMap.set(item.dataSourceName, item.data);
+        }
+      });
+
+      // Function to update the component with the corresponding data
+      const updateComponents = (components) => {
+        components.forEach((component) => {
+          const dataSourceName = component.dataSourceName?.name;
+          if (dataSourceName && dataSourceMap.has(dataSourceName)) {
+            let data = dataSourceMap.get(dataSourceName);
+
+            // Apply dataFilter if present
+            if (component.dataFilter && component.dataFilter.length > 0) {
+              data = data.filter((item) => {
+                return component.dataFilter.every(
+                  (filter) => item.attributes[filter.key] === filter.value
+                );
+              });
+            }
+
+            component.data = data;
+          }
+        });
+      };
+
+      // Iterate through array2 and update components with data from array1
+      arr2.forEach((section) => {
+        if (section.sections) {
+          section.sections.forEach((subSection) => {
+            if (subSection.form && subSection.form.components) {
+              updateComponents(subSection.form.components);
+            }
+          });
+        }
+      });
+
+      return arr2;
+    };
+
+    const updatedTransformData = mergeDataSources(pageData, transformData);
+    console.log(updatedTransformData, "::kysa");
+    return updatedTransformData;
   },
 
   getUtmDetails: async function (slug) {
@@ -177,10 +166,5 @@ export const utmService = {
     );
     const filterPageData = transformer.removeDatakeys(pageData);
     return this.transformPageData(filterPageData, utmDetails.utmCode);
-  },
-  getGendersData: async function (utmCode) {
-    const query = queries.getGenders(utmCode);
-    const genders = await api.get(null, query);
-    return transformer.removeDatakeys(genders);
   },
 };

@@ -68,7 +68,20 @@
                   "value": "male"
                 }
               ],
-              "name": "gender"
+              "name": "gender",
+              "data": [
+                {
+                  "id": 1,
+                  "attributes": {
+                    "name": "male",
+                    "label": "Male",
+                    "value": "M",
+                    "icon": {
+                      "data": null
+                    }
+                  }
+                }
+              ]
             },
             {
               "__typename": "ComponentUiOption",
