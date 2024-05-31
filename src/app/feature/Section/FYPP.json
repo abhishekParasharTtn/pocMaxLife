@@ -1,0 +1,368 @@
+{
+    "productName": "Forever Young Pension Plan",
+    "productId": "24",
+    "premiumType": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            "Single Pay",
+            "Regular Pay"
+        ]
+    },
+    "premiumPayingTermValue": {
+        "status": true,
+        "type": "dropdown",
+        "value": []
+    },
+    "policyTermValue": {
+        "status": true,
+        "type": "dropdown",
+        "value": []
+    },
+    "bonusOption": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "premiumCommitment": {
+        "status": true,
+        "type": "text",
+        "value": false
+    },
+    "dividendAdjustment": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "availablePaymentMode": {
+        "status": true,
+        "type": "dropdown"
+    },
+    "incomePayoutFrequency": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "effectiveDateOfCoverage": {
+        "status": false,
+        "type": "calender"
+    },
+    "childDob": {
+        "status": false,
+        "type": "calender"
+    },
+    "desiredAnnualIncome": {
+        "status": false,
+        "type": "text"
+    },
+    "annualIncome": {
+        "status": false,
+        "type": "text"
+    },
+    "isPurchasePrice": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "sumAssuredAvailable": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "sumAssured": {
+        "status": false,
+        "type": "text"
+    },
+    "riskClass": {
+        "status": false,
+        "type": "radio"
+    },
+    "maturityAgeAvailable": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "sumAssuredOption": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "riders": {
+        "status": false,
+        "type": "checkbox"
+    },
+    "chooseYourFund": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "dynamicFundAllocation": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "systematicTransferPlan": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "lifecyclePortfolioStrategy": {
+        "status": false,
+        "type": "radio",
+        "value": [
+            "yes",
+            "no"
+        ]
+    },
+    "triggerBasedPortfolioStrategy": {
+        "status": false,
+        "type": "radio",
+        "value": [
+            "yes",
+            "no"
+        ]
+    },
+    "coverMultiple": {
+        "status":false,
+        "type":"dropdown",
+        "value":[
+            "1.25",
+            "10"
+        ]
+    },
+    "variant": {
+        "status":false,
+        "type":"dropdown",
+        "value":[
+            "Wealth",
+            "Whole Life"
+        ]
+    },
+    "fund1": {
+        "status":false,
+        "type":"dropdown",
+        "value":[]
+    },
+    "fund2":{
+        "status":false,
+        "type":"dropdown",
+        "value":[]
+    },
+    "triggerPercentage":{
+        "status":false,
+        "type":"dropdown",
+        "value":[
+            "10%",
+            "15%",
+            "20%"
+        ]
+    },
+    "vestingAge": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75
+        ]
+    },
+    "saveMoreTomorrow": {
+        "status": true,
+        "type": "radio",
+        "value": [
+            "yes",
+            "no"
+        ]
+    },
+    "fundOption": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            "Pension Maximiser Option",
+            "Pension Preserver Option"
+        ]
+    },
+    "annuityOption": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            "Single Life",
+            "Joint Life"
+        ]
+    },
+    "deathBenefit": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "lifeStageEventBenefit": {
+        "status": false,
+        "type": "radio"
+    },
+    "premiumBackOption": {
+        "status": false,
+        "type": "radio"
+    },
+    "firstPremiumBreakOptionValues" : {
+        "status" : false,
+        "type" : "dropdown",
+        "value" : []
+    },
+    "secondPremiumBreakOptionValues" : {
+        "status" : false,
+        "type" : "dropdown",
+        "value" : []
+    },
+    "incomePeriod": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "annuityAmount": {
+        "status": false,
+        "type": "text",
+        "value": false
+    },
+    "annuityType": {
+        "status": false,
+        "type": "dropdown",
+        "value": ["Immediate Annuity","Deferred Annuity"] 
+    },
+    "defermentPeriod": {
+        "status": false,
+        "type": "dropdown",
+        "value": [1,2,3,4,5,6,7,8,9,10] 
+    },
+    "pcb": {
+        "status": false,
+        "type": "checkbox"
+    },
+    "benefits": {
+        "status": false,
+        "type": "radio"
+    },
+    "payoutMode": {
+      "status":false,
+      "type":"dropdown",
+      "value":[]
+    },
+    "percentage": {
+        "status":false,
+        "type":"dropdown",
+        "value":[]
+    },
+    "PayoutStartYear":{
+        "status":false,
+        "type":"dropdown"
+    },
+    "coverageOption": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "incomeStartYear": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "premiumOffset": {
+        "status": false,
+        "type": "radio"
+    },
+    "desiredDateOfIncomePayout": {
+        "status": false,
+        "type": "radio"
+    },
+    "desiredDate": {
+        "status": false,
+        "type": "text"
+    },
+    "deathBenefitMultiple": {
+        "status": false,
+        "type":"dropdown",
+        "value": [
+            "1.25",
+            "10"
+        ]
+    },
+    "limitedTerm": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "deferralAccrualOption": {
+        "status": false,
+        "type": "radio"
+    },
+    "isWellnessProgram": {
+        "status": false,
+        "type": "radio"
+    },
+    "WPVoucher": {
+        "status": false,
+        "type": "text"
+    },
+    "earlyROPPercentage": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "guaranteeAnnuityPeriod": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "milestoneAge": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "increasingAnnuityPercentage": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "increasingAnnuityFrequency": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "returnOfPremium1stDeath": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "returnOfPremium2ndDeath": {
+        "status": false,
+        "type": "text"
+    },
+    "defermentPeriodMonth": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "deferredPeriod": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "survivalBenefitPeriodValue": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    }
+}

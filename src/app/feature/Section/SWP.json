@@ -1,0 +1,394 @@
+{
+    "productName": "Max Life Smart Wealth Plan",
+    "productId": "133",
+    "policyTermValue": {
+        "status": true,
+        "type": "dropdown"
+    },
+    "premiumPayingTermValue": {
+        "status": true,
+        "type": "dropdown"
+    },
+    "bonusOption": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            "Compound Reversionary Bonus"
+        ]
+    },
+    "premiumCommitment": {
+        "status": true,
+        "type": "text",
+        "value": false
+    },
+    "dividendAdjustment": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "premiumType": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "availablePaymentMode": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            "Annual",
+            "Semi-Annual",
+            "Quarterly",
+            "Monthly"
+        ]
+    },
+    "incomePayoutFrequency": {
+        "status": true,
+        "type": "dropdown",
+        "value": [
+            "Annual",
+            "Semi-annual",
+             "Quarterly",
+            "Monthly"
+        ]
+    },
+    "effectiveDateOfCoverage": {
+        "status": true,
+        "type": "calender"
+    },
+    "childDob": {
+        "status": false,
+        "type": "calender"
+    },
+    "desiredAnnualIncome": {
+        "status": true,
+        "type": "text",
+        "value": false
+    },
+    "annualIncome": {
+        "status": true,
+        "type": "text",
+        "value": false
+    },
+    "isPurchasePrice": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "sumAssuredAvailable": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "sumAssured": {
+        "status": false,
+        "type": "text"
+    },
+    "riskClass": {
+        "status": false,
+        "type": "radio"
+    },
+    "maturityAgeAvailable": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "sumAssuredOption": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "riders": {
+        "status": true,
+        "type": "checkbox",
+        "value": [
+            {
+                "id": "452",
+                "name": "Accidental Death And Dismemberment Rider",
+                "code": "accidentalDeath",
+                "riderId": "134"
+            },
+            {
+                "id": "443",
+                "name": "Term Plus Rider",
+                "code": "termPlus",
+                "riderId": "135",
+                "riderTerm": {
+                    "status": true,
+                    "type": "dropdown",
+                    "value": []
+                }
+            },
+            {
+                "id": "605",
+                "name": "WOP Plus Rider",
+                "code": "wopp",
+                "riderId": "136"
+            },
+            {
+                "id": "99",
+                "name": "COVID 19 One Year Term Rider",
+                "code": "covid",
+                "riderId": "147"
+            },
+            {
+                "id": "697",
+                "name": "Smart Health Plus Rider",
+                "code": "smartHealthPlus",
+                "riderId": "149",
+                "riderVariant" : {
+                    "status" : true,
+                    "type" : "dropdown",
+                    "value" : []
+                },
+                "sumAssured" : {
+                    "staus" : true,
+                    "type" : "text"
+                },
+                "riderTerm": {
+                    "status": true,
+                    "type": "dropdown",
+                    "value": []
+                }
+            }
+        ]
+    },
+    "chooseYourFund": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "dynamicFundAllocation": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "systematicTransferPlan": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "lifecyclePortfolioStrategy": {
+        "status": false,
+        "type": "radio",
+        "value": [
+            "yes",
+            "no"
+        ]
+    },
+    "triggerBasedPortfolioStrategy": {
+        "status": false,
+        "type": "radio",
+        "value": [
+            "yes",
+            "no"
+        ]
+    },
+    "coverMultiple": {
+        "status":false,
+        "type":"dropdown",
+        "value":[
+            "1.25",
+            "10"
+        ]
+    },
+    "variant": {
+        "status":true,
+        "type":"dropdown",
+        "value":[
+            "Lump Sum",
+            "Short Term Income",
+            "Long Term Income"
+        ]
+    },
+    "fund1": {
+        "status":false,
+        "type":"dropdown",
+        "value":[]
+    },
+    "fund2":{
+        "status":false,
+        "type":"dropdown",
+        "value":[]
+    },
+    "triggerPercentage":{
+        "status":false,
+        "type":"dropdown",
+        "value":[
+            "10%",
+            "15%",
+            "20%"
+        ]
+    },
+    "vestingAge": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "saveMoreTomorrow": {
+        "status": false,
+        "type": "radio",
+        "value": []
+    },
+    "fundOption": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "annuityOption": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "deathBenefit": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "lifeStageEventBenefit": {
+        "status": false,
+        "type": "radio"
+    },
+    "premiumBackOption": {
+        "status": false,
+        "type": "radio"
+    },
+    "firstPremiumBreakOptionValues" : {
+        "status" : false,
+        "type" : "dropdown",
+        "value" : []
+    },
+    "secondPremiumBreakOptionValues" : {
+        "status" : false,
+        "type" : "dropdown",
+        "value" : []
+    },
+    "incomePeriod": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "annuityAmount": {
+        "status": false,
+        "type": "text",
+        "value": false
+    },
+    "annuityType": {
+        "status": false,
+        "type": "dropdown",
+        "value": ["Immediate Annuity","Deferred Annuity"] 
+    },
+    "defermentPeriod": {
+        "status": false,
+        "type": "dropdown",
+        "value": [1,2,3,4,5,6,7,8,9,10] 
+    },
+    "pcb": {
+        "status": false,
+        "type": "checkbox"
+    },
+    "benefits": {
+        "status": false,
+        "type": "radio"
+    },
+    "payoutMode": {
+      "status":false,
+      "type":"dropdown",
+      "value":[]
+    },
+    "percentage": {
+        "status":false,
+        "type":"dropdown",
+        "value":[]
+    },
+    "PayoutStartYear":{
+        "status":false,
+        "type":"dropdown"
+    },
+    "coverageOption": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "incomeStartYear": {
+        "status": false,
+        "type": "dropdown"
+    },
+    "premiumOffset": {
+        "status": false,
+        "type": "radio"
+    },
+    "desiredDateOfIncomePayout": {
+        "status": false,
+        "type": "radio"
+    },
+    "desiredDate": {
+        "status": false,
+        "type": "text"
+    },
+    "deathBenefitMultiple": {
+        "status": false,
+        "type":"dropdown",
+        "value": [
+            "1.25",
+            "10"
+        ]
+    },
+    "limitedTerm": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "deferralAccrualOption": {
+        "status": false,
+        "type": "radio"
+    },
+    "isWellnessProgram": {
+        "status": false,
+        "type": "radio"
+    },
+    "WPVoucher": {
+        "status": false,
+        "type": "text"
+    },
+    "earlyROPPercentage": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "guaranteeAnnuityPeriod": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "milestoneAge": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "increasingAnnuityPercentage": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "increasingAnnuityFrequency": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "returnOfPremium1stDeath": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "returnOfPremium2ndDeath": {
+        "status": false,
+        "type": "text"
+    },
+    "defermentPeriodMonth": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "deferredPeriod": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    },
+    "survivalBenefitPeriodValue": {
+        "status": false,
+        "type": "dropdown",
+        "value": []
+    }
+}
