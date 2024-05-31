@@ -94,7 +94,11 @@ export const utmService = {
       // Create a map of dataSourceName to data from array1
       arr1.forEach((item) => {
         if (item.data) {
-          dataSourceMap.set(item.dataSourceName, item.data);
+          const transformedData = item.data.map((dataItem) => {
+            const { id, attributes, ...rest } = dataItem;
+            return { ...rest, ...attributes };
+          });
+          dataSourceMap.set(item.dataSourceName, transformedData);
         }
       });
 
@@ -109,7 +113,7 @@ export const utmService = {
             if (component.dataFilter && component.dataFilter.length > 0) {
               data = data.filter((item) => {
                 return component.dataFilter.every(
-                  (filter) => item.attributes[filter.key] === filter.value
+                  (filter) => item[filter.key] === filter.value
                 );
               });
             }
