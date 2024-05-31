@@ -1,7 +1,7 @@
 [
   {
     "name": "personalDetails",
-    "utmCode": "1111",
+    "utmCode": "2222",
     "route": {
       "current": "personal-details",
       "previous": "/customer-details",
@@ -68,27 +68,7 @@
                   "value": "male"
                 }
               ],
-              "name": "gender",
-              "data": [
-                {
-                  "name": "male",
-                  "label": "Male",
-                  "value": "M",
-                  "icon": {}
-                },
-                {
-                  "name": "female",
-                  "label": "Female",
-                  "value": "F",
-                  "icon": {}
-                },
-                {
-                  "name": "transgender",
-                  "label": "Transgender",
-                  "value": "T",
-                  "icon": {}
-                }
-              ]
+              "name": "gender"
             },
             {
               "__typename": "ComponentUiOption",
@@ -171,7 +151,7 @@
   },
   {
     "name": "customerDetails",
-    "utmCode": "1111",
+    "utmCode": "2222",
     "route": {
       "current": "customer-details",
       "previous": "/customer-details",
