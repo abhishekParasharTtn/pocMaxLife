@@ -1,5 +1,5 @@
 'use client'
-import Radio from "@/app/feature/component/element/Radio/radio";
+import Radio from "@/app/feature/component/element/Genderradio/radio";
 import PhoneNumber from "@/app/feature/component/element/phoneNumber/phoneNumber";
 import TextField from "@/app/feature/component/element/textField/textField";
 import {Nationality} from "@/app/api/dummyData";

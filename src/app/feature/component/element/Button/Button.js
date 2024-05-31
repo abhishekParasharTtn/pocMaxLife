@@ -1,18 +1,14 @@
 'use client'
-const Button = ({type,label}) => {
+const Button = ({type,label,name}) => {
    
     return (
-        <div className="flex justify-center items-center self-center" type={type}>
-            {label === 'save' ? <button className="shadow-type2 w-48 bg-light h-12" >
-                    {label}
-                </button> :
-                <button className="text-white w-48 bg-light h-12  bg-primary" type={type}>
+            <div className="inline-block m-6 ">
+                <button
+                    className={`${name === 'save' ? 'shadow-type2 w-48 bg-light h-12 inline-block ml-36' : 'text-white w-48 bg-light h-12  bg-primary inline ml-35'}`}>
                     {label}
                 </button>
+            </div>
 
-            }
-
-        </div>
     );
 };
 

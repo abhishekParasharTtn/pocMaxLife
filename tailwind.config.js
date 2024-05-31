@@ -94,8 +94,8 @@ module.exports = {
         'footer-md-width': 'var(--footer-md-width)',
       },
       spacing: {
-        'checkbox-padding': 'var(--checkbox-padding)',
-        'checkbox-margin': 'var(--checkbox-margin)',
+        'checkbox-padding': 'var(--declarationAcceptance-padding)',
+        'checkbox-margin': 'var(--declarationAcceptance-margin)',
         'radio-padding': 'var(--radio-padding)',
         'radio-margin': 'var(--radio-margin)',
       },

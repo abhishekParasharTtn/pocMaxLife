@@ -1,7 +1,7 @@
 import DateInput from "./element/DateInput/DateInput";
 import Button from "./element/Button/Button";
 import Input from "./element/Input/Input";
-import RadioButtonField from "./element/Radio/radio";
+import RadioButtonField from "@/app/feature/component/element/Genderradio/radio";
 import PhoneNumber from "@/app/feature/component/element/phoneNumber/phoneNumber";
 const Component = ({
 
