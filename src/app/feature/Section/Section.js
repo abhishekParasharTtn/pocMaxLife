@@ -7,6 +7,7 @@ import Button from '@/app/feature/component/element/Button/Button';
 import DeclarationCheckbox from "@/app/feature/component/element/declarationAcceptance/checkbox";
 import ToggleSwitch from "@/app/feature/component/element/toggleSwitch/toggleswitch";
 import RadioButtonCircle from "@/app/feature/component/element/Circleradio/radiocircle";
+import Option from "@/app/feature/component/element/options/option";
 
 const Section = ({ themeConfig, utmConfig, page, sectionData }) => {
   const {
@@ -23,10 +24,10 @@ const Section = ({ themeConfig, utmConfig, page, sectionData }) => {
     __typename
   } = page;
 
-  console.log('__typeName:', __typename, page);
+  console.log('__typeName:', componentType);
 
   const sectionComponentMappings = {
-    ComponentUiOption: RadioButtonCircle,
+    ComponentUiOption: Option,
     ComponentFormPhoneNumber: PhoneNumber,
     ComponentFormInput: Input,
     ComponentFormDobSingleInput: DateInput,
@@ -46,6 +47,7 @@ const Section = ({ themeConfig, utmConfig, page, sectionData }) => {
           visibility={visibility}
           name={name}
           dataFilter={dataFilter}
+          componentType={componentType}
       />
   ) : (
       <h2>{`Missing component for type: ${componentType}`}</h2>
