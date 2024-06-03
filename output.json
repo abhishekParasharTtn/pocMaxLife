@@ -1,7 +1,7 @@
 [
   {
     "name": "personalDetails",
-    "utmCode": "1111",
+    "utmCode": "2222",
     "route": {
       "current": "personal-details",
       "previous": "/customer-details",
@@ -74,19 +74,9 @@
                   "name": "male",
                   "label": "Male",
                   "value": "M",
-                  "icon": {}
-                },
-                {
-                  "name": "female",
-                  "label": "Female",
-                  "value": "F",
-                  "icon": {}
-                },
-                {
-                  "name": "transgender",
-                  "label": "Transgender",
-                  "value": "T",
-                  "icon": {}
+                  "icon": {
+                    "data": null
+                  }
                 }
               ]
             },
@@ -126,7 +116,9 @@
               "__typename": "ComponentUiOption",
               "title": "Premium Payment Term",
               "description": null,
-              "dataSourceName": {},
+              "dataSourceName": {
+                "name": "dataPermiumPaymentTerm"
+              },
               "componentType": "Dropdown",
               "style": null,
               "visibility": true,
@@ -171,7 +163,7 @@
   },
   {
     "name": "customerDetails",
-    "utmCode": "1111",
+    "utmCode": "2222",
     "route": {
       "current": "customer-details",
       "previous": "/customer-details",
@@ -196,8 +188,10 @@
               "__typename": "ComponentUiOption",
               "title": "Residential Status for tax purposes",
               "description": null,
-              "dataSourceName": {},
-              "componentType": "CheckBox",
+              "dataSourceName": {
+                "name": "dataNationalities"
+              },
+              "componentType": "RadioGroup",
               "style": null,
               "visibility": true,
               "label": null,
@@ -206,23 +200,24 @@
               "dataFilter": [
                 {
                   "key": "name",
-                  "value": "Indian"
+                  "value": "indian"
                 },
                 {
                   "key": "name",
-                  "value": "NRI"
+                  "value": "nri"
                 }
               ],
-              "name": "residentialStatus"
+              "name": "residentialStatus",
+              "data": []
             },
             {
               "__typename": "ComponentUiOption",
               "title": "Nationality",
               "description": null,
               "dataSourceName": {
-                "name": "nationality"
+                "name": "dataNationalities"
               },
-              "componentType": "CheckBox",
+              "componentType": "RadioGroup",
               "style": null,
               "visibility": true,
               "label": null,
@@ -231,22 +226,23 @@
               "dataFilter": [
                 {
                   "key": "name",
-                  "value": "Indian"
+                  "value": "indian"
                 },
                 {
                   "key": "name",
-                  "value": "NRI"
+                  "value": "nri"
                 },
                 {
                   "key": "name",
-                  "value": "PIO/OCI"
+                  "value": "pioOci"
                 },
                 {
                   "key": "name",
-                  "value": "Foreign National"
+                  "value": "foreignNational"
                 }
               ],
-              "name": "nationality"
+              "name": "nationality",
+              "data": []
             },
             {
               "__typename": "ComponentFormInput",
@@ -267,7 +263,19 @@
               "dataSourceName": {
                 "name": "dataCountries"
               },
-              "dataFilter": []
+              "dataFilter": [],
+              "data": [
+                {
+                  "name": "India",
+                  "shortName": "IND",
+                  "code": "+91"
+                },
+                {
+                  "name": "United States of America",
+                  "shortName": "USA",
+                  "code": "+1"
+                }
+              ]
             },
             {
               "__typename": "ComponentUiToggleSwitch",
