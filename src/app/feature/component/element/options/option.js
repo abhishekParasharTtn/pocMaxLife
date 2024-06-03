@@ -2,6 +2,7 @@
 import RadioButtonCircle from "@/app/feature/component/element/Circleradio/radiocircle";
 import React from "react";
 import radio from "@/app/feature/component/element/Genderradio/radio";
+import ProductDetailsSection from "../Dropdowns/ProductDetails/ProductDetails";
 
 const Option = (
     {title,
@@ -19,7 +20,8 @@ const Option = (
     console.log(componentType,'from option')
     const optionComponentMappings = {
         RadioGroup : RadioButtonCircle,
-        ButtonGroup:radio
+        ButtonGroup:radio,
+        Dropdown: ProductDetailsSection
     };
 
     const OptionComponent = optionComponentMappings[componentType];
