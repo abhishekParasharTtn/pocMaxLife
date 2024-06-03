@@ -17,8 +17,7 @@ export const utmService = {
   transformPageData: async function (data, utmCode) {
     const transformData = [];
     const dataStore = [];
-    data?.map((pages) => {
-      return pages.pages.map((_page) => {
+        data.map((_page) => {
         const { sections = {}, layout = {} } = _page;
         const {
           layout: { name },
@@ -74,7 +73,6 @@ export const utmService = {
           sections: filteredSections,
         });
       });
-    });
 
     const pageData =
       dataStore.length !== 0
@@ -138,7 +136,7 @@ export const utmService = {
     };
 
     const updatedTransformData = mergeDataSources(pageData, transformData);
-    return updatedTransformData;
+    return updatedTransformData[0];
   },
 
   getUtmDetails: async function (slug) {
@@ -154,20 +152,23 @@ export const utmService = {
     const themeConfig = await api.get(null, query);
     return transformer.removeDatakeys(themeConfig);
   },
-  getPages: async function (utmDetails) {
-    const names = [];
-    for (const key in utmDetails?.pages) {
-      if (utmDetails.pages.hasOwnProperty(key)) {
-        names.push(utmDetails.pages[key].name);
-      }
-    }
-    const pageData = await Promise.all(
-      names?.map((item) => {
-        let data = api.get(null, queries.getPages(item));
-        return data;
-      })
-    );
+  getPages: async function (pageName, utmCode) {
+    // const names = [];
+    // for (const key in utmDetails?.pages) {
+    //   if (utmDetails.pages.hasOwnProperty(key)) {
+    //     names.push(utmDetails.pages[key].name);
+    //   }
+    // }
+    // const pageData = await Promise.all(
+    //   names?.map((item) => {
+    //     let data = api.get(null, queries.getPages(item));
+    //     return data;
+    //   })
+    // );
+     
+    let pageData = await api.get(null, queries.getPages(pageName));
     const filterPageData = transformer.removeDatakeys(pageData);
-    return this.transformPageData(filterPageData, utmDetails.utmCode);
+    debugger;
+    return this.transformPageData(filterPageData.pages, utmCode);
   },
 };

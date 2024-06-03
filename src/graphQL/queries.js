@@ -161,7 +161,7 @@ export const queries = {
 
   getPages: (formName) => {
     return `query {
-      pages(filters: { name: { eq: "${formName}" } }) {
+      pages(filters: { slug: { eq: "${formName}" } }) {
         data {
           attributes {
             name
