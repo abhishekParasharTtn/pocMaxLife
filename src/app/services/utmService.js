@@ -140,7 +140,6 @@ export const utmService = {
     const updatedTransformData = mergeDataSources(pageData, transformData);
     return updatedTransformData;
   },
-
   getUtmDetails: async function (slug) {
     const utmCode = slug[0];
     const utmDetails = await api.get(
@@ -169,5 +168,34 @@ export const utmService = {
     );
     const filterPageData = transformer.removeDatakeys(pageData);
     return this.transformPageData(filterPageData, utmDetails.utmCode);
+  },
+  getFormFieldConfigs: async function (utmDetails) {
+    const fieldConfigsData = await utmService.getFormFieldConfigsData(
+      utmDetails?.formFieldConfig?.name
+    );
+    return fieldConfigsData?.formFieldConfigs[0]?.fieldConfig;
+  },
+  getFormFieldConfigsData: async function (name) {
+    const query = queries.getFormFieldConfigs(name);
+    const formFieldConfigs = await api.get(null, query);
+    return transformer.removeDatakeys(formFieldConfigs);
+  },
+  getFormDataWithUpdatedDefaultValues: function (formPages, FormFieldConfigs) {
+    const formPagesData = JSON.parse(JSON.stringify(formPages));
+    formPagesData?.forEach((section) => {
+      section?.sections?.forEach((subSection) => {
+        subSection?.form?.components?.forEach((component) => {
+          FormFieldConfigs?.forEach((config) => {
+            if (
+              component?.name === config?.fieldName?.name &&
+              config?.defaultValue !== null
+            ) {
+              component.defaultValue = config?.defaultValue;
+            }
+          });
+        });
+      });
+    });
+    return formPagesData;
   },
 };

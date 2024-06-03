@@ -5,11 +5,15 @@ import { use } from "react";
 const fs = require("fs");
 
 async function fetchData(params) {
-  const { slug } = params; //customer detai
-
+  const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  const pages = await utmService.getPages(utmDetails);
+  const pagesData = await utmService.getPages(utmDetails);
+  const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
+  const pages = utmService.getFormDataWithUpdatedDefaultValues(
+    pagesData,
+    fieldConfigData
+  );
   fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
     if (err) {
       console.error("Error writing file", err);
@@ -17,7 +21,6 @@ async function fetchData(params) {
       console.log("Successfully wrote file");
     }
   });
-  console.log("pages", pages);
   return (
     <AppLayout
       themeConfig={themeConfig}
@@ -28,16 +31,10 @@ async function fetchData(params) {
       utmConfig={utmDetails}
     />
   );
-
-  //  let response = await fetch(`http://localhost:3000/api/users/${userId}`);
-
-  //   const products = await response.json();
-  //   return products?.user;
 }
 
 export default function DynamicPage({ params }) {
   const data = use(fetchData(params));
-
   return data;
 }
 

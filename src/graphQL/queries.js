@@ -259,4 +259,31 @@ export const queries = {
 }
 `;
   },
+  getFormFieldConfigs: (name) => {
+    return `query {
+      formFieldConfigs(filters: { name: { eq: "${name}" } }) {
+        data {
+          attributes {
+            name
+            fieldConfig {
+              id
+              visibility
+              defaultValue
+              fieldName {
+                data {
+                  attributes {
+                    name
+                  }
+                }
+              }
+              label
+              placeholder
+              __typename
+            }
+          }
+        }
+      }
+    }
+    `;
+  },
 };
