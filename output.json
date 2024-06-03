@@ -66,6 +66,10 @@
                 {
                   "key": "name",
                   "value": "male"
+                },
+                {
+                  "key": "name",
+                  "value": "female"
                 }
               ],
               "name": "gender",
@@ -74,6 +78,14 @@
                   "name": "male",
                   "label": "Male",
                   "value": "M",
+                  "icon": {
+                    "data": null
+                  }
+                },
+                {
+                  "name": "female",
+                  "label": "Female",
+                  "value": "F",
                   "icon": {
                     "data": null
                   }
@@ -201,14 +213,32 @@
                 {
                   "key": "name",
                   "value": "indian"
-                },
-                {
-                  "key": "name",
-                  "value": "nri"
                 }
               ],
               "name": "residentialStatus",
-              "data": []
+              "data": [
+                {
+                  "name": "indian",
+                  "term": "Indian",
+                  "value": "Indian",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      },
+                      {
+                        "id": 2,
+                        "attributes": {
+                          "name": "axisDataConfig"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "__typename": "ComponentUiOption",
@@ -242,7 +272,80 @@
                 }
               ],
               "name": "nationality",
-              "data": []
+              "data": [
+                {
+                  "name": "indian",
+                  "term": "Indian",
+                  "value": "Indian",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      },
+                      {
+                        "id": 2,
+                        "attributes": {
+                          "name": "axisDataConfig"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "nri",
+                  "term": "NRI",
+                  "value": "NRI",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      },
+                      {
+                        "id": 2,
+                        "attributes": {
+                          "name": "axisDataConfig"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "pioOci",
+                  "term": "PIO/OCI",
+                  "value": "PIO/OCI",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "foreignNational",
+                  "term": "Foreign National",
+                  "value": "Foreign National",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "__typename": "ComponentFormInput",
