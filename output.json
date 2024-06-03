@@ -16,400 +16,396 @@
     },
     "sections": [
       {
-        "__typename": "ComponentContainerFormContainer",
-        "layout": {
-          "id": "5",
-          "margin": null,
-          "padding": null,
-          "style": null,
-          "layoutOrder": [],
-          "layout": {
-            "name": "PersonalDetailsFormLayout",
-            "__typename": "Layout",
-            "type": "form"
-          }
-        },
-        "forms": [
-          {
-            "id": "1",
-            "name": "personalDetails",
-            "form": {
-              "name": "personalDetails",
-              "title": "Personal Details",
-              "subTitle": "fill all the personal details",
-              "components": [
+        "name": "personalDetails",
+        "form": {
+          "name": "personalDetails",
+          "title": "Personal Details",
+          "subTitle": "fill all the personal details",
+          "components": [
+            {
+              "__typename": "ComponentFormInput",
+              "type": "text",
+              "label": "First Name",
+              "placeholder": "First Name",
+              "suggestion": null,
+              "visibility": true,
+              "style": null,
+              "name": "firstName"
+            },
+            {
+              "__typename": "ComponentFormInput",
+              "type": "text",
+              "label": "Last Name",
+              "placeholder": "Last Name",
+              "suggestion": null,
+              "visibility": true,
+              "style": null,
+              "name": "lastName"
+            },
+            {
+              "__typename": "ComponentFormDobSingleInput",
+              "name": "dob",
+              "label": "Date of birth",
+              "placeholder": "DD/MM/YYYY",
+              "visibility": true
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Gender",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataGenders"
+              },
+              "componentType": "ButtonGroup",
+              "style": null,
+              "visibility": true,
+              "label": "Gender",
+              "placeholder": "Gender",
+              "popUp": {},
+              "dataFilter": [
                 {
-                  "__typename": "ComponentFormInput",
-                  "name": "firstName",
-                  "type": "text",
-                  "label": "First Name",
-                  "placeholder": "First Name",
-                  "suggestion": null,
-                  "visibility": true,
-                  "style": null,
-                  "defaultValue": null
+                  "key": "name",
+                  "value": "male"
                 },
                 {
-                  "__typename": "ComponentFormInput",
-                  "name": "lastName",
-                  "type": "text",
-                  "label": "Last Name",
-                  "placeholder": "Last Name",
-                  "suggestion": null,
-                  "visibility": true,
-                  "style": null,
-                  "defaultValue": null
+                  "key": "name",
+                  "value": "female"
+                }
+              ],
+              "name": "gender",
+              "data": [
+                {
+                  "name": "male",
+                  "label": "Male",
+                  "value": "M",
+                  "icon": {
+                    "data": null
+                  }
                 },
                 {
-                  "__typename": "ComponentFormDobSingleInput",
-                  "name": "dob",
-                  "label": "Date of birth",
-                  "placeholder": "DD/MM/YYYY",
-                  "defaultValue": null,
-                  "visibility": true
-                },
+                  "name": "female",
+                  "label": "Female",
+                  "value": "F",
+                  "icon": {
+                    "data": null
+                  }
+                }
+              ]
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Product Name",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataProductName"
+              },
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Product Name",
+              "placeholder": "Product Name",
+              "popUp": {},
+              "dataFilter": [],
+              "name": "productName"
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Premium Type",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataPremiumType"
+              },
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": null,
+              "placeholder": "Premium Type",
+              "popUp": {},
+              "dataFilter": [],
+              "name": "premiumType"
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Premium Payment Term",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataPermiumPaymentTerm"
+              },
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Premium Payment Term",
+              "placeholder": "Premium Payment Term",
+              "fieldName": {},
+              "popUp": {},
+              "dataFilter": []
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Policy Term",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Policy Term",
+              "placeholder": "Policy Term",
+              "fieldName": {},
+              "popUp": {},
+              "dataFilter": []
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Mode of Payment",
+              "description": null,
+              "dataSourceName": {},
+              "componentType": "Dropdown",
+              "style": null,
+              "visibility": true,
+              "label": "Mode of Payment",
+              "placeholder": "Mode of Payment",
+              "fieldName": {},
+              "popUp": {},
+              "dataFilter": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "customerDetails",
+    "utmCode": "2222",
+    "route": {
+      "current": "customer-details",
+      "previous": "/customer-details",
+      "next": "/personal-details"
+    },
+    "layout": {
+      "name": "CustomerDetailsPageLayout",
+      "margin": null,
+      "padding": null,
+      "style": null,
+      "layoutOrder": []
+    },
+    "sections": [
+      {
+        "name": "customerDetails",
+        "form": {
+          "name": "customerDetails",
+          "title": "Customer Details",
+          "subTitle": "fill all the customer details",
+          "components": [
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Residential Status for tax purposes",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataNationalities"
+              },
+              "componentType": "RadioGroup",
+              "style": null,
+              "visibility": true,
+              "label": null,
+              "placeholder": null,
+              "popUp": {},
+              "dataFilter": [
                 {
-                  "__typename": "ComponentUiOption",
-                  "title": "Gender",
-                  "description": null,
-                  "defaultValue": "M",
-                  "dataSourceName": "dataGenders",
-                  "componentType": "ButtonGroup",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Gender",
-                  "placeholder": "Gender",
-                  "name": "gender",
-                  "popUp": {},
-                  "dataFilter": [
-                    {
-                      "key": "name",
-                      "value": "male"
-                    }
-                  ],
-                  "data": [
-                    {
-                      "name": "male",
-                      "label": "Male",
-                      "value": "M",
-                      "icon": {
-                        "data": null
+                  "key": "name",
+                  "value": "indian"
+                }
+              ],
+              "name": "residentialStatus",
+              "data": [
+                {
+                  "name": "indian",
+                  "term": "Indian",
+                  "value": "Indian",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      },
+                      {
+                        "id": 2,
+                        "attributes": {
+                          "name": "axisDataConfig"
+                        }
                       }
-                    }
-                  ]
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "id": "2",
-            "name": "productDetails",
-            "form": {
-              "name": "productDetails",
-              "title": "Product Details",
-              "subTitle": "fill all the product details",
-              "components": [
+            },
+            {
+              "__typename": "ComponentUiOption",
+              "title": "Nationality",
+              "description": null,
+              "dataSourceName": {
+                "name": "dataNationalities"
+              },
+              "componentType": "RadioGroup",
+              "style": null,
+              "visibility": true,
+              "label": null,
+              "placeholder": null,
+              "popUp": {},
+              "dataFilter": [
                 {
-                  "__typename": "ComponentUiOption",
-                  "title": "Product Name",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataProductNames",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Product Name",
-                  "placeholder": "Product Name",
-                  "name": "productName",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "maxLifeSmartSecurePlusPlan",
-                      "marketingName": "Max Life Smart Secure Plus Plan",
-                      "code": "SSPP",
-                      "productId": "154"
-                    },
-                    {
-                      "name": "maxLifeSmartWealthAnnuityGuaranteedPensionPlan",
-                      "marketingName": "Max Life Smart Wealth Annuity Guaranteed Pension Plan",
-                      "code": "SWAGPP",
-                      "productId": "210"
-                    }
-                  ]
+                  "key": "name",
+                  "value": "indian"
                 },
                 {
-                  "__typename": "ComponentUiOption",
-                  "title": "Premium Type",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPremiumTypes",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": null,
-                  "placeholder": "Premium Type",
-                  "name": "premiumType",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "regularPay",
-                      "label": "Regular Pay",
-                      "value": "Regular Pay"
-                    },
-                    {
-                      "name": "limitedPay",
-                      "label": "Limited Pay",
-                      "value": "Limited Pay"
-                    },
-                    {
-                      "name": "payTill60",
-                      "label": "Pay Till 60",
-                      "value": "payTill60"
-                    }
-                  ]
+                  "key": "name",
+                  "value": "nri"
                 },
                 {
-                  "__typename": "ComponentUiOption",
-                  "title": "Premium Payment Term",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPremiumPaymentTerms",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Premium Payment Term",
-                  "placeholder": "Premium Payment Term",
-                  "fieldName": {},
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "oneYear",
-                      "label": "1",
-                      "value": "1"
-                    },
-                    {
-                      "name": "fiveYear",
-                      "label": "5",
-                      "value": "5"
-                    },
-                    {
-                      "name": "sixYear",
-                      "label": "6",
-                      "value": "6"
-                    },
-                    {
-                      "name": "sevenYear",
-                      "label": "7",
-                      "value": "7"
-                    },
-                    {
-                      "name": "eightYear",
-                      "label": "8",
-                      "value": "8"
-                    },
-                    {
-                      "name": "nineYear",
-                      "label": "9",
-                      "value": "9"
-                    },
-                    {
-                      "name": "tenYear",
-                      "label": "10",
-                      "value": "10"
-                    },
-                    {
-                      "name": "elevenYear",
-                      "label": "11",
-                      "value": "11"
-                    },
-                    {
-                      "name": "twelveYear",
-                      "label": "12",
-                      "value": "12"
-                    }
-                  ]
+                  "key": "name",
+                  "value": "pioOci"
                 },
                 {
-                  "__typename": "ComponentUiOption",
-                  "title": "Policy Term",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPolicyTerms",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Policy Term",
-                  "placeholder": "Policy Term",
-                  "fieldName": {},
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "tenYear",
-                      "label": "10",
-                      "value": "10"
-                    },
-                    {
-                      "name": "elevenYear",
-                      "label": "11",
-                      "value": "11"
-                    },
-                    {
-                      "name": "twelveYear",
-                      "label": "12",
-                      "value": "12"
-                    },
-                    {
-                      "name": "thirteenYear",
-                      "label": "13",
-                      "value": "13"
-                    },
-                    {
-                      "name": "fourteenYear",
-                      "label": "14",
-                      "value": "14"
-                    },
-                    {
-                      "name": "fifteenYear",
-                      "label": "15",
-                      "value": "15"
-                    },
-                    {
-                      "name": "sixteenYear",
-                      "label": "16",
-                      "value": "16"
-                    },
-                    {
-                      "name": "SeventeenYear",
-                      "label": "17",
-                      "value": "17"
-                    },
-                    {
-                      "name": "eighteenYear",
-                      "label": "18",
-                      "value": "18"
-                    },
-                    {
-                      "name": "nineteenYear",
-                      "label": "19",
-                      "value": "19"
-                    },
-                    {
-                      "name": "twentyYear",
-                      "label": "20",
-                      "value": "20"
-                    },
-                    {
-                      "name": "twentyOneYear",
-                      "label": "21",
-                      "value": "21"
-                    },
-                    {
-                      "name": "tweentyTwoYear",
-                      "label": "22",
-                      "value": "22"
-                    },
-                    {
-                      "name": "twentyTwoYear",
-                      "label": "22",
-                      "value": "22"
-                    },
-                    {
-                      "name": "twentyThreeYear",
-                      "label": "23",
-                      "value": "23"
-                    },
-                    {
-                      "name": "twentyFourYear",
-                      "label": "24",
-                      "value": "24"
-                    },
-                    {
-                      "name": "twentyFiveYear",
-                      "label": "25",
-                      "value": "25"
-                    },
-                    {
-                      "name": "twentySixYear",
-                      "label": "26",
-                      "value": "26"
-                    },
-                    {
-                      "name": "twentySevenYear",
-                      "label": "27",
-                      "value": "27"
-                    },
-                    {
-                      "name": "twentyEightYear",
-                      "label": "28",
-                      "value": "28"
-                    },
-                    {
-                      "name": "twentyNineYear",
-                      "label": "29",
-                      "value": "29"
-                    },
-                    {
-                      "name": "thirtyYear",
-                      "label": "30",
-                      "value": "30"
-                    }
-                  ]
+                  "key": "name",
+                  "value": "foreignNational"
+                }
+              ],
+              "name": "nationality",
+              "data": [
+                {
+                  "name": "indian",
+                  "term": "Indian",
+                  "value": "Indian",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      },
+                      {
+                        "id": 2,
+                        "attributes": {
+                          "name": "axisDataConfig"
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
-                  "__typename": "ComponentUiOption",
-                  "title": "Mode of Payment",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPaymentModes",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Mode of Payment",
-                  "placeholder": "Mode of Payment",
-                  "fieldName": {},
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "annual",
-                      "label": "Annually",
-                      "code": "01"
-                    },
-                    {
-                      "name": "monthly",
-                      "label": "Monthly",
-                      "code": "03"
-                    },
-                    {
-                      "name": "quarterly",
-                      "label": "Quarterly",
-                      "code": "04"
-                    },
-                    {
-                      "name": "semi-annually",
-                      "label": "Semi-Annually",
-                      "code": "02"
-                    }
-                  ]
+                  "name": "nri",
+                  "term": "NRI",
+                  "value": "NRI",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      },
+                      {
+                        "id": 2,
+                        "attributes": {
+                          "name": "axisDataConfig"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "pioOci",
+                  "term": "PIO/OCI",
+                  "value": "PIO/OCI",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "foreignNational",
+                  "term": "Foreign National",
+                  "value": "Foreign National",
+                  "dataConfigs": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "attributes": {
+                          "name": "default"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
+            },
+            {
+              "__typename": "ComponentFormInput",
+              "type": "email",
+              "label": "email",
+              "placeholder": "Email Address",
+              "suggestion": null,
+              "visibility": true,
+              "style": null,
+              "name": "email"
+            },
+            {
+              "__typename": "ComponentFormPhoneNumber",
+              "name": "mobileNumber",
+              "label": "Mobile Number",
+              "placeholder": "Mobile Number",
+              "visibility": true,
+              "dataSourceName": {
+                "name": "dataCountries"
+              },
+              "dataFilter": [],
+              "data": [
+                {
+                  "name": "India",
+                  "shortName": "IND",
+                  "code": "+91"
+                },
+                {
+                  "name": "United States of America",
+                  "shortName": "USA",
+                  "code": "+1"
+                }
+              ]
+            },
+            {
+              "__typename": "ComponentUiToggleSwitch",
+              "name": "whatsappOptInStatus",
+              "label": "My customer would like to receive updates via WhatsApp"
+            },
+            {
+              "__typename": "ComponentUiCheckbox",
+              "name": "acceptanceDeclaration",
+              "label": "I hereby consent to and authorize Max Life Insurance and its representatives by submitting my details to contact me through call, SMS or E-mail overriding my DND registration. I further consent to share my information on confidential basis with third parties for KYC, bank details verification, evaluating and processing this proposal."
+            },
+            {
+              "__typename": "ComponentUiButton",
+              "name": "save",
+              "type": "button",
+              "label": "save",
+              "link": null
+            },
+            {
+              "__typename": "ComponentUiButton",
+              "name": "proceed",
+              "type": "submit",
+              "label": "Proceed",
+              "link": null
             }
-          }
-        ],
-        "button": [
-          {
-            "id": "3",
-            "name": "proceedBtn",
-            "type": "submit",
-            "label": "Proceed",
-            "link": null,
-            "__typename": "ComponentUiButton"
-          }
-        ]
+          ]
+        }
       }
     ]
   }
