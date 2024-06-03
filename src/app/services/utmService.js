@@ -88,7 +88,6 @@ export const utmService = {
             })
           )
         : [];
-    console.log(pageData);
     const mergeDataSources = (arr1, arr2) => {
       const dataSourceMap = new Map();
 
