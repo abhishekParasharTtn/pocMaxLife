@@ -88,6 +88,7 @@ export const utmService = {
             })
           )
         : [];
+    console.log(pageData);
     const mergeDataSources = (arr1, arr2) => {
       const dataSourceMap = new Map();
 
@@ -112,9 +113,9 @@ export const utmService = {
             // Apply dataFilter if present
             if (component.dataFilter && component.dataFilter.length > 0) {
               data = data.filter((item) => {
-                return component.dataFilter.every(
-                  (filter) => item[filter.key] === filter.value
-                );
+                return component.dataFilter.some((filter) => {
+                  return item[filter.key] === filter.value;
+                });
               });
             }
 
