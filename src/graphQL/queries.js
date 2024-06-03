@@ -35,12 +35,14 @@ const components = {
   suggestion
   visibility
   style
+  defaultValue
 }`,
   dobSingleInput: `... on ComponentFormDobSingleInput {
   __typename  
   name
   label
   placeholder
+  defaultValue
   fieldName {
     data {
       attributes {
@@ -54,6 +56,7 @@ const components = {
   __typename  
   title
   description
+  defaultValue
   dataSourceName {
     data {
       attributes {
@@ -98,6 +101,7 @@ const components = {
   name
   label
   placeholder
+  defaultValue
   fieldName {
     data {
       attributes {
@@ -122,11 +126,13 @@ const components = {
   __typename  
   name
   label
+  defaultValue
 }`,
   toggleButton: ` ... on ComponentUiToggleSwitch {
   __typename  
   name
   label
+  defaultValue
 }`,
 };
 export const queries = {
