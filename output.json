@@ -1,7 +1,7 @@
 [
   {
     "name": "personalDetails",
-    "utmCode": "1111",
+    "utmCode": "2222",
     "route": {
       "current": "personal-details",
       "previous": "/customer-details",
@@ -176,7 +176,7 @@
   },
   {
     "name": "customerDetails",
-    "utmCode": "1111",
+    "utmCode": "2222",
     "route": {
       "current": "customer-details",
       "previous": "/customer-details",
@@ -271,7 +271,7 @@
               "__typename": "ComponentUiOption",
               "title": "Nationality",
               "description": null,
-              "defaultValue": "indian",
+              "defaultValue": null,
               "dataSourceName": {
                 "name": "dataNationalities"
               },

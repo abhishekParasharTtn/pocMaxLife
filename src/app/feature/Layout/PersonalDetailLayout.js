@@ -1,5 +1,6 @@
 import React from 'react'
 import Section from '../Section/Section';
+import FormLayout from '../Form.js/Form';
 import { extractDetailsSection,extractRoute } from '@/app/services/util';
 
 const PersonalDetailLayout = ({themeConfig,utmConfig,page}) => {
@@ -20,12 +21,14 @@ const PersonalDetailLayout = ({themeConfig,utmConfig,page}) => {
        
       };
     return (
+        <FormLayout>
         <div className='bg-default px-8 pt-6 w-2/4'>
             <div className='text-center mb-8'>{pageData.title}</div>
             <div>
                 <div className={'grid grid-cols-2 gap-4'}> {sectionHandler()}</div>
             </div>
         </div>
+        </FormLayout>
 
     )
 }
