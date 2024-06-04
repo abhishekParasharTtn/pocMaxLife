@@ -5,3 +5,14 @@ export const extractDetailsSection = (page,sectionName) => {
     }
     return null;
   };
+  export const extractRoute = (page,routeName) => {
+    const extractRoute = page.find(route => route.name === routeName);
+    
+     if(extractRoute && extractRoute.route) {
+      return extractRoute.route
+     }
+     return null
+  };
+
+
+  
