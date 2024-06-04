@@ -1,10 +1,12 @@
 import React from 'react'
 import Section from '../Section/Section';
-import { extractDetailsSection } from '@/app/services/util';
+import { extractDetailsSection,extractRoute } from '@/app/services/util';
 
 
 const CustomerDetailLayout = ({themeConfig,utmConfig,page}) => {
   const pageData = extractDetailsSection(page,"customerDetails")
+  const pageRoute  = extractRoute(page,"customerDetails")
+
   const sectionHandler = () => {
     return ( pageData.components.map((data) => {
           // console.log(data,'data')
@@ -13,6 +15,7 @@ const CustomerDetailLayout = ({themeConfig,utmConfig,page}) => {
               themeConfig={themeConfig}
               utmConfig={utmConfig}
               page={data}
+              pageRoute = {pageRoute}
           />
         })
     )
