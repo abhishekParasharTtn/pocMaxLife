@@ -1,9 +1,10 @@
 import React from 'react'
 import Section from '../Section/Section';
-import { extractDetailsSection } from '@/app/services/util';
+import { extractDetailsSection,extractRoute } from '@/app/services/util';
 
 const PersonalDetailLayout = ({themeConfig,utmConfig,page}) => {
     const pageData = extractDetailsSection(page,"personalDetails")
+    const pageRoute  = extractRoute(page,"personalDetails")
 
 
     const sectionHandler = () => {
@@ -12,6 +13,7 @@ const PersonalDetailLayout = ({themeConfig,utmConfig,page}) => {
           themeConfig={themeConfig}
           utmConfig={utmConfig}
           page={data}
+          pageRoute={pageRoute}
           />
         })
     )

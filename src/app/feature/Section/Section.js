@@ -9,7 +9,7 @@ import ToggleSwitch from "@/app/feature/component/element/toggleSwitch/toggleswi
 import RadioButtonCircle from "@/app/feature/component/element/Circleradio/radiocircle";
 import Option from "@/app/feature/component/element/options/option";
 
-const Section = ({ themeConfig, utmConfig, page, sectionData }) => {
+const Section = ({ themeConfig, utmConfig, page, sectionData,pageRoute }) => {
   const {
     title,
     description,
@@ -48,6 +48,7 @@ const Section = ({ themeConfig, utmConfig, page, sectionData }) => {
           name={name}
           dataFilter={dataFilter}
           componentType={componentType}
+          pageRoute = {pageRoute}
       />
   ) : (
       <h2>{`Missing component for type: ${componentType}`}</h2>
