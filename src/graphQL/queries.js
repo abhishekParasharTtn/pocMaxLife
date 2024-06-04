@@ -180,10 +180,32 @@ export const queries = {
             }
             ${components.layout}
             sections {
+              __typename
               ... on ComponentContainerFormContainer {
-                name
-                form {
-                  ... on FormEntityResponse {
+                layout {
+                  id
+                  margin
+                  padding
+                  style
+                  layoutOrder {
+                    id
+                    componentName
+                    position
+                  }
+                  layout {
+                    data {
+                      attributes {
+                        name
+                        __typename
+                        type
+                      }
+                    }
+                  }
+                }
+                forms {
+                  id
+                  name
+                  form {
                     data {
                       attributes {
                         name
@@ -201,6 +223,14 @@ export const queries = {
                       }
                     }
                   }
+                }
+                button {
+                  id
+                  name
+                  type
+                  label
+                  link
+                  __typename
                 }
               }
             }
