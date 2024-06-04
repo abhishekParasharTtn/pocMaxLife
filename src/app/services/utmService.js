@@ -169,6 +169,26 @@ export const utmService = {
     const filterPageData = transformer.removeDatakeys(pageData);
     return this.transformPageData(filterPageData, utmDetails.utmCode);
   },
+  getPage: async function (pageName, utmCode) {
+    // const names = [];
+    // for (const key in utmDetails?.pages) {
+    //   if (utmDetails.pages.hasOwnProperty(key)) {
+    //     names.push(utmDetails.pages[key].name);
+    //   }
+    // }
+    // const pageData = await Promise.all(
+    //   names?.map((item) => {
+    //     let data = api.get(null, queries.getPages(item));
+    //     return data;
+    //   })
+    // );
+
+    let pageData = await api.get(null, queries.getPages(pageName));
+    // debugger
+    const filterPageData = transformer.removeDatakeys(pageData);
+    // debugger;
+    return this.transformPageData(filterPageData.pages, utmCode);
+  },
   getFormFieldConfigs: async function (utmDetails) {
     const fieldConfigsData = await utmService.getFormFieldConfigsData(
       utmDetails?.formFieldConfig?.name

@@ -140,9 +140,7 @@
               "title": "Policy Term",
               "description": null,
               "defaultValue": null,
-              "dataSourceName": {
-                "name": "dataPolicyTerms"
-              },
+              "dataSourceName": {},
               "componentType": "Dropdown",
               "style": null,
               "visibility": true,
@@ -157,9 +155,7 @@
               "title": "Mode of Payment",
               "description": null,
               "defaultValue": null,
-              "dataSourceName": {
-                "name": "dataPaymentModes"
-              },
+              "dataSourceName": {},
               "componentType": "Dropdown",
               "style": null,
               "visibility": true,
@@ -271,7 +267,7 @@
               "__typename": "ComponentUiOption",
               "title": "Nationality",
               "description": null,
-              "defaultValue": "indian",
+              "defaultValue": null,
               "dataSourceName": {
                 "name": "dataNationalities"
               },
