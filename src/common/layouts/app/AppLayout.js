@@ -8,7 +8,8 @@ import  Journey  from '@/app/feature/Journey/Journey';
 export const AppLayout = ({
     themeConfig,
     utmConfig,
-    page,pageType
+    page,pageType,
+    // route
 }) => {
 
   
@@ -25,7 +26,7 @@ export const AppLayout = ({
             utmConfig={utmConfig}
         >
             <DefaultMainLayout>
-                <Journey page={page} utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType} > </Journey>
+                <Journey utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType} > </Journey>
             </DefaultMainLayout>
         </Layout>
     ) : (
