@@ -196,6 +196,17 @@ export const utmService = {
         });
       });
     });
-    return formPagesData;
+    function removeDataFilter(data) {
+      for (const section of data) {
+        const form = section.sections[0].form;
+        for (const component of form.components) {
+          delete component.dataFilter;
+        }
+      }
+      return data;
+    }
+    const filteredPageData = removeDataFilter(formPagesData);
+    console.log(filteredPageData);
+    return filteredPageData;
   },
 };

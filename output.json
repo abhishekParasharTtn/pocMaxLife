@@ -66,12 +66,6 @@
               "label": "Gender",
               "placeholder": "Gender",
               "popUp": {},
-              "dataFilter": [
-                {
-                  "key": "name",
-                  "value": "male"
-                }
-              ],
               "name": "gender",
               "data": [
                 {
@@ -90,7 +84,7 @@
               "description": null,
               "defaultValue": null,
               "dataSourceName": {
-                "name": "dataProductName"
+                "name": "dataProductNames"
               },
               "componentType": "Dropdown",
               "style": null,
@@ -98,8 +92,21 @@
               "label": "Product Name",
               "placeholder": "Product Name",
               "popUp": {},
-              "dataFilter": [],
-              "name": "productName"
+              "name": "productName",
+              "data": [
+                {
+                  "name": "maxLifeSmartSecurePlusPlan",
+                  "marketingName": "Max Life Smart Secure Plus Plan",
+                  "code": "SSPP",
+                  "productId": "154"
+                },
+                {
+                  "name": "maxLifeSmartWealthAnnuityGuaranteedPensionPlan",
+                  "marketingName": "Max Life Smart Wealth Annuity Guaranteed Pension Plan",
+                  "code": "SWAGPP",
+                  "productId": "210"
+                }
+              ]
             },
             {
               "__typename": "ComponentUiOption",
@@ -115,7 +122,6 @@
               "label": null,
               "placeholder": "Premium Type",
               "popUp": {},
-              "dataFilter": [],
               "name": "premiumType"
             },
             {
@@ -132,8 +138,7 @@
               "label": "Premium Payment Term",
               "placeholder": "Premium Payment Term",
               "fieldName": {},
-              "popUp": {},
-              "dataFilter": []
+              "popUp": {}
             },
             {
               "__typename": "ComponentUiOption",
@@ -149,8 +154,7 @@
               "label": "Policy Term",
               "placeholder": "Policy Term",
               "fieldName": {},
-              "popUp": {},
-              "dataFilter": []
+              "popUp": {}
             },
             {
               "__typename": "ComponentUiOption",
@@ -166,8 +170,7 @@
               "label": "Mode of Payment",
               "placeholder": "Mode of Payment",
               "fieldName": {},
-              "popUp": {},
-              "dataFilter": []
+              "popUp": {}
             }
           ]
         }
@@ -211,16 +214,6 @@
               "label": null,
               "placeholder": null,
               "popUp": {},
-              "dataFilter": [
-                {
-                  "key": "name",
-                  "value": "indian"
-                },
-                {
-                  "key": "name",
-                  "value": "nri"
-                }
-              ],
               "name": "residentialStatus",
               "data": [
                 {
@@ -281,24 +274,6 @@
               "label": null,
               "placeholder": null,
               "popUp": {},
-              "dataFilter": [
-                {
-                  "key": "name",
-                  "value": "indian"
-                },
-                {
-                  "key": "name",
-                  "value": "nri"
-                },
-                {
-                  "key": "name",
-                  "value": "pioOci"
-                },
-                {
-                  "key": "name",
-                  "value": "foreignNational"
-                }
-              ],
               "name": "nationality",
               "data": [
                 {
@@ -396,7 +371,6 @@
               "dataSourceName": {
                 "name": "dataCountries"
               },
-              "dataFilter": [],
               "data": [
                 {
                   "name": "India",
