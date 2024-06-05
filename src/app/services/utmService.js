@@ -1,7 +1,7 @@
 import { transformer } from "@/utils/transformer";
 import { api } from "@/utils/api";
 import { queries } from "@/graphQL/queries";
-const fs = require("fs");
+//const fs = require("fs");
 
 export const utmService = {
   transformUtmDetails: function (utmDetails) {
