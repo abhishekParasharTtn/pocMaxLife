@@ -29,6 +29,29 @@ export const utmService = {
       return item;
     });
   },
+  applyDataFilter: function (payload) {
+    payload.forEach((item) => {
+      item.sections.forEach((section) => {
+        section.forms.forEach((form) => {
+          form.form.components.forEach((component) => {
+            const dataFilter = component.dataFilter || [];
+            if (dataFilter.length > 0) {
+              const filteredData = component.data.filter((dataItem) => {
+                return dataFilter.some(
+                  (filter) => dataItem[filter.key] === filter.value
+                );
+              });
+              component.data = filteredData;
+            } else {
+              // If dataFilter is empty, return all data values
+              component.data = component.data;
+            }
+          });
+        });
+      });
+    });
+    return payload;
+  },
   transforPage2: async function (data, utmCode) {
     const dataSourceNames = [];
 
@@ -115,7 +138,9 @@ export const utmService = {
       transformedPageData,
       this.transformOptions(optionsData)
     );
-    return pageDataWithOptions;
+    const pageDataWithDataFilterOptions =
+      this.applyDataFilter(pageDataWithOptions);
+    return pageDataWithDataFilterOptions;
   },
 
   transforPage: async function (data, utmCode) {

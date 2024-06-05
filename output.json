@@ -95,22 +95,6 @@
                       "icon": {
                         "data": null
                       }
-                    },
-                    {
-                      "name": "female",
-                      "label": "Female",
-                      "value": "F",
-                      "icon": {
-                        "data": null
-                      }
-                    },
-                    {
-                      "name": "transgender",
-                      "label": "Transgender",
-                      "value": "T",
-                      "icon": {
-                        "data": null
-                      }
                     }
                   ]
                 }
