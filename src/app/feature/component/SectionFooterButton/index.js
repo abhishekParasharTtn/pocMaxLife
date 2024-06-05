@@ -8,7 +8,7 @@ const ButtonGroup = ({
   button
 }) => {
 
-  const { name, link, label, type, __typename } = button;
+  // const { name, link, label, type, __typename } = button;
   const buttonComponentMapping = {
     ComponentUiButton: buttonComponent
   }
@@ -19,10 +19,7 @@ const ButtonGroup = ({
     <>
       {Button ?
         <Button
-          type={type}
-          label={label}
-          name={name}
-          pageRoute={link}
+          component={button}
         /> :
         null
       }

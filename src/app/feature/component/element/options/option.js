@@ -3,6 +3,7 @@ import RadioButtonCircle from "@/app/feature/component/element/Circleradio/radio
 import React from "react";
 import radio from "@/app/feature/component/element/Genderradio/radio";
 import ProductDetailsSection from "../Dropdowns/ProductDetails/ProductDetails";
+import Dropdown from "../Dropdowns/Dropdown";
 
 const Option = (props) => {
     const {
@@ -16,16 +17,18 @@ const Option = (props) => {
             style,
             error,
             visibility,
-            __typename
+            __typename,
+            data: options
         } = {}
     } = props;
     console.log(componentType, 'from option')
     const optionComponentMappings = {
         RadioGroup: RadioButtonCircle,
         ButtonGroup: radio,
-        Dropdown: ProductDetailsSection
+        Dropdown: Dropdown
     };
 
+    // console.log("===============>", props)
     const OptionComponent = optionComponentMappings[componentType];
     return OptionComponent ? (
         <OptionComponent
@@ -34,6 +37,7 @@ const Option = (props) => {
             visibility={visibility}
             name={name}
             dataFilter={dataFilter}
+            options={options}
             componentType={componentType}
         />
     ) : (

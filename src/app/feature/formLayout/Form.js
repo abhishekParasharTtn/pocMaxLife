@@ -3,7 +3,7 @@ import React from "react";
 import Component from "@/app/feature/component/Component";
 import PersonalFormComponents from "@/app/feature/formComponent/personalFormComponents";
 import dynamic from "next/dynamic";
-import ButtonGroup from "../component/ButtonGroup";
+import ButtonGroup from "../component/SectionFooterButton";
 
 
 const Form = ({ themeConfig, utmConfig, section }) => {
