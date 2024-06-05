@@ -1,16 +1,16 @@
 'use client'
-const RadioButtonField = (props) => {
-    const {fieldName, label, dataFilter, title} = props;
+const RadioButtonField = ({component, form, section, pages }) => {
+
 
     const onChange = (value) => {
 
     }
     return (
         <>
-            <div className="mb-3 col-span-2">{title}</div>
-            <div className=" flex border border-gray-300 rounded-md overflow-hidden mb-8">
+            {/*<div className="mb-3 col-span-2">{title}</div>*/}
+                 <div className=" flex border border-gray-300 rounded-md overflow-hidden mb-8">
 
-                {dataFilter.map((option, index) => (
+                {component?.data?.map((option, index) => (
                     <label
                         key={option.key}
                         className={`gender-option flex-1 text-center py-2 cursor-pointer ${

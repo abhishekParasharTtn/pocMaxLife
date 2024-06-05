@@ -1,11 +1,9 @@
 import Section from "../Section/Section";
 import dynamic from 'next/dynamic';
 const Pages = ({
-
     themeConfig,
     utmConfig,
-    page,
-    pageType,
+    pages,
   }) => {
 
   const CustomerDetailLayout = dynamic(() =>
@@ -14,19 +12,19 @@ const Pages = ({
   const PersonalDetailLayout = dynamic(() =>
       import('../Layout/PersonalDetailLayout')
   );
-   
+
     const layoutMappings = {
-      "customer-details":CustomerDetailLayout,
-      "personal-details":PersonalDetailLayout
+        CustomerDetailsPageLayout:CustomerDetailLayout,
+        PersonalDetailsPageLayout:PersonalDetailLayout
   };
-  const Layout = layoutMappings[pageType] || null;
- 
+  const Layout = layoutMappings[pages?.[0]?.layout?.layout?.name] || null;
+    console.log(Layout)
+
   return Layout ? (
     <Layout
     themeConfig = {themeConfig}
     utmConfig = {utmConfig}
-    page ={page}
-    
+    pages ={pages}
     />
 ) : (
     <h2>Page Layout is not defined...</h2>
