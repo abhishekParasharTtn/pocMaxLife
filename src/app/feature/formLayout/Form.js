@@ -20,7 +20,7 @@ const Form = ({ themeConfig, utmConfig, section }) => {
 
 
   return FormMapping ? (
-    <form>
+    <form className={'col-span-2'}>
       <FormMapping
         themeConfig={themeConfig}
         utmConfig={utmConfig}

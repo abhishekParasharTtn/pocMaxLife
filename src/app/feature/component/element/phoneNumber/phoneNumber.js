@@ -21,6 +21,7 @@ const PhoneCodeDropdown = ({label,name}) => {
     }, [searchTerm]);
 
     return (
+        <div className="grid grid-cols-2 col-span-1">
         <div className='col-span-1'>
         <div className=' flex items-baseline'>
             <select className="phoneCodeSelect bg-default">
@@ -44,6 +45,7 @@ const PhoneCodeDropdown = ({label,name}) => {
             </div>
         </div>
     </div>
+        </div>
     );
 };
 
