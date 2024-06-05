@@ -1,6 +1,8 @@
 import { transformer } from "@/utils/transformer";
 import { api } from "@/utils/api";
 import { queries } from "@/graphQL/queries";
+const fs = require("fs");
+
 export const utmService = {
   transformUtmDetails: function (utmDetails) {
     return utmDetails?.[0];
@@ -14,6 +16,108 @@ export const utmService = {
       );
     }
   },
+  transformOptions: function (options) {
+    return options.map((item) => {
+      if (item.data) {
+        return {
+          dataSourceName: item.dataSourceName,
+          data: item.data.map((dataItem) => ({
+            ...dataItem.attributes,
+          })),
+        };
+      }
+      return item;
+    });
+  },
+  transforPage2: async function (data, utmCode) {
+    const dataSourceNames = [];
+
+    function camelToHyphen(camelCase) {
+      return {
+        url: camelCase.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
+        name: camelCase,
+      };
+    }
+
+    function transform(obj) {
+      if (Array.isArray(obj)) {
+        return obj
+          .map((item) => transform(item))
+          .filter((item) => item !== null);
+      } else if (obj && typeof obj === "object") {
+        if (obj.visibility === false) {
+          return null;
+        }
+        const newObj = {};
+        for (const key in obj) {
+          if (key === "fieldName" && obj[key].name) {
+            newObj.name = obj[key].name;
+          } else if (key === "dataSourceName" && obj[key].name) {
+            const hyphenatedName = camelToHyphen(obj[key].name);
+            dataSourceNames.push(hyphenatedName);
+            newObj[key] = obj[key].name;
+          } else if (key === "next" && obj[key].url) {
+            newObj[key] = obj[key].url;
+          } else if (key === "previous" && obj[key].url) {
+            newObj[key] = obj[key].url;
+          } else {
+            newObj[key] = transform(obj[key]);
+          }
+          // Add utmCode after the slug
+          if (key === "slug") {
+            newObj[key] = obj[key];
+            newObj["utmCode"] = utmCode;
+          }
+        }
+        return newObj;
+      }
+      return obj;
+    }
+
+    const transformedPageData = transform(data);
+    const optionsData =
+      dataSourceNames.length !== 0
+        ? await Promise.all(
+            dataSourceNames?.map(async (item) => {
+              const response = await api.get(`/api/${item.url}?populate=*`);
+              console.log(response);
+              return {
+                dataSourceName: item?.name,
+                data: response?.data,
+              };
+            })
+          )
+        : [];
+
+    function appendOptionsData(pageData, optionsData) {
+      const optionsDataMap = optionsData.reduce((acc, option) => {
+        acc[option.dataSourceName] = option.data;
+        return acc;
+      }, {});
+
+      pageData.forEach((page) => {
+        page.sections.forEach((section) => {
+          section.forms.forEach((form) => {
+            form.form.components.forEach((component) => {
+              if (
+                component.dataSourceName &&
+                optionsDataMap[component.dataSourceName]
+              ) {
+                component.data = optionsDataMap[component.dataSourceName];
+              }
+            });
+          });
+        });
+      });
+      return pageData;
+    }
+    const pageDataWithOptions = appendOptionsData(
+      transformedPageData,
+      this.transformOptions(optionsData)
+    );
+    return pageDataWithOptions;
+  },
+
   transforPage: async function (data, utmCode) {
     console.log(data, "::hello");
     const transformData = [];
@@ -311,7 +415,7 @@ export const utmService = {
     console.log(pageData, "::page");
     const filterPageData = transformer.removeDatakeys(pageData);
     console.log(filterPageData, "::filter");
-    return this.transforPage(filterPageData.pages, utmDetails.utmCode);
+    return this.transforPage2(filterPageData.pages, utmDetails.utmCode);
   },
   getPages: async function (utmDetails) {
     console.log(utmDetails, "::utmDetails");
