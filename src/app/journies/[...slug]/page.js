@@ -6,27 +6,24 @@ const fs = require("fs");
 
 async function fetchData(params) {
   const { slug } = params;
-  console.log(slug, "::slug");
   const utmDetails = await utmService.getUtmDetails(slug);
-  console.log(utmDetails, "::test");
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  console.log(themeConfig);
-  const pages = await utmService.getpage(utmDetails, slug);
-  console.log(pages);
+  const pagesData = await utmService.getpage(utmDetails, slug);
 
   //const pagesData = await utmService.getPages(utmDetails);
-  //const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
-  // const pages = utmService.getFormDataWithUpdatedDefaultValues(
-  //   pagesData,
-  //   fieldConfigData
-  // );
-  fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
-    if (err) {
-      console.error("Error writing file", err);
-    } else {
-      console.log("Successfully wrote file");
-    }
-  });
+  const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
+  const pages = utmService.getFormDataWithUpdatedDefaultValues(
+    pagesData,
+    fieldConfigData
+  );
+
+  // fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
+  //   if (err) {
+  //     console.error("Error writing file", err);
+  //   } else {
+  //     console.log("Successfully wrote file");
+  //   }
+  // });
   return (
     <h1>hello</h1>
     // <AppLayout
