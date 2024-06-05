@@ -479,22 +479,23 @@ export const utmService = {
     const formFieldConfigs = await api.get(null, query);
     return transformer.removeDatakeys(formFieldConfigs);
   },
-  getFormDataWithUpdatedDefaultValues: function (formPages, FormFieldConfigs) {
-    const formPagesData = JSON.parse(JSON.stringify(formPages));
-    formPagesData?.forEach((section) => {
-      section?.sections?.forEach((subSection) => {
-        subSection?.form?.components?.forEach((component) => {
-          FormFieldConfigs?.forEach((config) => {
-            if (
-              component?.name === config?.fieldName?.name &&
-              config?.defaultValue !== null
-            ) {
-              component.defaultValue = config?.defaultValue;
+  getFormDataWithUpdatedDefaultValues: function (pageData, formFieldConfigs) {
+    pageData.forEach((page) => {
+      page.sections.forEach((section) => {
+        section.forms.forEach((form) => {
+          form.form.components.forEach((component) => {
+            const matchedOption = formFieldConfigs.find(
+              (option) =>
+                option.fieldName.name === component.name &&
+                option.defaultValue !== null
+            );
+            if (matchedOption) {
+              component.defaultValue = matchedOption.defaultValue;
             }
           });
         });
       });
     });
-    return formPagesData;
+    return pageData;
   },
 };
