@@ -13,6 +13,7 @@ async function fetchData(params) {
   console.log(themeConfig);
   const pages = await utmService.getpage(utmDetails, slug);
   console.log(pages);
+
   //const pagesData = await utmService.getPages(utmDetails);
   //const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
   // const pages = utmService.getFormDataWithUpdatedDefaultValues(
