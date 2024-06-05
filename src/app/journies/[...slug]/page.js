@@ -2,6 +2,7 @@ import { api } from "@/utils/api";
 import { utmService } from "../../services/utmService";
 import { AppLayout } from "../../../common/layouts/app/AppLayout";
 import { use } from "react";
+import { productPageService } from "@/app/services/productPageService";
 const fs = require("fs");
 
 async function fetchData(params) {
@@ -9,7 +10,6 @@ async function fetchData(params) {
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
   const pagesData = await utmService.getpage(utmDetails, slug);
-
   //const pagesData = await utmService.getPages(utmDetails);
   const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
   const pages = utmService.getFormDataWithUpdatedDefaultValues(
@@ -17,7 +17,7 @@ async function fetchData(params) {
     fieldConfigData
   );
 
-  // fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
+  // fs.writeFile("rulesData.json", JSON.stringify(rulesData, null, 2), (err) => {
   //   if (err) {
   //     console.error("Error writing file", err);
   //   } else {
@@ -25,15 +25,14 @@ async function fetchData(params) {
   //   }
   // });
   return (
-    <h1>hello</h1>
-    // <AppLayout
-    //   themeConfig={themeConfig}
-    //   // showNavigation={page?.journeyInfo?.config?.showNavigation}
-    //   // groupType={page?.route?.meta?.groupType}
-    //   pageType={slug[1]}
-    //   page={pages}
-    //   utmConfig={utmDetails}
-    // />
+    <AppLayout
+      themeConfig={themeConfig}
+      // showNavigation={page?.journeyInfo?.config?.showNavigation}
+      // groupType={page?.route?.meta?.groupType}
+      pageType={slug[1]}
+      page={pages}
+      utmConfig={utmDetails}
+    />
   );
 }
 

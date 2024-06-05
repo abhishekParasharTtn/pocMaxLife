@@ -1,18 +1,23 @@
+"use client";
+import { useEffect } from "react";
 import Pages from "../Pages/Pages";
-const Journey = ({
+import { productPageService } from "@/app/services/productPageService";
 
-  themeConfig,
-  utmConfig,
-  page,
-  pageType
-}) => {
-
-
+const Journey = ({ themeConfig, utmConfig, page, pageType }) => {
+  useEffect(() => {
+    const rulesData = productPageService.productFormRules();
+    console.log(rulesData);
+  }, []);
   return (
     <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center">
-      <Pages page={page} utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType}></Pages>
+      <Pages
+        page={page}
+        utmConfig={utmConfig}
+        themeConfig={themeConfig}
+        pageType={pageType}
+      ></Pages>
     </div>
-  )
-}
+  );
+};
 
-export default Journey
+export default Journey;
