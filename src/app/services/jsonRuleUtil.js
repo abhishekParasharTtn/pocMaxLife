@@ -146,4 +146,4 @@ const processRulesWithRuleEngine = async (rules, facts, ruleName) => {
   return Promise.resolve(result?.filter((res) => res?.finalResult));
 };
 
-export default { buildRuleCriteriaAndExecuteAll, processRulesWithRuleEngine };
+export  { buildRuleCriteriaAndExecuteAll, processRulesWithRuleEngine };
