@@ -52,7 +52,7 @@ export const utmService = {
     });
     return payload;
   },
-  transforPage2: async function (data, utmCode) {
+  transforPageData: async function (data, utmCode) {
     const dataSourceNames = [];
 
     function camelToHyphen(camelCase) {
@@ -103,7 +103,6 @@ export const utmService = {
         ? await Promise.all(
             dataSourceNames?.map(async (item) => {
               const response = await api.get(`/api/${item.url}?populate=*`);
-              console.log(response);
               return {
                 dataSourceName: item?.name,
                 data: response?.data,
@@ -142,147 +141,10 @@ export const utmService = {
       this.applyDataFilter(pageDataWithOptions);
     return pageDataWithDataFilterOptions;
   },
-
-  transforPage: async function (data, utmCode) {
-    console.log(data, "::hello");
-    const transformData = [];
-    const dataStore = [];
-    data?.map((_page) => {
-      // return pages.pages.map((_page) => {
-      const { sections = {}, layout = {} } = _page;
-      const {
-        layout: { name },
-        ...layoutData
-      } = layout;
-      const filteredSections = sections.map((section) => {
-        return section.forms.map((form) => {
-          console.log(form);
-          const filteredComponents = form.form.components.map((component) => {
-            console.log(component);
-            if (component.fieldName && component.fieldName.name) {
-              console.log(component.fieldName);
-              const { fieldName, ...rest } = component;
-              return {
-                ...rest,
-                name: fieldName.name,
-              };
-            }
-            return component;
-          });
-
-          // form.form.components.filter(
-          //   (component) => component.visibility !== false
-          // );
-          console.log(filteredComponents, "::haha");
-          // .map((component) => {
-          //   if (component.fieldName && component.fieldName.name) {
-          //     const { fieldName, ...rest } = component;
-          //     return {
-          //       ...rest,
-          //       name: fieldName.name,
-          //     };
-          //   }
-          //   return component;
-          // });
-          // .map((component) => {
-          //   if (component?.dataSourceName?.name) {
-          //     const modifieUrl = component?.dataSourceName?.name
-          //       ?.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)
-          //       .toLowerCase();
-          //     dataStore.push({
-          //       url: modifieUrl,
-          //       dataSourceName: component?.dataSourceName?.name,
-          //     });
-          //   }
-          //   return component;
-          // });
-          return {
-            ...section,
-            form: {
-              ...section.form,
-              components: filteredComponents,
-            },
-          };
-        });
-      });
-      transformData.push({
-        name: _page?.name,
-        utmCode,
-        route: {
-          current: _page?.slug,
-          previous: _page?.next?.url,
-          next: _page?.previous?.url,
-        },
-        layout: {
-          name,
-          ...layoutData,
-        },
-        sections: filteredSections,
-      });
-    });
-    const pageData =
-      dataStore.length !== 0
-        ? await Promise.all(
-            dataStore?.map(async (item) => {
-              const response = await api.get(`/api/${item.url}?populate=*`);
-              return {
-                data: response?.data,
-                dataSourceName: item?.dataSourceName,
-              };
-            })
-          )
-        : [];
-    // const mergeDataSources = (arr1, arr2) => {
-    //   const dataSourceMap = new Map();
-    //   // Create a map of dataSourceName to data from array1
-    //   arr1.forEach((item) => {
-    //     if (item.data) {
-    //       const transformedData = item.data.map((dataItem) => {
-    //         const { id, attributes, ...rest } = dataItem;
-    //         return { ...rest, ...attributes };
-    //       });
-    //       dataSourceMap.set(item.dataSourceName, transformedData);
-    //     }
-    //   });
-    //   // Function to update the component with the corresponding data
-    //   const updateComponents = (components) => {
-    //     components.forEach((component) => {
-    //       const dataSourceName = component.dataSourceName?.name;
-    //       if (dataSourceName && dataSourceMap.has(dataSourceName)) {
-    //         let data = dataSourceMap.get(dataSourceName);
-    //         // Apply dataFilter if present
-    //         if (component.dataFilter && component.dataFilter.length > 0) {
-    //           data = data.filter((item) => {
-    //             return component.dataFilter.some((filter) => {
-    //               return item[filter.key] === filter.value;
-    //             });
-    //           });
-    //         }
-    //         component.data = data;
-    //       }
-    //     });
-    //   };
-    //   // Iterate through array2 and update components with data from array1
-    //   arr2.forEach((section) => {
-    //     if (section.sections) {
-    //       section.sections.forEach((subSection) => {
-    //         if (subSection.form && subSection.form.components) {
-    //           updateComponents(subSection.form.components);
-    //         }
-    //       });
-    //     }
-    //   });
-    //   return arr2;
-    // };
-    // const updatedTransformData = mergeDataSources(pageData, transformData);
-    return transformData;
-  },
   transformPageData: async function (data, utmCode) {
-    console.log(data);
     const transformData = [];
     const dataStore = [];
 
-    console.log(data);
     data?.map((pages) => {
       return pages.pages.map((_page) => {
         const { sections = {}, layout = {} } = _page;
@@ -291,10 +153,7 @@ export const utmService = {
           ...layoutData
         } = layout;
 
-        console.log(sections);
         const filteredSections = sections.map((section) => {
-          console.log(section);
-
           // const filterComponents = section.forms.filter(
           //   (component) => component.visibility !== false
           // );
@@ -435,16 +294,11 @@ export const utmService = {
   },
   getpage: async function (utmDetails, slug) {
     const page = utmDetails.pages.find((route) => route.slug === slug[1]);
-    console.log(page, "::utmCode");
     let pageData = await api.get(null, queries.getPages(page.name));
-    console.log(pageData, "::page");
     const filterPageData = transformer.removeDatakeys(pageData);
-    console.log(filterPageData, "::filter");
-    return this.transforPage2(filterPageData.pages, utmDetails.utmCode);
+    return this.transforPageData(filterPageData.pages, utmDetails.utmCode);
   },
   getPages: async function (utmDetails) {
-    console.log(utmDetails, "::utmDetails");
-
     const names = [];
     for (const key in utmDetails?.pages) {
       if (utmDetails.pages.hasOwnProperty(key)) {

@@ -6,11 +6,8 @@ const fs = require("fs");
 
 async function fetchData(params) {
   const { slug } = params;
-  console.log(slug, "::slug");
   const utmDetails = await utmService.getUtmDetails(slug);
-  console.log(utmDetails, "::test");
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  console.log(themeConfig);
   const pagesData = await utmService.getpage(utmDetails, slug);
 
   //const pagesData = await utmService.getPages(utmDetails);
