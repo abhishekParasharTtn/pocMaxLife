@@ -2,30 +2,29 @@ import React from "react";
 import FieldComponent from "@/app/feature/fieldComponents/fieldComponent";
 
 const Component = ({
-  themeConfig,
-  utmConfig,
-  pages,
-  section,
-  form
+    themeConfig,
+    utmConfig,
+    //   pages,
+    //   section,
+    form = {}
 }) => {
-
-    const componentHandler = () => {
-        return ( form?.form?.components.map((component) => {
-                return <FieldComponent
-                    themeConfig={themeConfig}
-                    utmConfig={utmConfig}
-                    section={section}
-                    pages={pages}
-                    form={form}
-                    component={component}
-                />
-            })
-        )
-    }
-
-    return(
+    const { form: { components } = {} } = form;
+    return (
         <div>
-            {componentHandler()}
+            {
+                components.length > 0 &&
+                components.map((component) => {
+                    return <FieldComponent
+                        key={component?.name}
+                        // themeConfig={themeConfig}
+                        // utmConfig={utmConfig}
+                        // section={section}
+                        // pages={pages}
+                        // form={form}
+                        component={component}
+                    />
+                })
+            }
         </div>
     )
 }

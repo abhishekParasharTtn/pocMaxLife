@@ -1,17 +1,38 @@
 'use client'
-import Pages from "../Pages/Pages";
-import {utmService} from "@/app/services/utmService";
-import {useEffect, useState} from "react";
+import Page from "../Pages/Pages";
+import { utmService } from "@/app/services/utmService";
+import { useEffect, useState } from "react";
 const Journey = ({
   themeConfig,
   utmConfig,
-  pageType,
-  pages
+  slug
+  // pageType,
+  // pages
 }) => {
+
+  const [page, setPage] = useState(null);
+
+  const getPageData = async () => {
+    const pageData = await utmService.getpage(utmConfig, slug);
+    setPage(pageData?.[0]);
+  }
+
+  useEffect(() => {
+    getPageData();
+  }, [])
+
+
 
   return (
     <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center">
-      <Pages utmConfig={utmConfig} themeConfig={themeConfig} pages={pages} ></Pages>
+      {
+        page &&
+        <Page
+          utmConfig={utmConfig}
+          themeConfig={themeConfig}
+          page={page}
+        />
+      }
     </div>
   )
 }

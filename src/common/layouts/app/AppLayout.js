@@ -1,7 +1,7 @@
 import DefaultAppLayout from './DefaultAppLayout';
 import AxisAppLayout from './AxisAppLayout';
 import DefaultMainLayout from './DefaultMainLayout';
-import  Journey  from '@/app/feature/Journey/Journey';
+import Journey from '@/app/feature/Journey/Journey';
 
 
 
@@ -9,23 +9,29 @@ export const AppLayout = ({
     themeConfig,
     utmConfig,
     pageType,
-    pages
+    pages,
+    slug
 }) => {
-    console.log(pages,'from appLayout')
+    console.log(pages, 'from appLayout')
     const layoutMappings = {
         default: DefaultAppLayout,
         axis: AxisAppLayout,
     };
- 
     const Layout = layoutMappings[utmConfig?.themeConfig?.name] || DefaultAppLayout;
-     
+
     return Layout ? (
         <Layout
             themeConfig={themeConfig}
             utmConfig={utmConfig}
         >
             <DefaultMainLayout>
-                <Journey utmConfig={utmConfig} themeConfig={themeConfig} pageType={pageType} pages={pages}> </Journey>
+                <Journey
+                    utmConfig={utmConfig}
+                    themeConfig={themeConfig}
+                    pageType={pageType}
+                    pages={pages}
+                    slug={slug}
+                />
             </DefaultMainLayout>
         </Layout>
     ) : (

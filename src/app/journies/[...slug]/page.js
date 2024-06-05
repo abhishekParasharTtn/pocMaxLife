@@ -10,7 +10,7 @@ async function fetchData(params) {
   const utmDetails = await utmService.getUtmDetails(slug);
 
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  const pagesData = await utmService.getpage(utmDetails, slug);
+  // const pagesData = await utmService.getpage(utmDetails, slug);
 
   //const pagesData = await utmService.getPages(utmDetails);
   //const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
@@ -18,22 +18,23 @@ async function fetchData(params) {
   //   pagesData,
   //   fieldConfigData
   // );
-  fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
-    if (err) {
-      console.error("Error writing file", err);
-    } else {
-      console.log("Successfully wrote file");
-    }
-  });
+  // fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
+  //   if (err) {
+  //     console.error("Error writing file", err);
+  //   } else {
+  //     console.log("Successfully wrote file");
+  //   }
+  // });
   return (
     // <h1>hello</h1>
     <AppLayout
       themeConfig={themeConfig}
-      // showNavigation={page?.journeyInfo?.config?.showNavigation}
-      // groupType={page?.route?.meta?.groupType}
-      pageType={slug[1]}
-      pages={pages}
+      // pageType={slug[1]}
       utmConfig={utmDetails}
+      slug={slug}
+    // showNavigation={page?.journeyInfo?.config?.showNavigation}
+    // groupType={page?.route?.meta?.groupType}
+    // pages={pages}
     />
   );
 }

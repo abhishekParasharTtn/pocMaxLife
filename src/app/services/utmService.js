@@ -1,7 +1,6 @@
 import { transformer } from "@/utils/transformer";
 import { api } from "@/utils/api";
 import { queries } from "@/graphQL/queries";
-const fs = require("fs");
 
 export const utmService = {
   transformUtmDetails: function (utmDetails) {
@@ -311,7 +310,7 @@ export const utmService = {
         return data;
       })
     );
-    console.log(pageData, "::page");
+    // console.log(pageData, "::page");
     const filterPageData = transformer.removeDatakeys(pageData);
     console.log(filterPageData, "::filter");
     //return filterPageData;
