@@ -26,7 +26,7 @@ const PersonalDetailLayout = ({ themeConfig, utmConfig, page }) => {
 
   return (
     <div className='bg-default px-8 pt-6 w-2/4'>
-      <div className={'grid grid-cols-2 gap-4'}> {sectionHandler()}</div>
+      <div className={''}> {sectionHandler()}</div>
     </div>
 
   )

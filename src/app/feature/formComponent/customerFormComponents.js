@@ -20,6 +20,6 @@ const CustomerFormComponents = ({ themeConfig, utmConfig, section, pages}) => {
             <div>{formsHandler()}</div>
         </div>
     );
-};
+}
 
 export default CustomerFormComponents;

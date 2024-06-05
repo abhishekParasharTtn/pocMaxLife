@@ -10,7 +10,7 @@ const Component = ({
 }) => {
     const { form: { components } = {} } = form;
     return (
-        <div>
+        <div className="grid grid-cols-2 gap-7">
             {
                 components.length > 0 &&
                 components.map((component) => {
