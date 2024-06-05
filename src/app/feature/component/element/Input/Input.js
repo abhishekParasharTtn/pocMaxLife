@@ -1,4 +1,9 @@
-const Input = ({ fieldName, label, placeholder }) => {
+const Input = ({ component }) => {
+    const {
+        fieldName, 
+        label, 
+        placeholder
+    } = component;
     return (
         <div className="relative mb-9 col-span-1 mr-5 ">
             <input

@@ -1,6 +1,9 @@
 import RadioButtonField from "@/app/feature/component/element/Genderradio/radio";
 import DateInput from "@/app/feature/component/element/DateInput/DateInput";
 import PhoneNumber from "@/app/feature/component/element/phoneNumber/phoneNumber";
+import Option from "../component/element/options/option";
+import Input from "../component/element/Input/Input";
+import Button from "../component/element/Button/Button";
 
 const FieldComponent = ({
     // section,
@@ -11,11 +14,11 @@ const FieldComponent = ({
 
     // console.log(component, 'field component')
     const ComponentMappings = {
-        ComponentUiOption: RadioButtonField,
-        // ComponentFormInput: Input,
+        ComponentUiOption: Option,
+        ComponentFormInput: Input,
         ComponentFormDobSingleInput: DateInput,
         ComponentFormPhoneNumber: PhoneNumber,
-        // ComponentUiButton: Button,
+        ComponentUiButton: Button,
     };
     const FieldComponent = ComponentMappings[component?.__typename];
     return FieldComponent ? (

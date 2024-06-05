@@ -4,23 +4,25 @@ import React from "react";
 import radio from "@/app/feature/component/element/Genderradio/radio";
 import ProductDetailsSection from "../Dropdowns/ProductDetails/ProductDetails";
 
-const Option = (
-    {title,
-    description,
-    componentType,
-    dataFilter,
-    name,
-    value,
-    label,
-    style,
-    error,
-    visibility,
-    __typename
-}) => {
-    console.log(componentType,'from option')
+const Option = (props) => {
+    const {
+        component: { title,
+            description,
+            componentType,
+            dataFilter,
+            name,
+            value,
+            label,
+            style,
+            error,
+            visibility,
+            __typename
+        } = {}
+    } = props;
+    console.log(componentType, 'from option')
     const optionComponentMappings = {
-        RadioGroup : RadioButtonCircle,
-        ButtonGroup:radio,
+        RadioGroup: RadioButtonCircle,
+        ButtonGroup: radio,
         Dropdown: ProductDetailsSection
     };
 
