@@ -4,10 +4,10 @@ import Component from "@/app/feature/component/Component";
 
 const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages }) => {
   return (
-    <>
+    <div className="">
       {section?.forms?.length > 0 &&
         section?.forms.map((form) => {
-          return <div className="form-container">
+          return <div className="form-container mb-6">
             <Component
               themeConfig={themeConfig}
               utmConfig={utmConfig}
@@ -18,7 +18,7 @@ const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages }) => {
           </div>
         })
       }
-    </>
+    </div>
   );
 }
 

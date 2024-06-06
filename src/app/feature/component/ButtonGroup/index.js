@@ -4,22 +4,21 @@ const buttonComponent = dynamic(() =>
 );
 
 
-const ButtonGroup = ({
-  button
-}) => {
+const ButtonGroup = ({ button, component }) => {
 
-  // const { name, link, label, type, __typename } = button;
+  const {  __typename } = (button || component);
+
   const buttonComponentMapping = {
     ComponentUiButton: buttonComponent
   }
 
-  console.log(button, "::button")
-  const Button = buttonComponentMapping[button?.__typename];
+  const Button = buttonComponentMapping[button?.__typename || component?.__typename];
   return (
     <>
       {Button ?
         <Button
-          component={button}
+         button={button}
+         component={component}
         /> :
         null
       }

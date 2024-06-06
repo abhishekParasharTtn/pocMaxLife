@@ -18,17 +18,15 @@ const Option = (props) => {
             error,
             visibility,
             __typename,
-            data: options
+            data,
         } = {}
     } = props;
-    console.log(componentType, 'from option')
     const optionComponentMappings = {
         RadioGroup: RadioButtonCircle,
         ButtonGroup: radio,
         Dropdown: Dropdown
     };
 
-    // console.log("===============>", props)
     const OptionComponent = optionComponentMappings[componentType];
     return OptionComponent ? (
         <OptionComponent
@@ -37,8 +35,8 @@ const Option = (props) => {
             visibility={visibility}
             name={name}
             dataFilter={dataFilter}
-            options={options}
             componentType={componentType}
+            data={data}
         />
     ) : (
         <h2>{`Missing component for type: ${componentType}`}</h2>

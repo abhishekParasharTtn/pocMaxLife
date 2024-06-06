@@ -13,7 +13,7 @@ const DateInput = () => {
     };
 
     return (
-        <div className="relative flex items-center">
+        <div className="relative flex items-center col-span-1">
             <input
                 type="Date"
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
