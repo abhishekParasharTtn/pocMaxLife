@@ -1,9 +1,6 @@
-import Section from "@/app/feature/Section/Section";
 import React from "react";
-import Component from "@/app/feature/component/Component";
-import PersonalFormComponents from "@/app/feature/formComponent/personalFormComponents";
 import dynamic from "next/dynamic";
-import ButtonGroup from "../component/SectionFooterButton";
+import ButtonGroup from "../component/ButtonGroup";
 
 
 const Form = ({ themeConfig, utmConfig, section }) => {

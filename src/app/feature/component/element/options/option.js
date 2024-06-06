@@ -18,7 +18,7 @@ const Option = (props) => {
             error,
             visibility,
             __typename,
-            data:options,
+            data,
         } = {}
     } = props;
     const optionComponentMappings = {
@@ -35,7 +35,6 @@ const Option = (props) => {
             visibility={visibility}
             name={name}
             dataFilter={dataFilter}
-            options={options}
             componentType={componentType}
             data={data}
         />
