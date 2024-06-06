@@ -19,6 +19,7 @@ const Option = (props) => {
             visibility,
             __typename,
             data,
+            defaultValue
         } = {}
     } = props;
     const optionComponentMappings = {
@@ -37,6 +38,7 @@ const Option = (props) => {
             dataFilter={dataFilter}
             componentType={componentType}
             data={data}
+            defaultValue={defaultValue}
         />
     ) : (
         <h2>{`Missing component for type: ${componentType}`}</h2>
