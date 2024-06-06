@@ -11,7 +11,7 @@ const Dropdown = ({productData, setProductData, name, title, label, options, dis
                 return premiumType;
             }
         });
-        setProductData({...productData, premiumType: premiumType[0]});
+        // setProductData({...productData, premiumType: premiumType[0]});
     }
 
     return (
