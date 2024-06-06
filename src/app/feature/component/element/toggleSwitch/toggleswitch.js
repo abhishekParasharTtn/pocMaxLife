@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 
-const ToggleSwitch = ({ initialYes = false, label }) => {
+const ToggleSwitch = ({component:{ initialYes = false, label }}) => {
     const [isYes, setIsYes] = useState(initialYes);
 
     const handleToggle = (value) => {
