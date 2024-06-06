@@ -5,12 +5,11 @@ import Input from "../component/element/Input/Input";
 import buttonGroup from "@/app/feature/component/ButtonGroup";
 
 const FieldComponent = ({
-    // section,
-    // pages,
     component,
-    // form
-}) => {
+    formName
 
+}) => {
+    
     const ComponentMappings = {
         ComponentUiOption: Option,
         ComponentFormInput: Input,
@@ -22,9 +21,8 @@ const FieldComponent = ({
     return FieldComponent ? (
         <FieldComponent
             component={component}
-        // form={form}
-        // section={section}
-        // pages={pages}
+            formName={formName}
+            
         />
     ) : (
         <div>

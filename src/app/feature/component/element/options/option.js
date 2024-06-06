@@ -19,15 +19,15 @@ const Option = (props) => {
             visibility,
             __typename,
             data,
-            defaultValue
-        } = {}
+            defaultValue,
+            
+        } = {},formName
     } = props;
     const optionComponentMappings = {
         RadioGroup: RadioButtonCircle,
         ButtonGroup: radio,
         Dropdown: Dropdown
     };
-
     const OptionComponent = optionComponentMappings[componentType];
     return OptionComponent ? (
         <OptionComponent
@@ -40,6 +40,7 @@ const Option = (props) => {
             data={data}
             defaultValue={defaultValue}
             options={data}
+            formName={formName}
         />
     ) : (
         <h2>{`Missing component for type: ${componentType}`}</h2>
