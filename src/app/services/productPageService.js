@@ -7,15 +7,13 @@ export const productPageService = {
     const productFormData = [
       {
         id: "1",
+        relationBetweenAnyAll: "all",
+        relationWithNextRule: "all",
         any: [],
         alls: [
           {
             fact: {
-              data: {
-                attributes: {
-                  name: "firstName",
-                },
-              },
+              name: "firstName",
             },
             operator: "equal",
             customValue: "true",
@@ -24,11 +22,7 @@ export const productPageService = {
           },
           {
             fact: {
-              data: {
-                attributes: {
-                  name: "lastName",
-                },
-              },
+              name: "lastName",
             },
             operator: "equal",
             customValue: "true",
@@ -37,11 +31,7 @@ export const productPageService = {
           },
           {
             fact: {
-              data: {
-                attributes: {
-                  name: "dob",
-                },
-              },
+              name: "dob",
             },
             operator: "equal",
             customValue: "true",
@@ -50,11 +40,7 @@ export const productPageService = {
           },
           {
             fact: {
-              data: {
-                attributes: {
-                  name: "gender",
-                },
-              },
+              name: "gender",
             },
             operator: "equal",
             customValue: "true",
@@ -62,19 +48,34 @@ export const productPageService = {
             values: [],
           },
         ],
-        roleOutput: {
-          value: null,
-          isVisible: true,
-          isDisable: false,
-          key: null,
-        },
+        ruleOutput: [
+          {
+            id: 103,
+            key: "disable",
+            value: "false",
+          },
+        ],
       },
     ];
+
+    const fact = {
+      firstName: "true",
+      lastName: "true",
+      dob: "true",
+      gender: "false",
+    };
+
+    const productDetailsVisibilityRule = await buildRuleCriteriaAndExecuteAll(
+      productFormData || [],
+      fact,
+      "productDetails"
+    );
+    console.log("rulesOutput", productDetailsVisibilityRule);
 
     const dataRules = [
       {
         id: 239,
-        relationBetweenAnyAll: "any",
+        relationBetweenAnyAll: "all",
         relationWithNextRule: "all",
         any: [],
         alls: [
@@ -131,75 +132,21 @@ export const productPageService = {
           },
         ],
       },
-      {
-        id: 254,
-        relationBetweenAnyAll: "any",
-        relationWithNextRule: "all",
-        any: [],
-        alls: [
-          {
-            id: 907,
-            fact: {
-              id: 29,
-              name: "plan",
-            },
-            operator: "equal",
-            customValue: null,
-            value: "SSP",
-            values: [],
-          },
-          {
-            id: 908,
-            fact: {
-              id: 25,
-              name: "userAge",
-            },
-            operator: "lessThanInclusive",
-            customValue: "45",
-            value: null,
-            values: [],
-          },
-          {
-            id: 2306,
-            fact: {
-              id: 75,
-              name: "isTropVisible",
-            },
-            operator: "notEqual",
-            customValue: "true",
-            value: null,
-            values: [],
-          },
-        ],
-        ruleOutput: [
-          {
-            id: 108,
-            key: "visibility",
-            value: "true",
-          },
-        ],
-      },
     ];
 
-    const fact = {
-      firstName: "true",
-      lastName: "true",
-      dob: "true",
-      gender: null,
-    };
     const fact2 = {
-      userAge: 20,
-      policyTerm: 1,
-      plan: "SSP",
-      isTropVisible: "dd",
+      userAge: 30,
+      policyTerm: 50,
+      plan: "SSPs",
+      isTropVisible: "sdd",
     };
 
-    const rulesOutput = await buildRuleCriteriaAndExecuteAll(
-      productFormData || [],
-      fact,
+    const ruleOther = await buildRuleCriteriaAndExecuteAll(
+      dataRules || [],
+      fact2,
       "productDetails"
     );
-    console.log("rulesOutput", rulesOutput);
+    console.log("rulesOutput 2", ruleOther);
     // return rulesOutput;
   },
 };

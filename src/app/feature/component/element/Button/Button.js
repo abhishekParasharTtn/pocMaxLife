@@ -2,27 +2,27 @@
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 
-const Button = ({type,label,name,pageRoute}) => {
+const Button = ({button, component}) => {
+
+    const {type, label, name } = button || component;
 
     const router = useRouter();
-    
+
     const clickHandler = (e) => {
         e.preventDefault();
-        if(name === 'save') {
+        if (name === 'save') {
 
         }
         else {
-        router.push((pageRoute.next).replace('/',''));
+            router.push((pageRoute.next).replace('/', ''));
         }
-        
         console.log(name);
-        
     }
    
     return (
             <div className="inline-block m-6 ">
                 <button
-                onClick={clickHandler}
+                //onClick={clickHandler}
                     className={`${name === 'save' ? 'shadow-type2 w-48 bg-light h-12 inline-block ml-36' : 'text-white w-48 bg-light h-12  bg-primary inline ml-35'}`}>
                     {label}
                 </button>

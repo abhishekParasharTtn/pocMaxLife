@@ -3,25 +3,29 @@ import RadioButtonCircle from "@/app/feature/component/element/Circleradio/radio
 import React from "react";
 import radio from "@/app/feature/component/element/Genderradio/radio";
 import ProductDetailsSection from "../Dropdowns/ProductDetails/ProductDetails";
+import Dropdown from "../Dropdowns/Dropdown";
 
-const Option = (
-    {title,
-    description,
-    componentType,
-    dataFilter,
-    name,
-    value,
-    label,
-    style,
-    error,
-    visibility,
-    __typename
-}) => {
-    console.log(componentType,'from option')
+const Option = (props) => {
+    const {
+        component: { title,
+            description,
+            componentType,
+            dataFilter,
+            name,
+            value,
+            label,
+            style,
+            error,
+            visibility,
+            __typename,
+            data,
+            defaultValue
+        } = {}
+    } = props;
     const optionComponentMappings = {
-        RadioGroup : RadioButtonCircle,
-        ButtonGroup:radio,
-        Dropdown: ProductDetailsSection
+        RadioGroup: RadioButtonCircle,
+        ButtonGroup: radio,
+        Dropdown: Dropdown
     };
 
     const OptionComponent = optionComponentMappings[componentType];
@@ -33,6 +37,9 @@ const Option = (
             name={name}
             dataFilter={dataFilter}
             componentType={componentType}
+            data={data}
+            defaultValue={defaultValue}
+            options={data}
         />
     ) : (
         <h2>{`Missing component for type: ${componentType}`}</h2>

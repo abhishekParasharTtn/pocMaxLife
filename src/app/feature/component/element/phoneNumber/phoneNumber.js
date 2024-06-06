@@ -1,32 +1,28 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 
-const phoneCodeList = [
-    { "name": "India", "phCode": "+91" },
-    { "name": "Andorra", "phCode": "+376" },
-    { "name": "Anguilla", "phCode": "+1264" },
-    { "name": "Aruba", "phCode": "+297" }
-];
+const PhoneCodeDropdown = ({component}) => {
 
-const PhoneCodeDropdown = ({label,name}) => {
+
+    const {data, label, name, placeholder, visibility} = component;
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredOptions, setFilteredOptions] = useState(phoneCodeList);
+    const [filteredOptions, setFilteredOptions] = useState(data);
 
     useEffect(() => {
         setFilteredOptions(
-            phoneCodeList.filter(country =>
+            data.filter(country =>
                 country.name.toLowerCase().includes(searchTerm.toLowerCase())
             )
         );
     }, [searchTerm]);
 
     return (
-        <div className='col-span-1'>
+        <div >
         <div className=' flex items-baseline'>
             <select className="phoneCodeSelect bg-default">
-                {filteredOptions.map((country, index) => (
-                    <option key={index} value={country.phCode} className={'options'}>
-                        {country.phCode}
+                {filteredOptions.map((phCode, index) => (
+                    <option key={index} value={phCode.code} className={'options'}>
+                        {phCode.code}
                     </option>
                 ))}
             </select>

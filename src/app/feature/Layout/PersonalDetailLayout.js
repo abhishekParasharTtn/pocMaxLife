@@ -1,33 +1,35 @@
 import React from 'react'
 import Section from '../Section/Section';
-import { extractDetailsSection,extractRoute } from '@/app/services/util';
+import { extractDetailsSection, extractRoute } from '@/app/services/util';
 
-const PersonalDetailLayout = ({themeConfig,utmConfig,page}) => {
-    const pageData = extractDetailsSection(page,"personalDetails")
-    const pageRoute  = extractRoute(page,"personalDetails")
+const PersonalDetailLayout = ({ themeConfig, utmConfig, page }) => {
 
+  // const pageData = extractDetailsSection(page,"personalDetails")
+  // const pageRoute  = extractRoute(page,"personalDetails")
+  // console.log(page, "::page")
 
-    const sectionHandler = () => {
-        return ( pageData.components.map((data) => {
-         return <Section
-          themeConfig={themeConfig}
-          utmConfig={utmConfig}
-          page={data}
-          pageRoute={pageRoute}
+  const sectionHandler = () => {
+    return <>
+      {page?.sections?.length > 0
+        && page.sections.map((section, index) => {
+          return <Section
+            key={index}
+            themeConfig={themeConfig}
+            utmConfig={utmConfig}
+            section={section}
+          // page={page}
           />
         })
-    )
-       
-      };
-    return (
-        <div className='bg-default px-8 pt-6 w-2/4'>
-            <div className='text-center mb-8'>{pageData.title}</div>
-            <div>
-                <div className={'grid grid-cols-2 gap-4'}> {sectionHandler()}</div>
-            </div>
-        </div>
+      }
+    </>
+  }
 
-    )
+  return (
+    <div className='bg-default px-8 pt-6 w-2/4'>
+      <div className={''}> {sectionHandler()}</div>
+    </div>
+
+  )
 }
 
 export default PersonalDetailLayout
