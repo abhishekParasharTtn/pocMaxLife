@@ -6,37 +6,33 @@ const fs = require("fs");
 
 async function fetchData(params) {
   const { slug } = params;
-
   const utmDetails = await utmService.getUtmDetails(slug);
-  console.log(utmDetails, "::utmDetails")
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  // const pagesData = await utmService.getpage(utmDetails, slug);
-
-  //const pagesData = await utmService.getPages(utmDetails);
+  const pagesData = await utmService.getpage(utmDetails, slug);
   const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
-    console.log(fieldConfigData, "::formFieldConfig");
-  // const pages = utmService.getFormDataWithUpdatedDefaultValues(
-  //   pagesData,
-  //   fieldConfigData
-  // );
-  // fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
-  //   if (err) {
-  //     console.error("Error writing file", err);
-  //   } else {
-  //     console.log("Successfully wrote file");
-  //   }
-  // });
+  const pages = utmService.getFormDataWithUpdatedDefaultValues(
+    pagesData,
+    fieldConfigData
+  );
+
+  fs.writeFile("output.json", JSON.stringify(pages, null, 2), (err) => {
+    if (err) {
+      console.error("Error writing file", err);
+    } else {
+      console.log("Successfully wrote file");
+    }
+  });
+
   return (
-    // <h1>hello</h1>
     <AppLayout
       themeConfig={themeConfig}
       // pageType={slug[1]}
       utmConfig={utmDetails}
       slug={slug}
       fieldConfigData={fieldConfigData}
-    // showNavigation={page?.journeyInfo?.config?.showNavigation}
-    // groupType={page?.route?.meta?.groupType}
-    // pages={pages}
+      // showNavigation={page?.journeyInfo?.config?.showNavigation}
+      // groupType={page?.route?.meta?.groupType}
+      // pages={pages}
     />
   );
 }
