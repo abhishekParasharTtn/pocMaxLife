@@ -9,15 +9,6 @@ const formData = {
         premiumPaymentTerm: '13',
       }
 
-const returnAllFields = (productJson, formData) => {
-    let fields = [];
-    productJson.sections.forEach((section) => {
-        section.fields.forEach((field) => {
-            fields.push(fieldHandler(field, formData));
-        })
-    });
-    return fields;
-}
 
 
 
@@ -56,5 +47,19 @@ const fieldHandler = (field, formData) => {
     return {[field.fieldName]: {...field}};
 }
 
-const componentLogic = returnAllFields(productsData.SSP, formData);
-console.log(util.inspect(componentLogic, null, 10));
+  
+export const productService = {
+    getProductComponent:(product, formData)=>{
+        let productJson = productsData[product];
+        let fields = [];
+        productJson.sections.forEach((section) => {
+            section.fields.forEach((field) => {
+                fields.push(fieldHandler(field, formData));
+            })
+        });
+        return fields;
+    }
+}
+
+// const componentLogic = returnAllFields(productsData.SSP, formData);
+// console.log(util.inspect(componentLogic, null, 10));

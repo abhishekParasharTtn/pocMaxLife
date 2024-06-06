@@ -200,13 +200,13 @@ export const functionMap = {
     return images;
   },
 
-  getIcon(element, formData) {
-    const images = functionMap.importAll(require.context('./assets', false, /\.(svg)$/));
-    if (formData && formData[element.name] && formData[element.name] === element.key) {
-      return images[element.selectedIcon];
-    }
-    return images[element.nonSelectedIcon];
-  },
+  // getIcon(element, formData) {
+  //   const images = functionMap.importAll(require.context('./assets', false, /\.(svg)$/));
+  //   if (formData && formData[element.name] && formData[element.name] === element.key) {
+  //     return images[element.selectedIcon];
+  //   }
+  //   return images[element.nonSelectedIcon];
+  // },
 
   evaluateOperation(key, operation, value, formData) {
     if (!formData) return;
