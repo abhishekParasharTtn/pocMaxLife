@@ -9,8 +9,9 @@ const Component = ({
     form = {}
 }) => {
     const { form: { components } = {} } = form;
+    console.log(form)
     return (
-        <div className="grid grid-cols-2 gap-7">
+        <div className="grid grid-cols-2 gap-10">
             {
                 components.length > 0 &&
                 components.map((component) => {

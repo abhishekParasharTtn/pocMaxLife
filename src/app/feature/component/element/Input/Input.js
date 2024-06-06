@@ -17,8 +17,8 @@ const Input = ({ component }) => {
     }
 
     return (
-        <div className="">
-        <div className="relative mb-2 mr-5 col-span-1">
+        <div className=" col-span-1">
+        <div className="relative mb-9 col-span-1 mr-5 ">
             <input
                 className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-primary bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
                 placeholder={''}
