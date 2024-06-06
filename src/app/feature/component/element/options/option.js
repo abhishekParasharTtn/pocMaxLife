@@ -39,6 +39,7 @@ const Option = (props) => {
             componentType={componentType}
             data={data}
             defaultValue={defaultValue}
+            options={data}
         />
     ) : (
         <h2>{`Missing component for type: ${componentType}`}</h2>
