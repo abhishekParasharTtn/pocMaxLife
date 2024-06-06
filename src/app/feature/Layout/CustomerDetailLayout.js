@@ -3,9 +3,8 @@ import Section from '../Section/Section';
 import { extractDetailsSection, extractRoute } from '@/app/services/util';
 
 
-const CustomerDetailLayout = ({ themeConfig, utmConfig, page }) => {
-  // const pageData = extractDetailsSection(page,"customerDetails")
-  // const pageRoute  = extractRoute(page,"customerDetails")
+const CustomerDetailLayout = ({ themeConfig, utmConfig, page,formName }) => {
+
 
   const sectionHandler = () => {
     return (page?.sections.map((section) => {
@@ -14,6 +13,7 @@ const CustomerDetailLayout = ({ themeConfig, utmConfig, page }) => {
         utmConfig={utmConfig}
         section={section}
         page={page}
+        formName={formName}
       />
     })
     )

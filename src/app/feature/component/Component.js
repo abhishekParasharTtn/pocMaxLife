@@ -4,12 +4,12 @@ import FieldComponent from "@/app/feature/fieldComponents/fieldComponent";
 const Component = ({
     themeConfig,
     utmConfig,
-    //   pages,
-    //   section,
-    form = {}
+    form = {},
+    formName
+    
 }) => {
     const { form: { components } = {} } = form;
-    console.log(form)
+  
     return (
         <div className="grid grid-cols-2 gap-10">
             {
@@ -17,12 +17,8 @@ const Component = ({
                 components.map((component) => {
                     return <FieldComponent
                         key={component?.name}
-                        // themeConfig={themeConfig}
-                        // utmConfig={utmConfig}
-                        // section={section}
-                        // pages={pages}
-                        // form={form}
                         component={component}
+                        formName={formName}
                     />
                 })
             }

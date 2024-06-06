@@ -1,13 +1,18 @@
 'use client'
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setField } from "@/redux/formSlices";
 
-const RadioButtonField = ({ title, label, visibility, name, dataFilter, componentType, defaultValue, data }) => {
-    const [selectedValue, setSelectedValue] = useState(defaultValue);
+const RadioButtonField = ({ title, label, visibility, name, dataFilter, componentType, defaultValue, data,formName }) => {
+    const dispatch = useDispatch();
+    const selectedOption = useSelector((state) => state.forms[formName][title]);
+    if (selectedOption === undefined || selectedOption === null) {
+        dispatch(setField({ fieldName: title, value: defaultValue, formName: formName }));
+    }
 
 
     const onChange = (value) => {
-        setSelectedValue(value);
-        console.log('Selected value:', value);
+        dispatch(setField({ fieldName: title, value: value, formName: formName }));
     };
 
     return (
@@ -20,7 +25,7 @@ const RadioButtonField = ({ title, label, visibility, name, dataFilter, componen
                         className={`gender-option flex-1 text-center py-2 cursor-pointer ${
                             index !== data.length - 1 ? 'border-r' : ''
                         } ${
-                            option.value === selectedValue ? 'bg-primary text-white' : 'bg-white text-gray-700'
+                            option.value === selectedOption ? 'bg-primary text-white' : 'bg-white text-gray-700'
                         }`}
                     >
                         <input
@@ -28,7 +33,7 @@ const RadioButtonField = ({ title, label, visibility, name, dataFilter, componen
                             type="radio"
                             name={name}
                             value={option.value}
-                            checked={option.value === selectedValue}
+                            checked={option.value === selectedOption}
                             onChange={() => onChange(option.value)}
                         />
                         {option.label}
