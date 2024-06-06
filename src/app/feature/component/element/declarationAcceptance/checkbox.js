@@ -1,4 +1,4 @@
-const DeclarationCheckbox = ({name, label}) => {
+const DeclarationCheckbox = ({component: {name, label}}) => {
     return (
         <div className={'col-span-2'}>
             <div className=''>
