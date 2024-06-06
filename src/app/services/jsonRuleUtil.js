@@ -46,8 +46,8 @@ const createJsonRuleCriteria = (ruleObj) => {
     if (rule.any) {
       result = { any: rule.any.map(ruleMapper) };
     }
-    if (rule.alls) {
-      result = { all: rule.alls.map(ruleMapper) };
+    if (rule.all) {
+      result = { all: rule.all.map(ruleMapper) };
     }
     return result;
   });
@@ -61,7 +61,7 @@ const buildRuleCriteria = (rule) => {
   if (!rule) {
     return null;
   }
-  const outRules = [{ any: rule.any }, { alls: rule.alls || rule.all }];
+  const outRules = [{ any: rule.any }, { all: rule.all || rule.all }];
   const ruleOutput =
     rule.ruleOutput &&
     rule.ruleOutput.map((item) => ({ key: item.key, value: item.value }));
@@ -69,7 +69,7 @@ const buildRuleCriteria = (rule) => {
     ? rule.relationBetweenAnyAll
     : relations.ALL;
 
-  if (!outRules[0].any && !outRules[1].alls) {
+  if (!outRules[0].any && !outRules[1].all) {
     return null;
   }
   return createJsonRuleCriteria({
@@ -89,7 +89,7 @@ const executeRuleCriteria = async (criteria, facts) => {
   return result;
 };
 
-const buildRuleCriteriaAndExecuteAll = async (rules, facts, name) => {
+const ruleEngine = async (rules, facts, name) => {
   debugger;
   rules = rules || [];
   let finalResult = false;
@@ -132,9 +132,7 @@ const processAllRules = async (rules, facts, ruleName) => {
 
   if (ruleList?.length) {
     ruleList.forEach((rule) => {
-      result.push(
-        buildRuleCriteriaAndExecuteAll(rule?.[ruleName], facts, rule)
-      );
+      result.push(ruleEngine(rule?.[ruleName], facts, rule));
     });
   }
 
@@ -146,4 +144,4 @@ const processRulesWithRuleEngine = async (rules, facts, ruleName) => {
   return Promise.resolve(result?.filter((res) => res?.finalResult));
 };
 
-export  { buildRuleCriteriaAndExecuteAll, processRulesWithRuleEngine };
+export { ruleEngine, processRulesWithRuleEngine };

@@ -11,21 +11,13 @@ const Journey = ({
   slug,
   fieldConfigData,
   // pageType,
-  // pages
+  pages,
 }) => {
   const [page, setPage] = useState(null);
-  const myFunction = async () => {
-    const rulesData = await productPageService.productFormRules();
-    console.log(rulesData, "::rulesData");
-  };
-
-  useEffect(() => {
-    myFunction();
-  });
 
   const getPageData = async () => {
     let pageData = await utmService.getpage(utmConfig, slug);
-
+    console.log(pageData, "::getPageData");
     if (pageData && fieldConfigData) {
       pageData = utmService.getFormDataWithUpdatedDefaultValues(
         pageData,

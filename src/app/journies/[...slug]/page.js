@@ -2,7 +2,6 @@ import { api } from "@/utils/api";
 import { utmService } from "../../services/utmService";
 import { AppLayout } from "../../../common/layouts/app/AppLayout";
 import { use } from "react";
-import { productPageService } from "@/app/services/productPageService";
 const fs = require("fs");
 
 async function fetchData(params) {
