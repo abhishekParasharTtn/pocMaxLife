@@ -1,7 +1,7 @@
 [
   {
-    "name": "personalDetails",
-    "slug": "personal-details",
+    "name": "customerDetails",
+    "slug": "customer-details",
     "utmCode": "2222",
     "next": "/customer-details",
     "previous": "/personal-details",
@@ -11,401 +11,187 @@
       "style": null,
       "layoutOrder": [],
       "layout": {
-        "name": "PersonalDetailsPageLayout"
+        "name": "CustomerDetailsPageLayout"
       }
     },
     "sections": [
       {
-        "name": "personalDetails",
-        "form": {
-          "name": "personalDetails",
-          "title": "Personal Details",
-          "subTitle": "fill all the personal details",
-          "components": [
-            {
-              "__typename": "ComponentFormInput",
-              "type": "text",
-              "label": "First Name",
-              "placeholder": "First Name",
-              "suggestion": null,
-              "visibility": true,
-              "style": null,
-              "name": "firstName"
-            },
-            {
-              "__typename": "ComponentFormInput",
-              "type": "text",
-              "label": "Last Name",
-              "placeholder": "Last Name",
-              "suggestion": null,
-              "visibility": true,
-              "style": null,
-              "name": "lastName"
-            },
-            {
-              "__typename": "ComponentFormDobSingleInput",
-              "name": "dob",
-              "label": "Date of birth",
-              "placeholder": "DD/MM/YYYY",
-              "visibility": true
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Gender",
-              "description": null,
-              "dataSourceName": {
-                "name": "dataGenders"
-              },
-              "componentType": "ButtonGroup",
-              "style": null,
-              "visibility": true,
-              "label": "Gender",
-              "placeholder": "Gender",
-              "popUp": {},
-              "dataFilter": [
+        "__typename": "ComponentContainerFormContainer",
+        "layout": {
+          "id": "6",
+          "margin": null,
+          "padding": null,
+          "style": null,
+          "layoutOrder": [],
+          "layout": {
+            "name": "CustomerDetailsFormLayout",
+            "__typename": "Layout",
+            "type": "form"
+          }
+        },
+        "forms": [
+          {
+            "id": "3",
+            "name": "customerDetail",
+            "form": {
+              "name": "customerDetails",
+              "title": "Customer Details",
+              "subTitle": "fill all the customer details",
+              "components": [
                 {
-                  "key": "name",
-                  "value": "male"
+                  "__typename": "ComponentUiOption",
+                  "title": "Residential Status for tax purposes",
+                  "description": null,
+                  "defaultValue": "indian",
+                  "dataSourceName": "dataNationalities",
+                  "componentType": "RadioGroup",
+                  "style": null,
+                  "visibility": true,
+                  "label": null,
+                  "placeholder": null,
+                  "name": "residentialStatus",
+                  "popUp": {},
+                  "dataFilter": [
+                    {
+                      "key": "name",
+                      "value": "indian"
+                    },
+                    {
+                      "key": "name",
+                      "value": "nri"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "name": "indian",
+                      "term": "Indian",
+                      "value": "indian"
+                    },
+                    {
+                      "name": "nri",
+                      "term": "NRI",
+                      "value": "nri"
+                    }
+                  ]
                 },
                 {
-                  "key": "name",
-                  "value": "female"
-                }
-              ],
-              "name": "gender",
-              "data": [
-                {
-                  "name": "male",
-                  "label": "Male",
-                  "value": "M",
-                  "icon": {
-                    "data": null
-                  }
+                  "__typename": "ComponentUiOption",
+                  "title": "Nationality",
+                  "description": null,
+                  "defaultValue": "indian",
+                  "dataSourceName": "dataNationalities",
+                  "componentType": "RadioGroup",
+                  "style": null,
+                  "visibility": true,
+                  "label": null,
+                  "placeholder": null,
+                  "name": "nationality",
+                  "popUp": {},
+                  "dataFilter": [
+                    {
+                      "key": "name",
+                      "value": "indian"
+                    },
+                    {
+                      "key": "name",
+                      "value": "nri"
+                    },
+                    {
+                      "key": "name",
+                      "value": "pioOci"
+                    },
+                    {
+                      "key": "name",
+                      "value": "foreignNational"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "name": "indian",
+                      "term": "Indian",
+                      "value": "indian"
+                    },
+                    {
+                      "name": "nri",
+                      "term": "NRI",
+                      "value": "nri"
+                    },
+                    {
+                      "name": "pioOci",
+                      "term": "PIO/OCI",
+                      "value": "pioOci"
+                    },
+                    {
+                      "name": "foreignNational",
+                      "term": "Foreign National",
+                      "value": "foreignNational"
+                    }
+                  ]
                 },
                 {
-                  "name": "female",
-                  "label": "Female",
-                  "value": "F",
-                  "icon": {
-                    "data": null
-                  }
+                  "__typename": "ComponentFormInput",
+                  "name": "email",
+                  "type": "email",
+                  "label": "email",
+                  "placeholder": "Email Address",
+                  "suggestion": null,
+                  "visibility": true,
+                  "style": null,
+                  "defaultValue": "test@abc.com"
+                },
+                {
+                  "__typename": "ComponentFormPhoneNumber",
+                  "name": "mobileNumber",
+                  "label": "Mobile Number",
+                  "placeholder": "Mobile Number",
+                  "defaultValue": null,
+                  "visibility": true,
+                  "dataSourceName": "dataCountries",
+                  "dataFilter": [],
+                  "data": [
+                    {
+                      "name": "India",
+                      "shortName": "IND",
+                      "code": "+91"
+                    },
+                    {
+                      "name": "United States of America",
+                      "shortName": "USA",
+                      "code": "+1"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "ComponentUiToggleSwitch",
+                  "name": "whatsappOptInStatus",
+                  "label": "My customer would like to receive updates via WhatsApp",
+                  "defaultValue": null
+                },
+                {
+                  "__typename": "ComponentUiCheckbox",
+                  "name": "acceptanceDeclaration",
+                  "label": "I hereby consent to and authorize Max Life Insurance and its representatives by submitting my details to contact me through call, SMS or E-mail overriding my DND registration. I further consent to share my information on confidential basis with third parties for KYC, bank details verification, evaluating and processing this proposal.",
+                  "defaultValue": null
+                },
+                {
+                  "__typename": "ComponentUiButton",
+                  "name": "save",
+                  "type": "button",
+                  "label": "save",
+                  "link": null
+                },
+                {
+                  "__typename": "ComponentUiButton",
+                  "name": "proceed",
+                  "type": "submit",
+                  "label": "Proceed",
+                  "link": null
                 }
               ]
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Product Name",
-              "description": null,
-              "dataSourceName": {
-                "name": "dataProductName"
-              },
-              "componentType": "Dropdown",
-              "style": null,
-              "visibility": true,
-              "label": "Product Name",
-              "placeholder": "Product Name",
-              "popUp": {},
-              "dataFilter": [],
-              "name": "productName"
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Premium Type",
-              "description": null,
-              "dataSourceName": {
-                "name": "dataPremiumType"
-              },
-              "componentType": "Dropdown",
-              "style": null,
-              "visibility": true,
-              "label": null,
-              "placeholder": "Premium Type",
-              "popUp": {},
-              "dataFilter": [],
-              "name": "premiumType"
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Premium Payment Term",
-              "description": null,
-              "dataSourceName": {
-                "name": "dataPermiumPaymentTerm"
-              },
-              "componentType": "Dropdown",
-              "style": null,
-              "visibility": true,
-              "label": "Premium Payment Term",
-              "placeholder": "Premium Payment Term",
-              "fieldName": {},
-              "popUp": {},
-              "dataFilter": []
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Policy Term",
-              "description": null,
-              "dataSourceName": {},
-              "componentType": "Dropdown",
-              "style": null,
-              "visibility": true,
-              "label": "Policy Term",
-              "placeholder": "Policy Term",
-              "fieldName": {},
-              "popUp": {},
-              "dataFilter": []
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Mode of Payment",
-              "description": null,
-              "dataSourceName": {},
-              "componentType": "Dropdown",
-              "style": null,
-              "visibility": true,
-              "label": "Mode of Payment",
-              "placeholder": "Mode of Payment",
-              "fieldName": {},
-              "popUp": {},
-              "dataFilter": []
             }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "name": "customerDetails",
-    "utmCode": "2222",
-    "route": {
-      "current": "customer-details",
-      "previous": "/customer-details",
-      "next": "/personal-details"
-    },
-    "layout": {
-      "name": "CustomerDetailsPageLayout",
-      "margin": null,
-      "padding": null,
-      "style": null,
-      "layoutOrder": []
-    },
-    "sections": [
-      {
-        "name": "customerDetails",
-        "form": {
-          "name": "customerDetails",
-          "title": "Customer Details",
-          "subTitle": "fill all the customer details",
-          "components": [
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Residential Status for tax purposes",
-              "description": null,
-              "dataSourceName": {
-                "name": "dataNationalities"
-              },
-              "componentType": "RadioGroup",
-              "style": null,
-              "visibility": true,
-              "label": null,
-              "placeholder": null,
-              "popUp": {},
-              "dataFilter": [
-                {
-                  "key": "name",
-                  "value": "indian"
-                }
-              ],
-              "name": "residentialStatus",
-              "data": [
-                {
-                  "name": "indian",
-                  "term": "Indian",
-                  "value": "Indian",
-                  "dataConfigs": {
-                    "data": [
-                      {
-                        "id": 1,
-                        "attributes": {
-                          "name": "default"
-                        }
-                      },
-                      {
-                        "id": 2,
-                        "attributes": {
-                          "name": "axisDataConfig"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "__typename": "ComponentUiOption",
-              "title": "Nationality",
-              "description": null,
-              "dataSourceName": {
-                "name": "dataNationalities"
-              },
-              "componentType": "RadioGroup",
-              "style": null,
-              "visibility": true,
-              "label": null,
-              "placeholder": null,
-              "popUp": {},
-              "dataFilter": [
-                {
-                  "key": "name",
-                  "value": "indian"
-                },
-                {
-                  "key": "name",
-                  "value": "nri"
-                },
-                {
-                  "key": "name",
-                  "value": "pioOci"
-                },
-                {
-                  "key": "name",
-                  "value": "foreignNational"
-                }
-              ],
-              "name": "nationality",
-              "data": [
-                {
-                  "name": "indian",
-                  "term": "Indian",
-                  "value": "Indian",
-                  "dataConfigs": {
-                    "data": [
-                      {
-                        "id": 1,
-                        "attributes": {
-                          "name": "default"
-                        }
-                      },
-                      {
-                        "id": 2,
-                        "attributes": {
-                          "name": "axisDataConfig"
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "nri",
-                  "term": "NRI",
-                  "value": "NRI",
-                  "dataConfigs": {
-                    "data": [
-                      {
-                        "id": 1,
-                        "attributes": {
-                          "name": "default"
-                        }
-                      },
-                      {
-                        "id": 2,
-                        "attributes": {
-                          "name": "axisDataConfig"
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "pioOci",
-                  "term": "PIO/OCI",
-                  "value": "PIO/OCI",
-                  "dataConfigs": {
-                    "data": [
-                      {
-                        "id": 1,
-                        "attributes": {
-                          "name": "default"
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "foreignNational",
-                  "term": "Foreign National",
-                  "value": "Foreign National",
-                  "dataConfigs": {
-                    "data": [
-                      {
-                        "id": 1,
-                        "attributes": {
-                          "name": "default"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "__typename": "ComponentFormInput",
-              "type": "email",
-              "label": "email",
-              "placeholder": "Email Address",
-              "suggestion": null,
-              "visibility": true,
-              "style": null,
-              "name": "email"
-            },
-            {
-              "__typename": "ComponentFormPhoneNumber",
-              "name": "mobileNumber",
-              "label": "Mobile Number",
-              "placeholder": "Mobile Number",
-              "visibility": true,
-              "dataSourceName": {
-                "name": "dataCountries"
-              },
-              "dataFilter": [],
-              "data": [
-                {
-                  "name": "India",
-                  "shortName": "IND",
-                  "code": "+91"
-                },
-                {
-                  "name": "United States of America",
-                  "shortName": "USA",
-                  "code": "+1"
-                }
-              ]
-            },
-            {
-              "__typename": "ComponentUiToggleSwitch",
-              "name": "whatsappOptInStatus",
-              "label": "My customer would like to receive updates via WhatsApp"
-            },
-            {
-              "__typename": "ComponentUiCheckbox",
-              "name": "acceptanceDeclaration",
-              "label": "I hereby consent to and authorize Max Life Insurance and its representatives by submitting my details to contact me through call, SMS or E-mail overriding my DND registration. I further consent to share my information on confidential basis with third parties for KYC, bank details verification, evaluating and processing this proposal."
-            },
-            {
-              "__typename": "ComponentUiButton",
-              "name": "save",
-              "type": "button",
-              "label": "save",
-              "link": null
-            },
-            {
-              "__typename": "ComponentUiButton",
-              "name": "proceed",
-              "type": "submit",
-              "label": "Proceed",
-              "link": null
-            }
-          ]
-        }
+          }
+        ],
+        "button": []
       }
     ]
   }
