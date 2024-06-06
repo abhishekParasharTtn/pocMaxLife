@@ -19,7 +19,7 @@ const Dropdown = ({productData, setProductData, name, title, label, options, dis
                 return premiumType;
             }
         });
-        dispatch(setField({ fieldName: title, value: newValue, formName: formName  }))
+        dispatch(setField({ fieldName: name, value: newValue, formName: formName  }))
     }
 
     return (

@@ -5,11 +5,12 @@ const Component = ({
     themeConfig,
     utmConfig,
     form = {},
-    formName
+    formName,
+    pageRoute
     
 }) => {
     const { form: { components } = {} } = form;
-  
+
     return (
         <div className="grid grid-cols-2 gap-10">
             {
@@ -19,6 +20,7 @@ const Component = ({
                         key={component?.name}
                         component={component}
                         formName={formName}
+                        pageRoute={pageRoute}
                     />
                 })
             }

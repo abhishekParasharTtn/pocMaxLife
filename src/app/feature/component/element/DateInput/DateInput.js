@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setField } from "@/redux/formSlices";
 
-const DateInput = ({formName,component:{label}}) => {
+const DateInput = ({formName,component:{label,name}}) => {
  
 
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const DateInput = ({formName,component:{label}}) => {
 
     const handleDateChange = (event) => {
          const newValue = event.target.value
-        dispatch(setField({ fieldName: label, value: newValue, formName: formName }));
+        dispatch(setField({ fieldName: name, value: newValue, formName: formName }));
         
     };
 

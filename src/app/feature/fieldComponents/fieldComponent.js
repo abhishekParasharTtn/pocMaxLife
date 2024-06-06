@@ -6,7 +6,8 @@ import buttonGroup from "@/app/feature/component/ButtonGroup";
 
 const FieldComponent = ({
     component,
-    formName
+    formName,
+    pageRoute
 
 }) => {
     
@@ -22,6 +23,7 @@ const FieldComponent = ({
         <FieldComponent
             component={component}
             formName={formName}
+            pageRoute={pageRoute}
             
         />
     ) : (

@@ -23,7 +23,7 @@ const PhoneCodeDropdown = ({component,formName}) => {
 
     const inputChangeHandler = (e,label) => {
         const newValue = e.target.value
-        dispatch(setField({ fieldName: label, value: newValue, formName: formName }));
+        dispatch(setField({ fieldName: name, value: newValue, formName: formName }));
     }
 
     return (

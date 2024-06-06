@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setField } from "@/redux/formSlices";
 
 const RadioButtonCircle = (props) => {
-    const { title, data, defaultValue,formName } = props;
+    const { title, data, defaultValue,formName, name } = props;
     const dispatch = useDispatch();
-    const selectedOption = useSelector((state) => state.forms[formName][title]);
+    const selectedOption = useSelector((state) => state.forms[formName][name]);
     if (selectedOption === undefined || selectedOption === null) {
-        dispatch(setField({ fieldName: title, value: defaultValue, formName: formName }));
+        dispatch(setField({ fieldName: name, value: defaultValue, formName: formName }));
     }
     const onChange = (key) => {
      
-            dispatch(setField({ fieldName: title, value: key, formName: formName }));
+      dispatch(setField({ fieldName: name, value: key, formName: formName }));
        
 
     }

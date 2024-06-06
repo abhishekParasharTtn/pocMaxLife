@@ -5,14 +5,14 @@ import { setField } from "@/redux/formSlices";
 
 const RadioButtonField = ({ title, label, visibility, name, dataFilter, componentType, defaultValue, data,formName }) => {
     const dispatch = useDispatch();
-    const selectedOption = useSelector((state) => state.forms[formName][title]);
+    const selectedOption = useSelector((state) => state.forms[formName][name]);
     if (selectedOption === undefined || selectedOption === null) {
-        dispatch(setField({ fieldName: title, value: defaultValue, formName: formName }));
+        dispatch(setField({ fieldName: name, value: defaultValue, formName: formName }));
     }
 
 
     const onChange = (value) => {
-        dispatch(setField({ fieldName: title, value: value, formName: formName }));
+        dispatch(setField({ fieldName: name, value: value, formName: formName }));
     };
 
     return (
