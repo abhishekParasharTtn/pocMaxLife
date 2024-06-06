@@ -3,11 +3,11 @@ import * as utility from './utility.js';
 import util from 'util';
 
 const formData = {
-        InsurerAge: 30,
-        premiumType: 'Limited Pay',
-        isPosSeller: 'Yes',
-        premiumPaymentTerm: '13',
-      }
+    InsurerAge: 30,
+    premiumType: 'Limited Pay',
+    isPosSeller: 'Yes',
+    premiumPaymentTerm: '13',
+}
 
 
 
@@ -30,31 +30,33 @@ const fieldHandler = (field, formData) => {
                     });
             })) : [];
             break;
-            case 'Text':
-                break;
-            case 'Radio':
-                break;
-            case 'Calender':
-                break;
-            default:
-                return ''
+        case 'Text':
+            break;
+        case 'Radio':
+            break;
+        case 'Calender':
+            break;
+        default:
+            return ''
 
     }
-    if (field.defaultRender === 'No') {
-        field.renderCondition = utility.functionMap.renderCondition(field.renderCondition.conditions, formData);
-    }
-    delete field.parentValues;
-    return {[field.fieldName]: {...field}};
+    // if (field.defaultRender === 'No') {
+    //     field.renderCondition = utility.functionMap.renderCondition(field.renderCondition.conditions, formData);
+    // }
+    // delete field.parentValues;
+    return { [field.fieldName]: { ...field } };
 }
 
-  
+
 export const productService = {
-    getProductComponent:(product, formData)=>{
+    getProductComponent: (product, formData) => {
         let productJson = productsData[product];
-        let fields = [];
+        let fields = {};
         productJson.sections.forEach((section) => {
             section.fields.forEach((field) => {
-                fields.push(fieldHandler(field, formData));
+                const _field = fieldHandler(field, formData)
+
+                fields = { ...fields, ..._field };
             })
         });
         return fields;
