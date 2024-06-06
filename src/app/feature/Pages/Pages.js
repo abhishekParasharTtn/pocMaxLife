@@ -1,5 +1,4 @@
 import Section from "../Section/Section";
-import { useSelector, useDispatch } from 'react-redux';
 import dynamic from 'next/dynamic';
 const Pages = ({
   themeConfig,

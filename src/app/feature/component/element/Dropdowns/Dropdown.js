@@ -1,17 +1,25 @@
+'use client'
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setField } from "@/redux/formSlices";
+
+
+
 const selectClassString = "block py-2.5 px-0 w-full focus:border-orange text-sm focus:text-black-400 bg-transparent border-0 border-b-2 border-gray-50 appearance-none dark:text-gray-400 dark:border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-200 peer";
 
 
 
-const Dropdown = ({productData, setProductData, name, title, label, options, disabled = false}) => {
-
+const Dropdown = ({productData, setProductData, name, title, label, options, disabled = false, formName}) => {
+       const dispatch = useDispatch();
     const handleChange = (e) => {
-        console.log(e.target.value);
+        const newValue =  e.target.value
+
         const premiumType = options.filter((premiumType) => {
             if(premiumType.id === e.target.value){
                 return premiumType;
             }
         });
-        setProductData({...productData, premiumType: premiumType[0]});
+        dispatch(setField({ fieldName: title, value: newValue, formName: formName  }))
     }
 
     return (
