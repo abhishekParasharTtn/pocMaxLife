@@ -10,7 +10,8 @@ export const AppLayout = ({
     utmConfig,
     pageType,
     pages,
-    slug
+    slug,
+    fieldConfigData
 }) => {
     console.log(pages, 'from appLayout')
     const layoutMappings = {
@@ -31,6 +32,7 @@ export const AppLayout = ({
                     pageType={pageType}
                     pages={pages}
                     slug={slug}
+                    fieldConfigData={fieldConfigData}
                 />
             </DefaultMainLayout>
         </Layout>

@@ -8,12 +8,13 @@ async function fetchData(params) {
   const { slug } = params;
 
   const utmDetails = await utmService.getUtmDetails(slug);
-
+  console.log(utmDetails, "::utmDetails")
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
   // const pagesData = await utmService.getpage(utmDetails, slug);
 
   //const pagesData = await utmService.getPages(utmDetails);
-  //const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
+  const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
+    console.log(fieldConfigData, "::formFieldConfig");
   // const pages = utmService.getFormDataWithUpdatedDefaultValues(
   //   pagesData,
   //   fieldConfigData
@@ -32,6 +33,7 @@ async function fetchData(params) {
       // pageType={slug[1]}
       utmConfig={utmDetails}
       slug={slug}
+      fieldConfigData={fieldConfigData}
     // showNavigation={page?.journeyInfo?.config?.showNavigation}
     // groupType={page?.route?.meta?.groupType}
     // pages={pages}

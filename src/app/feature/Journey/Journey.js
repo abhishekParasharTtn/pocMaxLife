@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 const Journey = ({
   themeConfig,
   utmConfig,
-  slug
+  slug,
+  fieldConfigData
   // pageType,
   // pages
 }) => {
@@ -13,13 +14,20 @@ const Journey = ({
   const [page, setPage] = useState(null);
 
   const getPageData = async () => {
-    const pageData = await utmService.getpage(utmConfig, slug);
-    setPage(pageData?.[0]);
+    let pageData = await utmService.getpage(utmConfig, slug);
+
+    if (pageData && fieldConfigData) {
+      pageData = utmService.getFormDataWithUpdatedDefaultValues(pageData, fieldConfigData);
+    }
+    setPage(pageData);
   }
 
   useEffect(() => {
     getPageData();
   }, [])
+
+  useEffect(() => {
+  }, [fieldConfigData])
 
 
 
@@ -30,7 +38,7 @@ const Journey = ({
         <Page
           utmConfig={utmConfig}
           themeConfig={themeConfig}
-          page={page}
+          page={page?.[0]}
         />
       }
     </div>
