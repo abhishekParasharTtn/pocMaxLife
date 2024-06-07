@@ -72,7 +72,7 @@
                   "__typename": "ComponentUiOption",
                   "title": "Gender",
                   "description": null,
-                  "defaultValue": "M",
+                  "defaultValue": "F",
                   "dataSourceName": "dataGenders",
                   "componentType": "ButtonGroup",
                   "style": null,
@@ -85,16 +85,18 @@
                     {
                       "key": "name",
                       "value": "male"
+                    },
+                    {
+                      "key": "name",
+                      "value": "female"
                     }
                   ],
                   "data": [
                     {
-                      "name": "male",
-                      "label": "Male",
-                      "value": "M",
-                      "icon": {
-                        "data": null
-                      }
+                      "name": "transgender",
+                      "label": "Transgender",
+                      "value": "T",
+                      "icon": {}
                     }
                   ]
                 }
@@ -126,15 +128,93 @@
                   "data": [
                     {
                       "name": "maxLifeSmartSecurePlusPlan",
-                      "marketingName": "Max Life Smart Secure Plus Plan",
                       "code": "SSPP",
-                      "productId": "154"
+                      "productId": "154",
+                      "label": "Max Life Smart Secure Plus Plan"
                     },
                     {
                       "name": "maxLifeSmartWealthAnnuityGuaranteedPensionPlan",
-                      "marketingName": "Max Life Smart Wealth Annuity Guaranteed Pension Plan",
                       "code": "SWAGPP",
-                      "productId": "210"
+                      "productId": "210",
+                      "label": "Max Life Smart Wealth Annuity Guaranteed Pension Plan"
+                    },
+                    {
+                      "name": "maxLifeFlexiWealthPlusPlanSolution",
+                      "code": "FIP",
+                      "productId": "132",
+                      "label": "Max Life Flexi Wealth Plus Plan Solution"
+                    },
+                    {
+                      "name": "maxLifeSmartWealthPlanSolution",
+                      "code": "SWP",
+                      "productId": "133",
+                      "label": "Max Life Smart Wealth Plan Solution"
+                    },
+                    {
+                      "name": "maxLifeMonthlyIncomeAdvantagePlanSolution",
+                      "code": "MIAP",
+                      "productId": "74",
+                      "label": "Max Life Monthly Income Advantage Plan Solution"
+                    },
+                    {
+                      "name": "maxLifeSavingsAdvantagePlanSolutionPlus",
+                      "code": "SAP",
+                      "productId": "101",
+                      "label": "Max Life Savings Advantage Plan Solution Plus"
+                    },
+                    {
+                      "name": "maxLifeSmartWealthIncomePlanSolution",
+                      "code": "SWIP",
+                      "productId": "168",
+                      "label": "Max Life Smart Wealth Income Plan Solution"
+                    },
+                    {
+                      "name": "maxLifeFlexiWealthAdvantagePlanSolution",
+                      "code": "FWAP",
+                      "productId": "173",
+                      "label": "Max Life Flexi Wealth Advantage Plan Solution"
+                    },
+                    {
+                      "name": "maxLifeOnlineSavingsPlan",
+                      "code": "OSP",
+                      "productId": "100",
+                      "label": "Max Life Online Savings Plan"
+                    },
+                    {
+                      "name": "maxLifePlatinumWealthPlanPlusSolution",
+                      "code": "PWP",
+                      "productId": "78",
+                      "label": "Max Life Platinum Wealth Plan Plus Solution"
+                    },
+                    {
+                      "name": "maxLifeOnlineTermPlanPlus",
+                      "code": "OTP",
+                      "productId": "116",
+                      "label": "Max Life Online Term Plan Plus"
+                    },
+                    {
+                      "name": "foreverYoungPensionPlan",
+                      "code": "FYPP",
+                      "productId": "24",
+                      "label": "Forever Young Pension Plan"
+                    },
+                    {
+                      "name": "maxLifeForeverYoungPensionPlan",
+                      "code": "FYPP",
+                      "productId": "24",
+                      "label": "Max Life Forever Young Pension Plan"
+                    },
+                    {
+                      "name": "maxLifeFlexiWealthPlusPlan",
+                      "code": "FIP",
+                      "productId": "132",
+                      "label": "Max Life Flexi Wealth Plus Plan"
+                    },
+                    {
+                      "name": "maxLifeSmartWealthPlan",
+                      "code": "SWP",
+                      "productId": "133",
+                      "label": "Max Life Smart Wealth Plan"
                     }
                   ]
                 },
@@ -181,15 +261,10 @@
                   "visibility": true,
                   "label": "Premium Payment Term",
                   "placeholder": "Premium Payment Term",
-                  "fieldName": {},
+                  "name": "premiumPaymentTerm",
                   "popUp": {},
                   "dataFilter": [],
                   "data": [
-                    {
-                      "name": "oneYear",
-                      "label": "1",
-                      "value": "1"
-                    },
                     {
                       "name": "fiveYear",
                       "label": "5",
@@ -199,36 +274,6 @@
                       "name": "sixYear",
                       "label": "6",
                       "value": "6"
-                    },
-                    {
-                      "name": "sevenYear",
-                      "label": "7",
-                      "value": "7"
-                    },
-                    {
-                      "name": "eightYear",
-                      "label": "8",
-                      "value": "8"
-                    },
-                    {
-                      "name": "nineYear",
-                      "label": "9",
-                      "value": "9"
-                    },
-                    {
-                      "name": "tenYear",
-                      "label": "10",
-                      "value": "10"
-                    },
-                    {
-                      "name": "elevenYear",
-                      "label": "11",
-                      "value": "11"
-                    },
-                    {
-                      "name": "twelveYear",
-                      "label": "12",
-                      "value": "12"
                     }
                   ]
                 },
@@ -243,7 +288,7 @@
                   "visibility": true,
                   "label": "Policy Term",
                   "placeholder": "Policy Term",
-                  "fieldName": {},
+                  "name": "policyTerm",
                   "popUp": {},
                   "dataFilter": [],
                   "data": [
@@ -370,7 +415,7 @@
                   "visibility": true,
                   "label": "Mode of Payment",
                   "placeholder": "Mode of Payment",
-                  "fieldName": {},
+                  "name": "modeOfPayment",
                   "popUp": {},
                   "dataFilter": [],
                   "data": [
