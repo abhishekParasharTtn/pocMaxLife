@@ -197,8 +197,16 @@ export const utmService = {
                 option.fieldName.name === component.name &&
                 option.defaultValue !== null
             );
+            const matchedVisibilityOption = formFieldConfigs.find(
+              (option) =>
+                option.fieldName.name === component.name &&
+                option.visibility !== null
+            );
             if (matchedOption) {
               component.defaultValue = matchedOption.defaultValue;
+            }
+            if (matchedVisibilityOption) {
+              component.visibility = matchedVisibilityOption.visibility;
             }
           });
         });
