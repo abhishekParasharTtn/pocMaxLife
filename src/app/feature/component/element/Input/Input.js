@@ -9,6 +9,7 @@ const Input = ({ component,formName }) => {
         fieldName, 
         label, 
         placeholder,
+        name
         
     } = component;
     console.log('formName14',formName);
@@ -23,7 +24,7 @@ const Input = ({ component,formName }) => {
         setUserName({
             [label]: e.target.value,
         })
-        dispatch(setField({ fieldName: label, value: newValue, formName: formName }));
+        dispatch(setField({ fieldName: name, value: newValue, formName: formName }));
     }
 
     return (

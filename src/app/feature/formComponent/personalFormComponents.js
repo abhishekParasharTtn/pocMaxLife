@@ -2,7 +2,7 @@ import Section from "@/app/feature/Section/Section";
 import React from "react";
 import Component from "@/app/feature/component/Component";
 
-const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formName }) => {
+const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formName,pageRoute }) => {
   return (
     <div className="">
       {section?.forms?.length > 0 &&
@@ -15,6 +15,7 @@ const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formNam
               utmConfig={utmConfig}
               form={form}
               formName={formName}
+              pageRoute={pageRoute}
             />
           </div>
         })

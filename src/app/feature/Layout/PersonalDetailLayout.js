@@ -4,9 +4,10 @@ import { extractDetailsSection, extractRoute } from '@/app/services/util';
 
 const PersonalDetailLayout = ({ themeConfig, utmConfig, page,formName }) => {
 
-  // const pageData = extractDetailsSection(page,"personalDetails")
-  // const pageRoute  = extractRoute(page,"personalDetails")
-  // console.log(page, "::page")
+    const pageRoute = {
+        prev: page?.previous,
+        next: page?.next
+      }
 
   const sectionHandler = () => {
     return <>
@@ -18,6 +19,7 @@ const PersonalDetailLayout = ({ themeConfig, utmConfig, page,formName }) => {
             utmConfig={utmConfig}
             section={section}
             formName={formName}
+            pageRoute={pageRoute}
           // page={page}
           />
         })

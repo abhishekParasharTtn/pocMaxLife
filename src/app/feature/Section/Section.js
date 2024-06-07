@@ -8,6 +8,7 @@ const formLayout = dynamic(() =>
 const Section = ({
   section,
   formName,
+  pageRoute
 }) => {
 
   const sectionComponentMappings = {
@@ -22,6 +23,7 @@ const Section = ({
           <SectionComponent
             section={section}
             formName={formName}
+            pageRoute={pageRoute}
           /> :
           <h2>{`Missing section for type:`}</h2>
       }

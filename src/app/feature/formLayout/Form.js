@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import ButtonGroup from "../component/ButtonGroup";
 
 
-const Form = ({ themeConfig, utmConfig, section,formName }) => {
+const Form = ({ themeConfig, utmConfig, section,formName,pageRoute }) => {
 
 
   const personalFormComponents = dynamic(() => import('../formComponent/personalFormComponents'));
@@ -15,7 +15,6 @@ const Form = ({ themeConfig, utmConfig, section,formName }) => {
   }
   const FormMapping = FormMappingLayout[section?.layout?.layout?.name] || null;
 
-
   return FormMapping ? (
     <form>
       <FormMapping
@@ -23,6 +22,7 @@ const Form = ({ themeConfig, utmConfig, section,formName }) => {
         utmConfig={utmConfig}
         section={section}
         formName={formName}
+        pageRoute={pageRoute}
       />
       {
         section?.button?.length > 0 ?
@@ -32,6 +32,7 @@ const Form = ({ themeConfig, utmConfig, section,formName }) => {
                 return <ButtonGroup
                   key={index}
                   button={button}
+                  pageRoute={pageRoute}
                 />
               })
             }
