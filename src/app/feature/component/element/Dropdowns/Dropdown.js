@@ -40,7 +40,7 @@ setSelectedValue(newValue);
               </select>
               <label
                   className={`absolute left-0 ${selectedValue ? '-top-2 text-lg text-primary' : 'bottom-2 text-base'} transform origin-left transition-all duration-200`}>
-                  {label}
+                  {label ? label : "Premium Type"}
               </label>
           </div>
           <style jsx>
