@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 
 const Button = ({button, component}) => {
@@ -7,6 +8,8 @@ const Button = ({button, component}) => {
     const {type, label, name } = button || component;
 
     const router = useRouter();
+    const formData = useSelector((state) => state.forms.personalDetails);
+  console.log('formData',formData)
 
     const clickHandler = (e) => {
         e.preventDefault();

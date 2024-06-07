@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import ButtonGroup from "../component/ButtonGroup";
 
 
-const Form = ({ themeConfig, utmConfig, section }) => {
+const Form = ({ themeConfig, utmConfig, section,formName }) => {
 
 
   const personalFormComponents = dynamic(() => import('../formComponent/personalFormComponents'));
@@ -22,7 +22,7 @@ const Form = ({ themeConfig, utmConfig, section }) => {
         themeConfig={themeConfig}
         utmConfig={utmConfig}
         section={section}
-      // pages={pages}
+        formName={formName}
       />
       {
         section?.button?.length > 0 ?

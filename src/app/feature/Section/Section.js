@@ -6,12 +6,9 @@ const formLayout = dynamic(() =>
 );
 
 const Section = ({
-  // themeConfig, 
-  // utmConfig, 
   section,
-  // page
+  formName,
 }) => {
-
 
   const sectionComponentMappings = {
     ComponentContainerFormContainer: formLayout
@@ -23,10 +20,8 @@ const Section = ({
       {
         SectionComponent ?
           <SectionComponent
-            // themeConfig={themeConfig}
-            // utmConfig={utmConfig}
-            // page={page}
             section={section}
+            formName={formName}
           /> :
           <h2>{`Missing section for type:`}</h2>
       }

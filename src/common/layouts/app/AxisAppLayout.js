@@ -5,15 +5,12 @@ const axisAppLayout = ({
   themeConfig,
   
 }) => {
-  
+
 
   return (
     <div className="min-h-screen">
       <Theme themeConfig={themeConfig} />
-     <div>Axis App poc</div>
       {children}
-
-    
     </div>
   )
 }
