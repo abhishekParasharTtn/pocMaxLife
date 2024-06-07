@@ -4,6 +4,7 @@ const initialState = {
   personalDetails: {
   },
   customerDetails: {
+    whatsappOptInStatus:false
   },
 };
 
@@ -13,7 +14,6 @@ const formSlices = createSlice({
   reducers: {
     setField: (state, action) => {
       const { fieldName, value, formName } = action.payload;
-      console.log('fieldName',fieldName);
       state[formName][fieldName] = value;
     },
 

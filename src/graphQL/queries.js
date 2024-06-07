@@ -316,4 +316,86 @@ export const queries = {
     }
     `;
   },
+  getDataConfigs: (name) => {
+    return `query {
+  dataConfigs(filters: { name: { eq: "${name}" } }) {
+    data {
+      attributes {
+        name
+        dataNationalities {
+          data {
+            attributes {
+              name
+              term
+              value
+            }
+          }
+        }
+        dataGenders {
+          data {
+            attributes {
+              name
+              label
+              value
+              icon {
+                data {
+                  attributes {
+                    name
+                    alternativeText
+                    caption
+                    width
+                    height
+                    formats
+                    hash
+                    ext
+                    mime
+                  }
+                }
+              }
+            }
+          }
+        }
+        dataProductNames {
+          data {
+            attributes {
+              name
+              label
+              code
+              productId
+            }
+          }
+        }
+        dataPremiumType {
+          data {
+            attributes {
+              name
+              label
+              value
+            }
+          }
+        }
+        dataPremiumPaymentTerms {
+          data {
+            attributes {
+              name
+              label
+              value
+            }
+          }
+        }
+        dataCountries {
+          data {
+            attributes {
+              name
+              shortName
+              code
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+  },
 };
