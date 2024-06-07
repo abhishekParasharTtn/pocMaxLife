@@ -8,7 +8,8 @@ import ToggleSwitch from "@/app/feature/component/element/toggleSwitch/toggleswi
 
 const FieldComponent = ({
     component,
-    formName
+    formName,
+    pageRoute
 
 }) => {
     
@@ -27,6 +28,7 @@ const FieldComponent = ({
         <FieldComponent
             component={component}
             formName={formName}
+            pageRoute={pageRoute}
             
         />
     ) : (

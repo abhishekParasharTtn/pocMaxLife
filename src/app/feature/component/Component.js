@@ -7,7 +7,8 @@ const Component = ({
     themeConfig,
     utmConfig,
     form = {},
-    formName
+    formName,
+    pageRoute
 
 }) => {
     const { form: { components } = {} } = form;
@@ -44,6 +45,7 @@ const Component = ({
                         key={component?.name}
                         component={component}
                         formName={formName}
+                        pageRoute={pageRoute}
                     />
                 })
             }
