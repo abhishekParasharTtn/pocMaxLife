@@ -18,7 +18,7 @@ const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formNam
       {section?.forms?.length > 0 &&
         section?.forms.map((form, index) => {
           return <div className="form-container mb-20">
-            <h1 class="text-lg mb-4">{form?.form?.title}</h1>
+            <h1 className="text-lg mb-11">{form?.form?.title}</h1>
             <Component
               key={index}
               themeConfig={themeConfig}
