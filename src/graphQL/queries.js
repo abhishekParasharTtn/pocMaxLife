@@ -222,7 +222,64 @@ export const queries = {
                         }
                       }
                     }
+                  },
+                  rules {
+                id
+                relationBetweenAnyAll
+                relationWithNextRule
+                any {
+                  id
+                  ... on ComponentLogicalRule {
+                    id
+                    fact {
+                      data {
+                        attributes {
+                          name
+                        }
+                      }
+                    }
                   }
+                  fact {
+                    data {
+                      attributes {
+                        name
+                      }
+                    }
+                  }
+                  operator
+                  customValue
+                  value
+                  values {
+                    value
+                    customValue
+                  }
+                  __typename
+                }
+                all {
+                  fact {
+                    data {
+                      attributes {
+                        name
+                      }
+                    }
+                  }
+                  operator
+                  customValue
+                  value
+                  values {
+                    value
+                    customValue
+                  }
+                }
+                roleOutput {
+                  value
+                  isVisible
+                  isDisable
+                  key
+                }
+                
+              }
+              
                 }
                 button {
                   id
