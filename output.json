@@ -84,11 +84,11 @@
                   "dataFilter": [
                     {
                       "key": "name",
-                      "value": "female"
+                      "value": "male"
                     },
                     {
                       "key": "name",
-                      "value": "male"
+                      "value": "female"
                     }
                   ],
                   "data": [

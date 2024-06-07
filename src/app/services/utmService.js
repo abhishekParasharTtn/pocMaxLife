@@ -187,31 +187,64 @@ export const utmService = {
     const formFieldConfigs = await api.get(null, query);
     return transformer.removeDatakeys(formFieldConfigs);
   },
-  getFormDataWithUpdatedDefaultValues: function (pageData, formFieldConfigs) {
-    pageData.forEach((page) => {
-      page.sections.forEach((section) => {
-        section.forms.forEach((form) => {
-          form.form.components.forEach((component) => {
-            const matchedOption = formFieldConfigs.find(
-              (option) =>
-                option.fieldName.name === component.name &&
-                option.defaultValue !== null
-            );
-            const matchedVisibilityOption = formFieldConfigs.find(
-              (option) =>
-                option.fieldName.name === component.name &&
-                option.visibility !== null
-            );
-            if (matchedOption) {
-              component.defaultValue = matchedOption.defaultValue;
-            }
-            if (matchedVisibilityOption) {
-              component.visibility = matchedVisibilityOption.visibility;
-            }
+  getDataConfigs: async function (name) {
+    const query = queries.getDataConfigs(name);
+    const dataConfigs = await api.get(null, query);
+    return transformer.removeDatakeys(dataConfigs);
+  },
+  getFormFieldsMergedData: function (pageData, formFieldConfigs) {
+    const valueContains = [
+      "visibility",
+      "defaultValue",
+      "label",
+      "placeholder",
+    ];
+    if (formFieldConfigs) {
+      pageData.forEach((page) => {
+        page.sections.forEach((section) => {
+          section.forms.forEach((form) => {
+            form.form.components.forEach((component) => {
+              formFieldConfigs.forEach((config) => {
+                if (component.name === config.fieldName.name) {
+                  valueContains.forEach((prop) => {
+                    if (config[prop] !== null && config[prop] !== undefined) {
+                      component[prop] = config[prop];
+                    }
+                  });
+                }
+              });
+            });
           });
         });
       });
-    });
+    }
+
+    return pageData;
+  },
+  getDataConfigMergedData: function (pageData, dataConfigs) {
+    if (dataConfigs) {
+      const configMap = dataConfigs.dataConfigs.reduce((map, config) => {
+        Object.keys(config).forEach((key) => {
+          map[key] = config[key];
+        });
+        return map;
+      }, {});
+
+      pageData.forEach((page) => {
+        page.sections.forEach((section) => {
+          section.forms.forEach((form) => {
+            form.form.components.forEach((component) => {
+              if (component.dataSourceName) {
+                const dataSource = configMap[component.dataSourceName];
+                if (dataSource && dataSource.length > 0) {
+                  component.data = dataSource;
+                }
+              }
+            });
+          });
+        });
+      });
+    }
     return pageData;
   },
 };
