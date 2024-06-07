@@ -223,6 +223,50 @@ export const queries = {
                       }
                     }
                   }
+                  rules {
+                    id
+                    relationBetweenAnyAll
+                    relationWithNextRule
+                    any {
+                      fact {
+                        data {
+                          attributes {
+                            name
+                          }
+                        }
+                      }
+                      operator
+                      customValue
+                      value
+                      values {
+                        value
+                        customValue
+                      }
+                    }
+                    all {
+                      fact {
+                        data {
+                          attributes {
+                            name
+                          }
+                        }
+                      }
+                      operator
+                      customValue
+                      value
+                      values {
+                        value
+                        customValue
+                      }
+                    }
+                    roleOutput {
+                      value
+                      isVisible
+                      isDisable
+                      key
+                    }
+
+                  }
                 }
                 button {
                   id

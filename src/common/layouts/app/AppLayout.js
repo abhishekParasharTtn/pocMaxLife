@@ -8,12 +8,12 @@ import Header from "@/app/feature/component/header/header";
 
 
 export const AppLayout = ({
-    themeConfig,
-    utmConfig,
-    pageType,
-    pages,
-    slug,
-    fieldConfigData
+  themeConfig,
+  utmConfig,
+//   pageType,
+//   pages,
+  slug,
+  fieldConfigData,
 }) => {
 
     const layoutMappings = {
@@ -36,8 +36,8 @@ export const AppLayout = ({
                 <Journey
                     utmConfig={utmConfig}
                     themeConfig={themeConfig}
-                    pageType={pageType}
-                    pages={pages}
+                    // pageType={pageType}
+                    // pages={pages}
                     slug={slug}
                     fieldConfigData={fieldConfigData}
                 />
@@ -52,6 +52,3 @@ export const AppLayout = ({
     );
 
 };
-
-
-
