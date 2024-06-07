@@ -24,7 +24,8 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
   return (
     <div className="select-wrapper">
       {/* {label && <label className="dropdown-label">{label}</label>} */}
-      <select className={"block py-2.5 px-0 w-full text-base  border-0 border-b-2 border-gray-50 dark:border-gray-200 focus:outline-none"}
+      <select
+        className={selectClassString}
         // value={productData.productSelected.id}
         onChange={handleChange}
         placeholder={label}
