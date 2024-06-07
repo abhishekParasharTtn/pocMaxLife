@@ -14,7 +14,7 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
 
   const handleChange = (e) => {
     const newValue = e.target.value
-setSelectedValue(newValue);
+    setSelectedValue(newValue);
     const premiumType = options.filter((premiumType) => {
       if (premiumType.id === e.target.value) {
         return premiumType;
@@ -39,7 +39,7 @@ setSelectedValue(newValue);
                   ))}
               </select>
               <label
-                  className={`absolute left-0 ${selectedValue ? '-top-2 text-lg text-primary' : 'bottom-2 text-base'} transform origin-left transition-all duration-200`}>
+                  className={`absolute left-0 ${selectedValue ? '-top-2 text-base text-primary' : 'bottom-2 text-lg'} transform origin-left transition-all duration-200`}>
                   {label ? label : "Premium Type"}
               </label>
           </div>
