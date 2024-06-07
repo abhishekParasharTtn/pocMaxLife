@@ -8,27 +8,38 @@ async function fetchData(params) {
   const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  const pagesData = await utmService.getpage(utmDetails, slug);
+  // const pagesData = await utmService.getpage(utmDetails, slug);
   const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
-  const formFieldsMergedData = utmService.getFormFieldsMergedData(
-    pagesData,
-    fieldConfigData
-  );
+  // const formFieldsMergedData = utmService.getFormFieldsMergedData(
+  //   pagesData,
+  //   fieldConfigData
+  // );
   const dataConfigs = await utmService.getDataConfigs(
     utmDetails.dataConfig.name
   );
-  const pages = utmService.getDataConfigMergedData(
-    formFieldsMergedData,
-    dataConfigs
-  );
-  fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
-    if (err) {
-      console.error("Error writing file", err);
-    } else {
-      console.log("Successfully wrote file");
-    }
-  });
+  // const pages = utmService.getDataConfigMergedData(
+  //   formFieldsMergedData,
+  //   dataConfigs
+  // );
+  // fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
+  //   if (err) {
+  //     console.error("Error writing file", err);
+  //   } else {
+  //     console.log("Successfully wrote file");
+  //   }
+  // });
 
+  // const pages = utmService.getFormDataWithUpdatedDefaultValues(
+  //   pagesData,
+  //   fieldConfigData
+  // );
+  // fs.writeFile("themeConfig.json", JSON.stringify(themeConfig, null, 2), (err) => {
+  //   if (err) {
+  //     console.error("Error writing file", err);
+  //   } else {
+  //     console.log("Successfully wrote file");
+  //   }
+  // });
   return (
     <AppLayout
       themeConfig={themeConfig}
