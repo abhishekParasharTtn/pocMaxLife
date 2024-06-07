@@ -19,7 +19,7 @@ const RadioButtonCircle = (props) => {
 
     return (
         <>
-            <div className="mb-2 col-span-2">{title}</div>
+            <div className=" col-span-2">{title}</div>
             <div className="grid grid-cols-4 gap-2 col-span-2 mb-6">
                 {data.map((option) => (
                     <div key={option.name} className="flex items-center cursor-pointer" onClick={() => onChange(option.name)}>

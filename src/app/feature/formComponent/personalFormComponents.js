@@ -7,7 +7,7 @@ const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formNam
     <div className="">
       {section?.forms?.length > 0 &&
         section?.forms.map((form, index) => {
-          return <div className="form-container mb-20">
+          return <div className="form-container mb-20" style={{background: "#f9f9f9", padding: "20px 20px 40px"}}>
             <h1 class="text-lg mb-4">{form?.form?.title}</h1>
             <Component
               key={index}

@@ -37,7 +37,7 @@ const Component = ({
 
     // console.log("form================>", form);
     return (
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-3">
             {
                 components.length > 0 &&
                 components.map((component) => {

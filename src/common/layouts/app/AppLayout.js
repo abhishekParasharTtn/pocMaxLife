@@ -29,9 +29,8 @@ export const AppLayout = ({
             themeConfig={themeConfig}
             utmConfig={utmConfig}
         >
-            <header className="min-w-full bg-default sticky z-10 top-0">
-               <Header sectionObject={sectionObject} />
-            </header>
+           <Header sectionObject={sectionObject} />
+            
             <DefaultMainLayout>
                 <Journey
                     utmConfig={utmConfig}

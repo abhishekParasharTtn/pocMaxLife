@@ -22,7 +22,7 @@ const pageRoute = {
     )
   }
   return (
-    <div className=" bg-default px-8 py-6 w-2/4">
+    <div className=" bg-default px-8 py-6 w-7/12">
       {/*<div className="text-center col-span-2">{pageData.title}</div>*/}
       {sectionHandler()}
     </div>
