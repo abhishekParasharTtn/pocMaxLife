@@ -1,9 +1,19 @@
 import Section from "@/app/feature/Section/Section";
+import { useRouter } from 'next/navigation'
 import React from "react";
 import Component from "@/app/feature/component/Component";
 
 const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formName,pageRoute }) => {
+  const router = useRouter();
+  const backHandler = (e) => {
+    e.preventDefault();
+    router.back();
+  }
   return (
+    <>
+    <button className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-primary hover:text-white" onClick={backHandler}>
+    Back
+  </button>
     <div className="">
       {section?.forms?.length > 0 &&
         section?.forms.map((form, index) => {
@@ -21,6 +31,7 @@ const PersonalFormComponents = ({ themeConfig, utmConfig, section, pages,formNam
         })
       }
     </div>
+    </>
   );
 }
 
