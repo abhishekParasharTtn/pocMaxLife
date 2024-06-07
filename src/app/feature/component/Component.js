@@ -31,14 +31,22 @@ const Component = ({
 }) => {
     const { form: { components } = {} } = form;
     // const formData = useSelector()
+    const formData = useSelector((state) => state.forms.personalDetails);
 
-    const myFunction = async () => {
-        const rulesData = await productPageService.productFormRules(form.rules);
-        console.log(rulesData, form?.name, "::rulesData");
-    };
-    useEffect(() => {
-        myFunction();
-    });
+    // const myFunction = async () => {
+
+    //     const _facts = {}
+    //     Object.keys(formData).forEach(key => {
+    //         if (formData?.[key]) {
+    //             _facts[key] = true
+    //         }
+    //     });
+    //     const rulesData = await productPageService.productFormRules(form.rules, _facts);
+    //     // console.log(rulesData, form?.name, "::rulesData");
+    // };
+    // useEffect(() => {
+    //     myFunction();
+    // });
     // const formData = {
     //       InsurerAge: 30,
     //       premiumType: 'Limited Pay',
@@ -47,9 +55,10 @@ const Component = ({
     //     }
 
     if (form?.name === "productDetails") {
-        const formData = useSelector((state) => state.forms.personalDetails);
-        const insurerAge = getAge(formData?.dateOfBirth);
-        const _formData = { ...formData, insurerAge, isPosSeller: 'Yes' }
+        const InsurerAge = formData?.dob && getAge(formData?.dob) || null;
+        // const insurerAge = 30;
+        const _formData = { ...formData, InsurerAge, isPosSeller: 'Yes' }
+        // debugger
 
         const productComponent = productService.getProductComponent('SSP', _formData)
         components?.forEach(field => {
@@ -60,7 +69,7 @@ const Component = ({
         });
 
     }
-    // console.log('productComponent', productComponent)
+    // console.log('formData=========>', formData)
 
     // console.log("form================>", form);
     return (

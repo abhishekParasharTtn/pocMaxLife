@@ -12,7 +12,7 @@ const Input = ({ component,formName }) => {
         name
         
     } = component;
-    console.log('formName14',formName);
+    // console.log('formName14',formName);
     
     const [userName,setUserName] = useState({
         firstName:'',

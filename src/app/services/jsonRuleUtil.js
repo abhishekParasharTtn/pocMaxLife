@@ -90,7 +90,7 @@ const executeRuleCriteria = async (criteria, facts) => {
 };
 
 const ruleEngine = async (rules, facts, name) => {
-  debugger;
+  // debugger;
   rules = rules || [];
   let finalResult = false;
   let finalOutput = [];

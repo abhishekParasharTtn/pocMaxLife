@@ -17,7 +17,7 @@ const Button = ({button, component,pageRoute}) => {
         else {
             router.push((pageRoute.next).replace('/', ''));
         }
-        console.log(name);
+        // console.log(name);
     }
    
     return (

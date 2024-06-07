@@ -3,7 +3,7 @@ const selectClassString = "block py-2.5 px-0 w-full focus:border-orange text-sm 
 const ProductNameDropdown = ({productData, setProductData, name, title, label, options, disabled = false}) => {
     
     const handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         const product = options.filter((product) => {
             if(product.productId === e.target.value){
                 return product;

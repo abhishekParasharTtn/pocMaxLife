@@ -3,14 +3,15 @@ import Section from '../Section/Section';
 import { extractDetailsSection, extractRoute } from '@/app/services/util';
 
 
-const CustomerDetailLayout = ({ themeConfig, utmConfig, page,formName }) => {
-const pageRoute = {
-  prev: page?.previous,
-  next: page?.next
-}
+const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
+  const pageRoute = {
+    prev: page?.previous,
+    next: page?.next
+  }
   const sectionHandler = () => {
-    return (page?.sections.map((section) => {
+    return (page?.sections.map((section, key) => {
       return <Section
+        key={key}
         themeConfig={themeConfig}
         utmConfig={utmConfig}
         section={section}

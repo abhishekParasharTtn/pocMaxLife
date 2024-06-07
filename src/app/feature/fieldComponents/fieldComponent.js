@@ -22,7 +22,7 @@ const FieldComponent = ({
         ComponentUiCheckbox:DeclarationCheckbox,
         ComponentUiToggleSwitch: ToggleSwitch,
     };
-    console.log(component,'productsssssss')
+    // console.log(component,'productsssssss')
     const FieldComponent = ComponentMappings[component?.__typename];
     return FieldComponent ? (
         <FieldComponent

@@ -5,7 +5,7 @@ const PolicyTermDropdown = ({productData, setProductData, name, title, label, op
     const {premiumType} = productData;
 
     const handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setProductData({...productData, policyTerm: e.target.value});
     }
 

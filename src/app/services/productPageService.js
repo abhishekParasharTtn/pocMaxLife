@@ -1,21 +1,21 @@
 import { ruleEngine, processRulesWithRuleEngine } from "./jsonRuleUtil";
 export const productPageService = {
-  productFormRules: async function (rules) {
-    console.log(rules);
-
+  productFormRules: async function (rules, facts, formName) {
+    // console.log(rules, facts);
     const fact = {
       firstName: "true",
       lastName: "true",
-      dob: "true",
+      // dob: "true",
       gender: "true",
     };
 
+    // console.log("rule engine:::::::::", rules, formName, facts)
     const productDetailsVisibilityRule = await ruleEngine(
       rules || [],
-      fact,
-      "productDetails"
+      facts,
+      formName
     );
-    console.log(productDetailsVisibilityRule, "::productDetailsVisibilityRule");
+    // console.log(productDetailsVisibilityRule, "::productDetailsVisibilityRule");
     return productDetailsVisibilityRule;
   },
 };

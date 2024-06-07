@@ -3,7 +3,7 @@ const selectClassString = "block py-2.5 px-0 w-full focus:border-orange text-sm 
 const AnnuityTypeDropdown = ({productData, setProductData, options, placeholder}) => {
 
     const handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setProductData({...productData, annuityType: e.target.value});
     }
 

@@ -18,7 +18,7 @@ const Journey = ({
 
   const getPageData = async () => {
     let pageData = await utmService.getpage(utmConfig, slug);
-    console.log(pageData, "::getPageData");
+    // console.log(pageData, "::getPageData");
     if (pageData && fieldConfigData) {
       pageData = utmService.getFormDataWithUpdatedDefaultValues(
         pageData,
