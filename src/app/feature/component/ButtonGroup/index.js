@@ -4,7 +4,7 @@ const buttonComponent = dynamic(() =>
 );
 
 
-const ButtonGroup = ({ button, component, pageRoute, name}) => {
+const ButtonGroup = ({ button, component, pageRoute, formName}) => {
 
   const {  __typename } = (button || component);
 
@@ -20,6 +20,7 @@ const ButtonGroup = ({ button, component, pageRoute, name}) => {
          button={button}
          component={component}
          pageRoute={pageRoute}
+         formName={formName}
         /> :
         null
       }

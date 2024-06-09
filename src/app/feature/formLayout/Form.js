@@ -33,6 +33,7 @@ const Form = ({ themeConfig, utmConfig, section,formName,pageRoute }) => {
                   key={index}
                   button={button}
                   pageRoute={pageRoute}
+                  formName={formName}
                 />
               })
             }

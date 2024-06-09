@@ -1,7 +1,8 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setField } from "@/redux/formSlices";
+import { debounce } from "lodash";
 
 const PhoneCodeDropdown = ({component,formName}) => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const PhoneCodeDropdown = ({component,formName}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredOptions, setFilteredOptions] = useState(data);
     
-    const storedPhone = useSelector((state) => state.forms[formName][label]);
+    
 
     useEffect(() => {
         setFilteredOptions(
@@ -20,10 +21,16 @@ const PhoneCodeDropdown = ({component,formName}) => {
             )
         );
     }, [searchTerm]);
+    const debouncedDispatch = useCallback(
+        debounce((newValue) => {
+            dispatch(setField({ fieldName: name, value: newValue, formName: formName }));
+        }, 300), 
+        [dispatch, name, formName]
+    );
 
     const inputChangeHandler = (e,label) => {
         const newValue = e.target.value
-        dispatch(setField({ fieldName: name, value: newValue, formName: formName }));
+        debouncedDispatch(newValue);
     }
 
     return (
