@@ -11,6 +11,7 @@ const PhoneCodeDropdown = ({component,formName}) => {
     const {data, label, name, placeholder, visibility} = component;
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredOptions, setFilteredOptions] = useState(data);
+    const [phoneNo,setPhoneNo] = useState('');
     
     
 
@@ -30,6 +31,7 @@ const PhoneCodeDropdown = ({component,formName}) => {
 
     const inputChangeHandler = (e,label) => {
         const newValue = e.target.value
+        setPhoneNo(newValue);
         debouncedDispatch(newValue);
     }
 
@@ -46,7 +48,7 @@ const PhoneCodeDropdown = ({component,formName}) => {
                 <div className="mt-5 w-full">
                     <label className="relative">
                         <input
-                            value={storedPhone}
+                            value={phoneNo}
                             onChange={(e) => {
                                 inputChangeHandler(e, label)
                             }}

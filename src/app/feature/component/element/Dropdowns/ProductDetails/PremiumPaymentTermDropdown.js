@@ -5,7 +5,7 @@ const PremiumPaymentTermDropdown = ({productData, setProductData, name, title, l
     const {premiumType} = productData;
 
     const handleChange = (e) => {
-        console.log(e.target.value);
+
         setProductData({...productData, premiumPaymentTerm: e.target.value});
     }
 

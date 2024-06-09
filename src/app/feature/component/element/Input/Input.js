@@ -13,7 +13,7 @@ const Input = ({ component,formName }) => {
         name
         
     } = component;
-    console.log('formName14',formName);
+
     
     const [userName,setUserName] = useState({
         firstName:'',
@@ -48,6 +48,12 @@ const Input = ({ component,formName }) => {
                         value={userName[fieldName]}
                         onChange={(e) => {
                             inputChangeHandler(e, label)
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                               
+                            }
                         }}
                     />
                     <span

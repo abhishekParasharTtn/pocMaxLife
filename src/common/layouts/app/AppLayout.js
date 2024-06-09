@@ -23,7 +23,6 @@ export const AppLayout = ({
     const Layout = layoutMappings[utmConfig?.themeConfig?.name] || DefaultAppLayout;
     const sectionObject = themeConfig.themeConfigs[0].sections[0];
 
-    console.log(sectionObject,'sectionObject');
     return Layout ? (
         <Layout
             themeConfig={themeConfig}

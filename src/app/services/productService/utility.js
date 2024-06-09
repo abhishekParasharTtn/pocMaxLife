@@ -153,7 +153,7 @@ export const functionMap = {
       const calculateFunction = functionMap[element.logicFunctionName];
       if (element.logicFunctionParameter) {
         const params = functionMap.evaluateParams(element.logicFunctionParameter, formData);
-        // console.log('params', params);
+
         return calculateFunction(params);
       }
     }
@@ -161,7 +161,7 @@ export const functionMap = {
 
   generateRanges(field, formData) {
     if (!field.parentValues[formData[field.parent]]) return;
-    // console.log(field.fieldName, field.parentValues[formData[field.parent]].values);
+   
     let data = ((field.parentValues[formData[field.parent]].values.map((element) => {
       if (element.logic) {
         const range = functionMap.createFunctionFromString(element, formData);

@@ -7,16 +7,15 @@ const Button = ({button, component,pageRoute,formName}) => {
     const {type, label, name } = button || component;
 
     const router = useRouter();
-    const formData = useSelector((state) => state.forms.customerDetails);
-    
+    const formData = useSelector((state) => state.forms.personalDetails);
+   
     const clickHandler = (e) => {
-        e.preventDefault();
+        
+        
         if (name === 'save' ) {
 
         }
-        else if (formName === 'personalDetails') {
 
-        }
         else {
             router.push((pageRoute.next).replace('/', ''));
         }
