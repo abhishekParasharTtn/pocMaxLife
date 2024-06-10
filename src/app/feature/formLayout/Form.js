@@ -14,9 +14,14 @@ const Form = ({ themeConfig, utmConfig, section,formName,pageRoute }) => {
     CustomerDetailsFormLayout: customerFormComponents
   }
   const FormMapping = FormMappingLayout[section?.layout?.layout?.name] || null;
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted!");
+    
+};
 
   return FormMapping ? (
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <FormMapping
         themeConfig={themeConfig}
         utmConfig={utmConfig}
@@ -33,6 +38,7 @@ const Form = ({ themeConfig, utmConfig, section,formName,pageRoute }) => {
                   key={index}
                   button={button}
                   pageRoute={pageRoute}
+                  formName={formName}
                 />
               })
             }

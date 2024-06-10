@@ -3,21 +3,24 @@ import { useRouter } from 'next/navigation'
 import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 
-const Button = ({button, component,pageRoute}) => {
+const Button = ({button, component,pageRoute,formName}) => {
     const {type, label, name } = button || component;
 
     const router = useRouter();
-    const formData = useSelector((state) => state.forms.customerDetails);
-
+    const formData = useSelector((state) => state.forms.personalDetails);
+   
     const clickHandler = (e) => {
-        e.preventDefault();
-        if (name === 'save') {
+        
+        
+        if (name === 'save' ) {
 
         }
+
         else {
             router.push((pageRoute.next).replace('/', ''));
         }
-        console.log(name);
+        
+        
     }
    
     return (

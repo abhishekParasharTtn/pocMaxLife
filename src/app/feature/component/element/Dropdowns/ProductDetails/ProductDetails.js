@@ -493,10 +493,10 @@ const vestingAge = () => {
     return temp;
 }
 const vestingAgeOptions = vestingAge();
-console.log(vestingAgeOptions)
+
 const ProductDetailsSection = ({title, label, visibility, name, dataFilter, componentType}) => {
 
-    // console.log("IN HERE", title, label, visibility, name, dataFilter, componentType)
+    
     
     const [productData, setProductData] = useState({
         productSelected: {},

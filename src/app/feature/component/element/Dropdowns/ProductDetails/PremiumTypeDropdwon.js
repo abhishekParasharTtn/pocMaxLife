@@ -5,7 +5,7 @@ const selectClassString = "block py-2.5 px-0 w-full focus:border-orange text-sm 
 const PremiumTypeDropdown = ({productData, setProductData, name, title, label, options, disabled = false}) => {
 
     const handleChange = (e) => {
-        console.log(e.target.value);
+
         const premiumType = options.filter((premiumType) => {
             if(premiumType.id === e.target.value){
                 return premiumType;

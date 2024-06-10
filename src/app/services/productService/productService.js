@@ -62,6 +62,3 @@ export const productService = {
         return fields;
     }
 }
-
-// const componentLogic = returnAllFields(productsData.SSP, formData);
-// console.log(util.inspect(componentLogic, null, 10));

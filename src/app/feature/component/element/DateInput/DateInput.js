@@ -8,9 +8,7 @@ const DateInput = ({formName,component:{label,name}}) => {
 
     const dispatch = useDispatch();
     const selectedDate = useSelector((state) => state.forms?.[formName]?.[label] ?? null);
-    // const DateInput = ({component}) => {
-    //     console.log(component)
-    //         const [selectedDate, setSelectedDate] = useState('');
+
     const handleDateChange = (event) => {
          const newValue = event.target.value
         dispatch(setField({ fieldName: name, value: newValue, formName: formName }));
