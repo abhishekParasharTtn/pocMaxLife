@@ -6,6 +6,16 @@ const initialState = {
   customerDetails: {
     whatsappOptInStatus:false
   },
+  productlDetails: {
+  },
+  yblPersonalDetails: {
+  },
+  yblCustomerDetails: {
+    whatsappOptInStatus:false
+  },
+  yblProductlDetails: {
+  },
+
 };
 
 const formSlices = createSlice({
