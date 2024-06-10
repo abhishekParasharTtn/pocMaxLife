@@ -6,6 +6,7 @@ const formLayout = dynamic(() =>
 );
 
 const Section = ({
+    utmConfig,
   section,
   formName,
   pageRoute
@@ -24,6 +25,7 @@ const Section = ({
             section={section}
             formName={formName}
             pageRoute={pageRoute}
+            utmConfig={utmConfig}
           /> :
           <h2>{`Missing section for type:`}</h2>
       }

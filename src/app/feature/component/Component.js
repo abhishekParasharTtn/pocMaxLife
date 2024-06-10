@@ -44,6 +44,7 @@ const Component = ({
                         component={component}
                         formName={formName}
                         pageRoute={pageRoute}
+                        utmConfig={utmConfig}
                     />
                 })
             }
