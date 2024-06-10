@@ -16,12 +16,21 @@ const Journey = ({
   const [page, setPage] = useState(null);
 
   const getPageData = async () => {
+    try {
     let pageData = await utmService.getpage(utmConfig, slug);
-
     if (pageData && fieldConfigData) {
       pageData = utmService.getFormFieldsMergedData(pageData, fieldConfigData);
+      const dataConfigs = await utmService.getDataConfigs(utmConfig?.dataConfig?.name);
+      if(dataConfigs) {
+        const formFieldsMergedData = utmService.getFormFieldsMergedData(pageData,fieldConfigData);
+        pageData = utmService.getDataConfigMergedData(formFieldsMergedData,dataConfigs);
+      } 
     }
     setPage(pageData);
+    }catch (error) {
+    console.error('Error fetching page data:', error);
+    setPage(null); 
+    }
   };
 
   useEffect(() => {
