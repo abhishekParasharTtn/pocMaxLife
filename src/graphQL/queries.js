@@ -36,6 +36,50 @@ const components = {
   visibility
   style
   defaultValue
+  rules {
+    id
+    relationBetweenAnyAll
+    relationWithNextRule
+    any {
+      id
+      fact {
+        data {
+          attributes {
+           name
+          }
+        }
+      }
+      operator
+      customValue
+      value
+      values {
+        value
+        customValue
+      }
+    }
+    all {
+      id
+      fact {
+        data {
+          attributes {
+              name
+          }
+        }
+      }
+      operator
+      customValue
+      value
+      values {
+       value
+       customValue
+      }
+    }
+    roleOutput {
+      value
+      isVisible
+      isDisable
+    }
+  }
 }`,
   dobSingleInput: `... on ComponentFormDobSingleInput {
   __typename  
@@ -51,6 +95,50 @@ const components = {
     }
   }
   visibility
+  rules {
+    id
+    relationBetweenAnyAll
+    relationWithNextRule
+    any {
+      id
+      fact {
+        data {
+          attributes {
+           name
+          }
+        }
+      }
+      operator
+      customValue
+      value
+      values {
+        value
+        customValue
+      }
+    }
+    all {
+      id
+      fact {
+        data {
+          attributes {
+              name
+          }
+        }
+      }
+      operator
+      customValue
+      value
+      values {
+       value
+       customValue
+      }
+    }
+    roleOutput {
+      value
+      isVisible
+      isDisable
+    }
+  }
 }`,
   gender: `... on ComponentUiOption {
   __typename  
@@ -121,6 +209,50 @@ const components = {
     key
     value
   }
+  rules {
+    id
+    relationBetweenAnyAll
+    relationWithNextRule
+    any {
+      id
+      fact {
+        data {
+          attributes {
+           name
+          }
+        }
+      }
+      operator
+      customValue
+      value
+      values {
+        value
+        customValue
+      }
+    }
+    all {
+      id
+      fact {
+        data {
+          attributes {
+              name
+          }
+        }
+      }
+      operator
+      customValue
+      value
+      values {
+       value
+       customValue
+      }
+    }
+    roleOutput {
+      value
+      isVisible
+      isDisable
+    }
+  }  
 }`,
   checkBox: `... on ComponentUiCheckbox {
   __typename  
