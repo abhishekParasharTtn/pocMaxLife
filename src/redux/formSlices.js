@@ -6,14 +6,14 @@ const initialState = {
   customerDetails: {
     whatsappOptInStatus:false
   },
-  productlDetails: {
+  productDetails: {
   },
   yblPersonalDetails: {
   },
   yblCustomerDetails: {
     whatsappOptInStatus:false
   },
-  yblProductlDetails: {
+  yblProductDetails: {
   },
 
 };
