@@ -58,10 +58,11 @@ const FormWrapper = ({
     return (
         <>
             {
-                form?.name !== FORM_NAMES.PRODUCT_FORM ||
-                    showProductDetail
-                    ?
-                    <div className="" >
+                // form?.name !== FORM_NAMES.PRODUCT_FORM ||
+                //     showProductDetail
+                //     ?
+                <div className="" >
+                    <fieldset disabled={form?.name == FORM_NAMES.PRODUCT_FORM && !showProductDetail ? "disabled" : ""}>
                         <h1 className="text-lg mb-4">{form?.form?.title}</h1>
                         <Component
                             themeConfig={themeConfig}
@@ -70,7 +71,9 @@ const FormWrapper = ({
                             formName={formName}
                             pageRoute={pageRoute}
                         />
-                    </div> : null
+                    </fieldset>
+                </div>
+                //  : null
             }
         </>
     );
