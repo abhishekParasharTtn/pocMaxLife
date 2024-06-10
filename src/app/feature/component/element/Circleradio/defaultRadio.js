@@ -1,23 +1,7 @@
 'use client'
-import React, { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { setField } from "@/redux/formSlices";
 
-const RadioButtonCircle = (props) => {
-    const { title, data, defaultValue,formName, name } = props;
-    const dispatch = useDispatch();
-    const selectedOption = useSelector((state) => state.forms[formName][name]);
-    if (selectedOption === undefined || selectedOption === null) {
-        dispatch(setField({ fieldName: name, value: defaultValue, formName: formName }));
-    }
-    const onChange = (key) => {
-     
-      dispatch(setField({ fieldName: name, value: key, formName: formName }));
-       
-
-    }
-
-    return (
+const defaultRadio = ({ title, label, visibility, name, dataFilter, componentType, defaultValue, data,formName, onChange,selectedOption }) => {
+  return (
         <>
             <div className=" col-span-2">{title}</div>
             <div className="grid grid-cols-4 gap-2 col-span-2 mb-6">
@@ -38,4 +22,4 @@ const RadioButtonCircle = (props) => {
     );
 };
 
-export default RadioButtonCircle;
+export default defaultRadio;

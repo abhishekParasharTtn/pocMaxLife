@@ -1,14 +1,12 @@
 "use client"
-// import FYPP from"./FYPP.json"
+
 import ProductNameDropdown from "./ProductNameDropdown";
 import PremiumTypeDropdown from "./PremiumTypeDropdwon";
 import PremiumPaymentTermDropdown from "./PremiumPaymentTermDropdown";
-import AnnuityTypeDropdown from "./AnnuityTypeDropdown";
 import ModeOfPaymentDropdown from "./ModeOfPaymentDropdown";
-import RadioButtonCircle from "../../Circleradio/radiocircle";
 import PolicyTermDropdown from "./PolicyTerm";
 const { useState, useEffect } = require("react")
-// const { default: Dropdown } = require("../component/element/Dropdowns/Dropdown");
+
 
 
 const productList = [
