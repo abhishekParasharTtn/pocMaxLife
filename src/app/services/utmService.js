@@ -156,9 +156,12 @@ export const utmService = {
   },
   getpage: async function (utmDetails, slug) {
     const page = utmDetails.pages.find((route) => route.slug === slug[1]);
+    console.log(page);
     let pageData = await api.get(null, queries.getPages(page.name));
+    console.log(pageData);
     const filterPageData = transformer.removeDatakeys(pageData);
-    return this.transforPageData(filterPageData.pages, utmDetails.utmCode);
+    console.log(filterPageData);
+    return this.transforPageData(filterPageData?.pages, utmDetails.utmCode);
   },
   getPages: async function (utmDetails) {
     const names = [];

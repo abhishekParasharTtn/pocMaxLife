@@ -145,6 +145,22 @@ const components = {
   title
   description
   defaultValue
+  rules {
+    id
+    relationBetweenAnyAll
+    relationWithNextRule 
+    any {
+     id
+     operator
+     customValue
+     value
+     values {
+        value
+        customValue
+      }
+    }
+      
+  }
   dataSourceName {
     data {
       attributes {
@@ -175,6 +191,7 @@ const components = {
     key
     value
   }
+  
 }
 `,
   buttons: `... on ComponentUiButton {
@@ -255,10 +272,17 @@ const components = {
   }  
 }`,
   checkBox: `... on ComponentUiCheckbox {
+  id
   __typename  
   name
   label
   defaultValue
+  rules {
+    id
+    relationBetweenAnyAll
+    relationWithNextRule
+    
+  }
 }`,
   toggleButton: ` ... on ComponentUiToggleSwitch {
   __typename  

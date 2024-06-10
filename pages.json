@@ -47,7 +47,8 @@
                   "suggestion": null,
                   "visibility": true,
                   "style": null,
-                  "defaultValue": null
+                  "defaultValue": null,
+                  "rules": []
                 },
                 {
                   "__typename": "ComponentFormInput",
@@ -58,7 +59,8 @@
                   "suggestion": null,
                   "visibility": true,
                   "style": null,
-                  "defaultValue": null
+                  "defaultValue": null,
+                  "rules": []
                 },
                 {
                   "__typename": "ComponentFormDobSingleInput",
@@ -66,13 +68,50 @@
                   "label": "Date of birth",
                   "placeholder": "DD/MM/YYYY",
                   "defaultValue": null,
-                  "visibility": true
+                  "visibility": true,
+                  "rules": [
+                    {
+                      "id": "5",
+                      "relationBetweenAnyAll": "any",
+                      "relationWithNextRule": "all",
+                      "any": [],
+                      "all": [
+                        {
+                          "id": "11",
+                          "fact": {
+                            "name": "firstName"
+                          },
+                          "operator": "equal",
+                          "customValue": null,
+                          "value": null,
+                          "values": []
+                        }
+                      ],
+                      "roleOutput": null
+                    }
+                  ]
                 },
                 {
                   "__typename": "ComponentUiOption",
                   "title": "Gender",
                   "description": null,
-                  "defaultValue": "F",
+                  "defaultValue": "M",
+                  "rules": [
+                    {
+                      "id": "6",
+                      "relationBetweenAnyAll": "any",
+                      "relationWithNextRule": "all",
+                      "any": [
+                        {
+                          "id": "12",
+                          "operator": "equal",
+                          "customValue": null,
+                          "value": null,
+                          "values": []
+                        }
+                      ]
+                    }
+                  ],
                   "dataSourceName": "dataGenders",
                   "componentType": "ButtonGroup",
                   "style": null,
@@ -93,15 +132,36 @@
                   ],
                   "data": [
                     {
-                      "name": "transgender",
-                      "label": "Transgender",
-                      "value": "T",
+                      "name": "male",
+                      "label": "Male",
+                      "value": "M",
+                      "icon": {}
+                    },
+                    {
+                      "name": "female",
+                      "label": "Female",
+                      "value": "F",
                       "icon": {}
                     }
                   ]
                 }
               ]
-            }
+            },
+            "rules": [
+              {
+                "id": "2",
+                "relationBetweenAnyAll": null,
+                "relationWithNextRule": null,
+                "any": [],
+                "all": [],
+                "roleOutput": {
+                  "value": null,
+                  "isVisible": null,
+                  "isDisable": null,
+                  "key": null
+                }
+              }
+            ]
           },
           {
             "id": "2",
@@ -116,6 +176,7 @@
                   "title": "Product Name",
                   "description": null,
                   "defaultValue": null,
+                  "rules": [],
                   "dataSourceName": "dataProductNames",
                   "componentType": "Dropdown",
                   "style": null,
@@ -223,6 +284,7 @@
                   "title": "Premium Type",
                   "description": null,
                   "defaultValue": null,
+                  "rules": [],
                   "dataSourceName": "dataPremiumTypes",
                   "componentType": "Dropdown",
                   "style": null,
@@ -255,6 +317,7 @@
                   "title": "Premium Payment Term",
                   "description": null,
                   "defaultValue": null,
+                  "rules": [],
                   "dataSourceName": "dataPremiumPaymentTerms",
                   "componentType": "Dropdown",
                   "style": null,
@@ -282,6 +345,7 @@
                   "title": "Policy Term",
                   "description": null,
                   "defaultValue": null,
+                  "rules": [],
                   "dataSourceName": "dataPolicyTerms",
                   "componentType": "Dropdown",
                   "style": null,
@@ -409,6 +473,7 @@
                   "title": "Mode of Payment",
                   "description": null,
                   "defaultValue": null,
+                  "rules": [],
                   "dataSourceName": "dataPaymentModes",
                   "componentType": "Dropdown",
                   "style": null,
@@ -442,7 +507,59 @@
                   ]
                 }
               ]
-            }
+            },
+            "rules": [
+              {
+                "id": "1",
+                "relationBetweenAnyAll": "all",
+                "relationWithNextRule": "all",
+                "any": [],
+                "all": [
+                  {
+                    "fact": {
+                      "name": "firstName"
+                    },
+                    "operator": "equal",
+                    "customValue": "true",
+                    "value": null,
+                    "values": []
+                  },
+                  {
+                    "fact": {
+                      "name": "lastName"
+                    },
+                    "operator": "equal",
+                    "customValue": "true",
+                    "value": null,
+                    "values": []
+                  },
+                  {
+                    "fact": {
+                      "name": "dob"
+                    },
+                    "operator": "equal",
+                    "customValue": "true",
+                    "value": null,
+                    "values": []
+                  },
+                  {
+                    "fact": {
+                      "name": "gender"
+                    },
+                    "operator": "equal",
+                    "customValue": "true",
+                    "value": null,
+                    "values": []
+                  }
+                ],
+                "roleOutput": {
+                  "value": null,
+                  "isVisible": true,
+                  "isDisable": false,
+                  "key": null
+                }
+              }
+            ]
           }
         ],
         "button": [
