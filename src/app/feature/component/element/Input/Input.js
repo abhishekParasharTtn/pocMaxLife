@@ -52,6 +52,7 @@ const Input = ({ component,formName, journeyType }) => {
             userName={userName}
             fieldName={fieldName}
             label={label}
+            placeholder={placeholder}
         />
     ): (<h2>{`Missing component`}</h2>)
 };

@@ -31,7 +31,7 @@ const Form = ({ themeConfig, utmConfig, section,formName,pageRoute }) => {
       />
       {
         section?.button?.length > 0 ?
-          <div className='Section-footer'>
+          <div className='Section-footer flex flex-row-reverse'>
             {
               section.button.map((button, index) => {
                 return <ButtonGroup
