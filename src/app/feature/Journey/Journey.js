@@ -41,7 +41,6 @@ const Journey = ({
         }
       }
       setPage(pageData);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching page data:", error);
       setPage(null);
@@ -51,8 +50,12 @@ const Journey = ({
   useEffect(() => {
     getPageData();
   }, []);
-
-  useEffect(() => {}, [fieldConfigData]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    clearTimeout(() => timer);
+  }, []);
 
   return (
     <Provider store={store}>
