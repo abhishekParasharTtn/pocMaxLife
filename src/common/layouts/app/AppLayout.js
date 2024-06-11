@@ -2,8 +2,8 @@ import DefaultAppLayout from './DefaultAppLayout';
 import AxisAppLayout from './AxisAppLayout';
 import DefaultMainLayout from './DefaultMainLayout';
 import Journey from '@/app/feature/Journey/Journey';
-import Image from "next/image";
 import Header from "@/app/feature/component/header/header";
+import Footer from '@/app/feature/component/Footer/footer';
 
 
 
@@ -40,10 +40,7 @@ export const AppLayout = ({
                     fieldConfigData={fieldConfigData}
                 />
             </DefaultMainLayout>
-            <footer className="max-w-full flex justify-center gap-5 text-primary text-lg items-center">
-                <div><Image src="/footer.png" alt="max-logo" width={270} height={270}/></div>
-                <div>© All rights reserved.</div>
-            </footer>
+            <Footer />
         </Layout>
     ) : (
         <h2>Page not found</h2>

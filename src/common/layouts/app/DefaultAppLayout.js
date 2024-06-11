@@ -1,4 +1,13 @@
+"use client"
 import Theme from './Theme'
+
+const style = {
+  margin: "0",
+  height: "100%",
+  minHeight: "100%",
+  display: "flex",
+  flexDirection: "column"
+}
 const DefaultAppLayout = ({
   children,
   themeConfig,
@@ -6,11 +15,12 @@ const DefaultAppLayout = ({
 }) => {
   
  
-
+ 
   return (
-    <div className="">
+    <div style={style}>
       <Theme themeConfig={themeConfig} />
       {children}
+
     </div>
   )
 }
