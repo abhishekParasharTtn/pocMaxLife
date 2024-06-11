@@ -22,7 +22,7 @@ const OvalRadio = ({ title, label, visibility, name, dataFilter, componentType, 
                             className="flex items-center cursor-pointer"
                         >
               <span
-                  className={`w-4 h-4 mr-2 rounded-full border border-primary flex items-center justify-center ${
+                  className={`w-4 h-4 mr-2 cursor-pointer rounded-full border border-primary flex items-center justify-center ${
                       option.name === selectedOption ? 'bg-primary' : 'bg-white'
                   }`}
               >
