@@ -36,16 +36,16 @@ const PhoneCodeDropdown = ({component,formName}) => {
     }
 
     return (
-        <div >
-            <div className=' flex items-baseline'>
-                <select className="phoneCodeSelect bg-default">
+        <div className="col-span-1 place-content-center">
+            <div className='flex items-center align-items-center'>
+                <select className="bg-default">
                     {filteredOptions.map((phCode, index) => (
                         <option key={index} value={phCode.code} className={'options'}>
                             {phCode.code}
                         </option>
                     ))}
                 </select>
-                <div className="mt-11 w-full">
+                <div className="mt-2 w-full">
                     <label className="relative">
                         <input
                             value={phoneNo}
@@ -53,7 +53,7 @@ const PhoneCodeDropdown = ({component,formName}) => {
                                 inputChangeHandler(e, label)
                             }}
                             placeholder={''}
-                            className="block text-primary border-b-2 border-gray-300 w-full outline-none focus:border-orange-500"/>
+                            className="block text-primary border-b-2 border-gray-300 w-full outline-none focus:border-primary"/>
                         <span
                             className="absolute left-2 bottom-2 opacity-50 cursor-text transform origin-left transition duration-200">
                         {label.toUpperCase()}

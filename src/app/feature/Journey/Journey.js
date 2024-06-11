@@ -20,31 +20,44 @@ const Journey = ({
   const getPageData = async () => {
     setLoading(true);
     try {
-      
       let pageData = await utmService.getpage(utmConfig, slug);
       if (pageData && fieldConfigData) {
-        pageData = utmService.getFormFieldsMergedData(pageData, fieldConfigData);
-        const dataConfigs = await utmService.getDataConfigs(utmConfig?.dataConfig?.name);
-        if(dataConfigs) {
-          const formFieldsMergedData = utmService.getFormFieldsMergedData(pageData,fieldConfigData);
-          pageData = utmService.getDataConfigMergedData(formFieldsMergedData,dataConfigs);
-        } 
+        pageData = utmService.getFormFieldsMergedData(
+          pageData,
+          fieldConfigData
+        );
+        const dataConfigs = await utmService.getDataConfigs(
+          utmConfig?.dataConfig?.name
+        );
+        if (dataConfigs) {
+          const formFieldsMergedData = utmService.getFormFieldsMergedData(
+            pageData,
+            fieldConfigData
+          );
+          pageData = utmService.getDataConfigMergedData(
+            formFieldsMergedData,
+            dataConfigs
+          );
+        }
       }
       setPage(pageData);
       setLoading(false);
-
     } catch (error) {
-      console.error('Error fetching page data:', error);
+      console.error("Error fetching page data:", error);
       setPage(null);
-      setLoading(false); 
+      setLoading(false)
     }
   };
 
   useEffect(() => {
     getPageData();
   }, []);
-
-  useEffect(() => {}, [fieldConfigData]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <Provider store={store}>
