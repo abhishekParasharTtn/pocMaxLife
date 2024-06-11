@@ -45,10 +45,10 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
           </div>
           <style jsx>
               {`
-                  select:focus {
-                      outline: none;
-                      border-bottom: 2px solid #f27930; /* Add a valid color code here */
-                  }
+                  //select:focus {
+                  //    outline: none;
+                  //    border-bottom: 2px solid #f27930; /* Add a valid color code here */
+                  //}
 
                   select:focus ~ label,
                   select:not([value=""]):valid ~ label {
