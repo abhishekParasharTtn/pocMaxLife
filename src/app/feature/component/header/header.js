@@ -18,17 +18,19 @@ const Header = ({ sectionObject }) => {
           }
           alt={sectionObject?.image?.name}
           width={imageWidth}
-          height={isAxisBank ? 150 : 70}
+          height={70}
         />
       </div>
       <div>
-        <Image
-          className="cursor-pointer"
-          src="/mpro.png"
-          alt="m-pro"
-          width={170}
-          height={170}
-        />
+        <div style={{ width: "170px", height: "47px", position: "relative" }}>
+          <Image
+            className="cursor-pointer"
+            alt="m-pro"
+            src="/mpro.png"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </div>
     </div>
   );
