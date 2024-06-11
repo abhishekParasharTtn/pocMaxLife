@@ -11,8 +11,13 @@ const DeclarationCheckbox = ({component: {name, label}, formName}) => {
     return (
         <div className={'col-span-2'}>
             <div className=''>
-                <input type='checkbox' name={name} onChange={(e) => {inputChangeHandler(e,name)}}/>
-                <label htmlFor={name} className="ml-3">{label}</label>
+                <input
+                    type='checkbox'
+                    id={name}
+                    name={name}
+                    onChange={(e) => inputChangeHandler(e, name)}
+                />
+                <label htmlFor={name} className="ml-3 cursor-pointer">{label}</label>
             </div>
         </div>
     );

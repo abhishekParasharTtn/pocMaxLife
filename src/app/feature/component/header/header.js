@@ -4,7 +4,7 @@ import {API_URL} from "@/utils/urls";
 const Header = ({sectionObject}) => {
     const isAxisBank = sectionObject.altText === 'Axis Bank'
     return (
-        <div className="flex justify-around items-center px-20 shadow-type1 min-h-20">
+        <div className="flex justify-around items-center shadow-type1 min-h-20">
             <div>
                 <Image
                     className={`${isAxisBank && 'bg-primary'} cursor-pointer`}

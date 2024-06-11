@@ -14,7 +14,7 @@ const defaultRadio = ({ title, label, visibility, name, dataFilter, componentTyp
                             onChange={() => onChange(option.name)}
                         />
                         <span className={`border border-primary rounded-full w-4 h-4 mr-2 ${option.name === selectedOption ? 'bg-primary' : ''}`}></span>
-                        <label>{option.term}</label>
+                        <label className="cursor-pointer">{option.label || option.term}</label>
                     </div>
                 ))}
             </div>
