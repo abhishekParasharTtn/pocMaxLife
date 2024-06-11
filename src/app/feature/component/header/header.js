@@ -22,7 +22,7 @@ const Header = ({ sectionObject }) => {
         />
       </div>
       <div>
-        <div style={{ width: "170px", height: "47px", position: "relative" }}>
+        <div className="w-[170px] h-[47px] relative">
           <Image
             className="cursor-pointer"
             alt="m-pro"
