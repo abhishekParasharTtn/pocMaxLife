@@ -1,7 +1,7 @@
 const DefaultMainLayout = ({ children }) => {
     return (
       <>
-        <main className="mainContainer">
+        <main className="mainContainer flex-1">
           <div >{children}</div>
         </main>
       </>

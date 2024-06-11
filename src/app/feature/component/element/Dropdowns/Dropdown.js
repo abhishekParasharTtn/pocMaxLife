@@ -32,11 +32,15 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
                   className="block py-3 cursor-pointer bg-transparent w-full border-b-2 outline-none focus:border-primary"
               >
                   <option value="" disabled hidden></option>
-                  {options?.map((option, index) => (
-                      <option key={index} value={option.id}>
-                          {option.label}
-                      </option>
-                  ))}
+                  {
+                    options.length === 0 ? <option diabled>No Data</option>
+                    :
+                    options?.map((option, index) => (
+                        <option key={index} value={option.id}>
+                            {option.label}
+                        </option>
+                    ))
+                  }
               </select>
               <label
                   className={`absolute left-0 ${selectedValue ? '-top-2 text-base text-primary' : 'bottom-2 text-lg'} transform origin-left transition-all duration-200`}>

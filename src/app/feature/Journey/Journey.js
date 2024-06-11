@@ -20,6 +20,7 @@ const Journey = ({
   const getPageData = async () => {
     setLoading(true);
     try {
+      
       let pageData = await utmService.getpage(utmConfig, slug);
       if (pageData && fieldConfigData) {
         pageData = utmService.getFormFieldsMergedData(pageData, fieldConfigData);
@@ -30,7 +31,8 @@ const Journey = ({
         } 
       }
       setPage(pageData);
-      setLoading(false)
+      setLoading(false);
+
     } catch (error) {
       console.error('Error fetching page data:', error);
       setPage(null);
@@ -48,7 +50,7 @@ const Journey = ({
     <Provider store={store}>
       <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center">
         {
-          loading ? <Loader className="bg-default w-full" />
+          loading ? <Loader />
           :
           page && (
             <Page
