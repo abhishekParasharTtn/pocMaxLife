@@ -3,8 +3,11 @@ import { API_URL } from "@/utils/urls";
 
 const Header = ({ sectionObject }) => {
   const isAxisBank = sectionObject.altText === "Axis Bank";
+  const isYblBank = sectionObject.altText === "Ybl Bank";
+  let imageWidth = isAxisBank ? 150 : 70;
+  imageWidth = isYblBank ? 200 : imageWidth;
   return (
-    <div className="flex justify-around items-center px-20 shadow-type1 h-[75px]">
+    <div className="flex justify-around items-center px-20 shadow-type1 min-h-20">
       <div>
         <Image
           className={`${isAxisBank && "bg-primary"} cursor-pointer`}
@@ -14,7 +17,7 @@ const Header = ({ sectionObject }) => {
               : null
           }
           alt={sectionObject?.image?.name}
-          width={isAxisBank ? 150 : 70}
+          width={imageWidth}
           height={isAxisBank ? 150 : 70}
         />
       </div>
