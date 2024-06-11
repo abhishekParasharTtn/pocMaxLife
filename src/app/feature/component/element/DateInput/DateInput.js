@@ -24,7 +24,7 @@ const DateInput = ({formName,component:{label,name}}) => {
             {<label className='mb-3'>{label}</label>}
             <input
                 type="Date"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="w-full px-3 py-2 cursor-text bg-transparent border-b-2  focus:outline-none"
                 placeholder="DD/MM/YYYY"
                 value={selectedDate}
                 onChange={handleDateChange}
