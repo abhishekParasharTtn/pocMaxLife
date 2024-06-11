@@ -22,17 +22,17 @@ const Component = ({
     //       premiumPaymentTerm: '13',
     //     }
 
-    if (form?.name === "productDetails") {
-        const formData = useSelector((state) => state.forms.personalDetails);
-        const productComponent = productService.getProductComponent('SSP', formData)
-        components?.forEach(field => {
-            if (productComponent[field?.name]) {
-                field.data = [];
-                field.data = productComponent[field?.name]?.values;
-            }
-        });
+    // if (form?.name === "productDetails") {
+    //     const formData = useSelector((state) => state.forms.personalDetails);
+    //     const productComponent = productService.getProductComponent('SSP', formData)
+    //     components?.forEach(field => {
+    //         if (productComponent[field?.name]) {
+    //             field.data = [];
+    //             field.data = productComponent[field?.name]?.values;
+    //         }
+    //     });
 
-    }
+    // }
 
     return (
         <div className="grid grid-cols-2 gap-x-4 gap-y-3">
