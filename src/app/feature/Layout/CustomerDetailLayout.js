@@ -8,9 +8,10 @@ const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
     next: page?.next,
   };
   const sectionHandler = () => {
-    return page?.sections.map((section) => {
+    return page?.sections.map((section, index) => {
       return (
         <Section
+          key={index}
           themeConfig={themeConfig}
           utmConfig={utmConfig}
           section={section}
