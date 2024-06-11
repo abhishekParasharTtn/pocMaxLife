@@ -33,7 +33,7 @@ const PersonalFormComponents = ({
                 className="form-container mb-5 border border-[#eee]"
                 style={{ background: "#f9f9f9", padding: "20px 20px 40px" }}
               >
-                <h1 className="text-lg mb-8">{form?.form?.title}</h1>
+                <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
                 <Component
                   key={index}
                   themeConfig={themeConfig}

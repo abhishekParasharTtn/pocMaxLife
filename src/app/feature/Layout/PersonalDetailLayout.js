@@ -31,7 +31,7 @@ const PersonalDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
 
   return (
     <div className="bg-default px-8 pt-6 w-2/4 h-fit">
-      <div className={""}> {sectionHandler()}</div>
+      <div> {sectionHandler()}</div>
     </div>
   );
 };
