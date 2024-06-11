@@ -54,7 +54,7 @@ const Journey = ({
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
-    clearTimeout(() => timer);
+    clearTimeout(() => timer());
   }, []);
 
   return (
