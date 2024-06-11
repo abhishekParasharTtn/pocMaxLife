@@ -19,13 +19,33 @@ const Journey = ({
 
   const getPageData = async () => {
     setLoading(true);
-    let pageData = await utmService.getpage(utmConfig, slug);
-
-    if (pageData && fieldConfigData) {
-      pageData = utmService.getFormFieldsMergedData(pageData, fieldConfigData);
+    try {
+      let pageData = await utmService.getpage(utmConfig, slug);
+      if (pageData && fieldConfigData) {
+        pageData = utmService.getFormFieldsMergedData(
+          pageData,
+          fieldConfigData
+        );
+        const dataConfigs = await utmService.getDataConfigs(
+          utmConfig?.dataConfig?.name
+        );
+        if (dataConfigs) {
+          const formFieldsMergedData = utmService.getFormFieldsMergedData(
+            pageData,
+            fieldConfigData
+          );
+          pageData = utmService.getDataConfigMergedData(
+            formFieldsMergedData,
+            dataConfigs
+          );
+        }
+      }
+      setPage(pageData);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching page data:", error);
+      setPage(null);
     }
-    setPage(pageData);
-    setLoading(false)
   };
 
   useEffect(() => {
@@ -36,10 +56,10 @@ const Journey = ({
 
   return (
     <Provider store={store}>
-      <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center">
-        {
-          loading ? <Loader className="bg-default w-full" />
-          :
+      <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center min-h-[850px]">
+        {loading ? (
+          <Loader className="bg-default w-full" />
+        ) : (
           page && (
             <Page
               utmConfig={utmConfig}
@@ -47,7 +67,7 @@ const Journey = ({
               page={page?.[0]}
             />
           )
-        }
+        )}
       </div>
     </Provider>
   );

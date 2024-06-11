@@ -2,9 +2,11 @@ import {useState,useCallback} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { setField } from "@/redux/formSlices";
 import { debounce } from "lodash";
+import JourneyInput from "@/app/feature/component/element/Input/journeyInput";
+import defaultInput from "@/app/feature/component/element/Input/DefaultInput";
 
 
-const Input = ({ component,formName }) => {
+const Input = ({ component,formName, journeyType }) => {
     const dispatch = useDispatch();
     const {
         fieldName, 
@@ -37,39 +39,21 @@ const Input = ({ component,formName }) => {
         debouncedDispatch(newValue);
 
     }
+    const InputComponentMapping = {
+        DefaultInput: defaultInput,
+        ybl: JourneyInput,
+    }
 
-    return (
-        <div className=" col-span-1">
-            <div className="relative mb-9 col-span-1 mr-5 ">
-                <label htmlFor={fieldName} className="relative">
-                    <input
-                        className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-primary bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primary peer"
-                        placeholder={''}
-                        value={userName[fieldName]}
-                        onChange={(e) => {
-                            inputChangeHandler(e, label)
-                        }}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                e.preventDefault();
-                               
-                            }
-                        }}
-                    />
-                    <span
-                        className="absolute left-2 bottom-2 opacity-50 cursor-text transform origin-left transition duration-200">
-                        {label.toUpperCase()}
-                    </span>
-                </label>
-            </div>
-            <style jsx>{`
-                input:focus + span, input:not(:placeholder-shown) + span {
-                    transform: translateY(-20px) scale(0.80);
-                }
-            `}</style>
+    const InputComponent = InputComponentMapping[journeyType?.name] || defaultInput;
 
-        </div>
-    );
+    return InputComponent ? (
+        <InputComponent
+            inputChangeHandler={inputChangeHandler}
+            userName={userName}
+            fieldName={fieldName}
+            label={label}
+        />
+    ): (<h2>{`Missing component`}</h2>)
 };
 
 export default Input;
