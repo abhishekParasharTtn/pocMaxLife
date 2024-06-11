@@ -30,7 +30,7 @@ const OvalRadio = ({ title, label, visibility, name, dataFilter, componentType, 
                     <span className="w-2 h-2 bg-white rounded-full"></span>
                 )}
               </span>
-                            {option.term}
+                            {option.label || option.term}
                         </label>
                     </div>
                 ))}
