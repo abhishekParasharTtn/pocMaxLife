@@ -33,7 +33,7 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
               >
                   <option value="" disabled hidden></option>
                   {
-                    options.length === 0 ? <option diabled>No Data</option>
+                    options.length === 0 ? <option disabled>No Data</option>
                     :
                     options?.map((option, index) => (
                         <option key={index} value={option.id}>

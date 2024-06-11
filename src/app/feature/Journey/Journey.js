@@ -48,9 +48,9 @@ const Journey = ({
 
   return (
     <Provider store={store}>
-      <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center">
+      <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center h-full">
         {
-          loading ? <Loader />
+          loading ? <div className="h-full flex items-center"><Loader /></div>
           :
           page && (
             <Page

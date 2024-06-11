@@ -2,7 +2,7 @@ const DefaultMainLayout = ({ children }) => {
     return (
       <>
         <main className="mainContainer flex-1">
-          <div >{children}</div>
+          <div className="h-full">{children}</div>
         </main>
       </>
     )
