@@ -11,6 +11,7 @@ const Journey = ({
   utmConfig,
   slug,
   fieldConfigData,
+  dataConfigs
   // pageType,
   // pages
 }) => {
@@ -21,13 +22,10 @@ const Journey = ({
     setLoading(true);
     try {
       let pageData = await utmService.getpage(utmConfig, slug);
-      if (pageData && fieldConfigData) {
+      if (pageData && (fieldConfigData || dataConfigs)) {
         pageData = utmService.getFormFieldsMergedData(
           pageData,
           fieldConfigData
-        );
-        const dataConfigs = await utmService.getDataConfigs(
-          utmConfig?.dataConfig?.name
         );
         if (dataConfigs) {
           const formFieldsMergedData = utmService.getFormFieldsMergedData(

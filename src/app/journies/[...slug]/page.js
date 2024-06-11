@@ -7,6 +7,7 @@ const fs = require("fs");
 async function fetchData(params) {
   const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
+  console.log("utmDetails", utmDetails)
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
   // const pagesData = await utmService.getpage(utmDetails, slug);
   const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
@@ -14,9 +15,13 @@ async function fetchData(params) {
   //   pagesData,
   //   fieldConfigData
   // );
+
+  
   const dataConfigs = await utmService.getDataConfigs(
-    utmDetails.dataConfig.name
+    utmDetails?.dataConfig?.name
   );
+  console.log("dataConfig", dataConfigs)
+
   // const pages = utmService.getDataConfigMergedData(
   //   formFieldsMergedData,
   //   dataConfigs
@@ -47,6 +52,7 @@ async function fetchData(params) {
       utmConfig={utmDetails}
       slug={slug}
       fieldConfigData={fieldConfigData}
+      dataConfigs={dataConfigs}
       // showNavigation={page?.journeyInfo?.config?.showNavigation}
       // groupType={page?.route?.meta?.groupType}
       // pages={pages}
