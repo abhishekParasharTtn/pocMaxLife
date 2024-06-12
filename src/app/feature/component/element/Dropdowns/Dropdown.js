@@ -3,9 +3,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setField } from "@/redux/formSlices";
 
-const selectClassString = "block py-2.5 px-0 w-full focus:border-orange text-base focus:text-black-400 bg-transparent border-0 border-b-2 border-gray-50 appearance-none dark:text-gray-400 dark:border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-200 peer";
-// const selectClassString = "block py-2.5 px-0 w-full focus:border-orange text-sm focus:text-black-400 bg-transparent border-0 border-b-2 border-gray-50 appearance-none dark:text-gray-400 dark:border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-200 peer";
-
 
 
 const Dropdown = ({ productData, setProductData, name, title, label, options, disabled = false, formName }) => {
@@ -25,11 +22,12 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
 
   return (
       <div className="select-wrapper w-full">
-          <div className='relative mb-5'>
+          <div className={`{${disabled ? 'select-disabled text-disable' : ''} relative mb-5`} >
               <select
                   value={selectedValue}
                   onChange={handleChange}
-                  className="block py-3 cursor-pointer bg-transparent w-full border-b-2 outline-none focus:border-primary"
+                  disabled={disabled}
+                  className={`block py-3 bg-transparent w-full border-b-2 outline-none focus:border-primary ${disabled ? 'text-disable cursor-not-allowed' : 'cursor-pointer'}`}
               >
                   <option value="" disabled hidden></option>
                   {options?.map((option, index) => (
@@ -53,7 +51,11 @@ const Dropdown = ({ productData, setProductData, name, title, label, options, di
                   select:focus ~ label,
                   select:not([value=""]):valid ~ label {
                       transform: translateY(-10px) scale(0.80);
-                      color: #a3a3a3;
+                  }
+
+                  .select-disabled ~ label {
+                      opacity: 0.6; 
+                      cursor: not-allowed;
                   }
               `}
           </style>

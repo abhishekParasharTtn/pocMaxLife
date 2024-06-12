@@ -53,6 +53,8 @@ const FormWrapper = ({
         }
     }, [formData]);
 
+    const isDisabled = form?.name === FORM_NAMES.PRODUCT_FORM && !showProductDetail;
+
     return (
         <>
             {
@@ -61,8 +63,7 @@ const FormWrapper = ({
                 //     ?
                 <div className="" >
                     <fieldset
-                    disabled={form?.name == FORM_NAMES.PRODUCT_FORM && !showProductDetail ? "disabled" : ""}
-                    // disabled={true}
+                     disabled={isDisabled}
                     >
                         <Component
                             themeConfig={themeConfig}
@@ -70,6 +71,7 @@ const FormWrapper = ({
                             form={form}
                             formName={formName}
                             pageRoute={pageRoute}
+                            disabled={isDisabled}
                         />
                     </fieldset>
                 </div>

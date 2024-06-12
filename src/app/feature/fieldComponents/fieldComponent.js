@@ -14,7 +14,9 @@ const FieldComponent = ({
     component,
     formName,
     pageRoute,
-    utmConfig
+    utmConfig,
+    disabled
+
 }) => {
 
     const [isVisible, setIsVisible] = useState(() => {
@@ -81,6 +83,7 @@ const FieldComponent = ({
             pageRoute={pageRoute}
             utmConfig={utmConfig}
             journeyType={journeyType}
+            disabled={disabled}
         />
     ) : (
         <div>
