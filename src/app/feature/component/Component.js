@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import {useEffect,useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import FieldComponent from "@/app/feature/fieldComponents/fieldComponent";
 import { productService } from "@/app/services/productService/productService";
@@ -29,43 +30,56 @@ const Component = ({
 
 }) => {
     const { form: { components } = {} } = form;
-    const formData = useSelector((state) => state.forms.personalDetails);
+    const formData = useSelector((state) => state.forms.productDetails);
+    const productName = formData?.productName || null 
+    const premiumType = formData?.premiumType || null
+    const premiumPaymentTerm = formData?.premiumPaymentTerm || null
+    const policyTerm = formData?.policyTerm || null 
 
+    const [data,setData] = useState(components);
 
-    // const formData = {
-    //       InsurerAge: 30,
-    //       premiumType: 'Limited Pay',
-    //       isPosSeller: 'Yes',
-    //       premiumPaymentTerm: '13',
-    //     }
-
-    if (form?.name === "productDetails") {
+    const productDetail = async () => {
         const InsurerAge = formData?.dob && getAge(formData?.dob) || null;
-        // const insurerAge = 30;
         const _formData = { ...formData, InsurerAge, isPosSeller: 'Yes' }
-        // debugger
-
-        const productComponent = productService.getProductComponent('SSP', _formData)
-        components?.forEach(field => {
-            if (productComponent[field?.name]) {
-                field.data = [];
-                field.data = productComponent[field?.name]?.values;
+        const payload = {
+            key:'SSP',
+            formData:_formData,
+            components:components
+        }
+       
+        try {
+          const res = await fetch('http://localhost:3000/api/utms',{
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {
+              'content-type': 'application/json'
             }
-        });
+          })
+          const data = await res.json();
+          setData(data);
+        } catch (error) {
+            console.log(error)
+        }
 
     }
 
+    useEffect(() => {
+        if(formName === 'productDetails') productDetail();
+       
+      }, [productName,premiumType,premiumPaymentTerm,policyTerm]);
+         
     return (
         <div className="grid grid-cols-2 gap-x-4 gap-y-3">
             {
-                components.length > 0 &&
-                components.map((component) => {
+                data.length > 0 &&
+                data.map((component) => {
                     return <FieldComponent
                         key={component?.name}
                         component={component}
                         formName={formName}
                         pageRoute={pageRoute}
                         utmConfig={utmConfig}
+                        data ={data}
                     />
                 })
             }
