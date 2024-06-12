@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
+    "json-rules-engine": "^6.5.0",
     "lodash": "^4.17.21",
     "next": "14.2.3",
     "react": "^18",
