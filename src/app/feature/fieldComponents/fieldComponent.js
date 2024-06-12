@@ -10,7 +10,8 @@ const FieldComponent = ({
     component,
     formName,
     pageRoute,
-    utmConfig
+    utmConfig,
+    disabled
 
 }) => {
     
@@ -34,6 +35,7 @@ const FieldComponent = ({
             pageRoute={pageRoute}
             utmConfig={utmConfig}
             journeyType={journeyType}
+            disabled={disabled}
         />
     ) : (
         <div>
