@@ -1,4 +1,5 @@
 import Component from "@/app/feature/component/Component";
+import FormWrapper from "../formWrapper";
 
 const CustomerFormComponents = ({
   themeConfig,
@@ -20,7 +21,8 @@ const CustomerFormComponents = ({
             >
               <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
               {/* <div className="form-container mb-6" key={index}> */}
-              <Component
+              <FormWrapper
+                key={index}
                 themeConfig={themeConfig}
                 utmConfig={utmConfig}
                 form={form}

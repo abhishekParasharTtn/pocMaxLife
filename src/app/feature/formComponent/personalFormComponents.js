@@ -1,7 +1,6 @@
-import Section from "@/app/feature/Section/Section";
 import { useRouter } from "next/navigation";
 import React from "react";
-import Component from "@/app/feature/component/Component";
+import FormWrapper from "../formWrapper";
 
 const PersonalFormComponents = ({
   themeConfig,
@@ -34,7 +33,7 @@ const PersonalFormComponents = ({
                 style={{ background: "#f9f9f9", padding: "20px 20px 40px" }}
               >
                 <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
-                <Component
+                <FormWrapper
                   key={index}
                   themeConfig={themeConfig}
                   utmConfig={utmConfig}
