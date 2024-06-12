@@ -12,7 +12,7 @@ export const productPageService = {
     console.log("rule engine:::::::::", rules, formName, facts)
     const productDetailsVisibilityRule = await ruleEngine(
       rules || [],
-      fact,
+      facts,
       formName
     );
     console.log(productDetailsVisibilityRule, "::productDetailsVisibilityRule");

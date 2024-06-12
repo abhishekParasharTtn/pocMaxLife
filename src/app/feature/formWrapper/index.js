@@ -21,6 +21,7 @@ const FormWrapper = ({
 
     const myFunction = async () => {
         try {
+            console.log("::formData", formData);
             const _facts = {
                 firstName: false,
                 lastName: false,
@@ -31,7 +32,7 @@ const FormWrapper = ({
                 if (formData?.[key]) {
                     _facts[key] = "true"
                 } else {
-                    _facts[key] = "false"
+                    _facts[key] = "true"
                 }
             });
             if (form?.rules?.length > 0 || form?.rules?.length > 0) {
