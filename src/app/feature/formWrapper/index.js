@@ -16,7 +16,7 @@ const FormWrapper = ({
     pageRoute
 }) => {
 
-    const formData = useSelector((state) => state.forms.personalDetails) || {};
+    const formData = useSelector((state) => state.forms.productDetails) || {};
     const [showProductDetail, setShowProductDetail] = useState(false)
 
     const myFunction = async () => {
@@ -32,7 +32,7 @@ const FormWrapper = ({
                 if (formData?.[key]) {
                     _facts[key] = "true"
                 } else {
-                    _facts[key] = "true"
+                    _facts[key] = "false"
                 }
             });
             if (form?.rules?.length > 0 || form?.rules?.length > 0) {
