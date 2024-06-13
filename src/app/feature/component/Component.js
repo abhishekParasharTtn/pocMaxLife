@@ -63,7 +63,7 @@ const Component = ({
     const payload = {
       key: _formData?.productName,
       formData: _formData,
-      components: components,
+      components: data,
     };
     // setLoader(true);
     if (!payload.key) {
