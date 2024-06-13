@@ -1,4 +1,4 @@
-import productsData from "./productJson.js";
+import productsData, {defaultFields} from "./productJson.js";
 import * as utility from "./utility.js";
 import util from "util";
 
@@ -62,6 +62,10 @@ export const productService = {
         fields = { ...fields, ..._field };
       });
     });
-    return fields;
+    if(Object?.keys(fields).length > 0){
+      return fields;
+    }
+    console.log("defaultProduct::", defaultFields)
+    return defaultFields;
   },
 };

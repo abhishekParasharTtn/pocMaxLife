@@ -67,12 +67,10 @@ const Component = ({
     };
     // setLoader(true);
     if (!payload.key) {
-      debugger;
       setLoader(false);
       return false;
     }
     try {
-      debugger;
       const res = await fetch("http://localhost:3000/api/products", {
         method: "POST",
         body: JSON.stringify(payload),

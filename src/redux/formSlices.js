@@ -2,27 +2,27 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   personalDetails: {
-    gender:'',
-    firstName:'',
-    lastName:'',
-    dob:''
+    gender:null,
+    firstName:null,
+    lastName:null,
+    dob:null
   },
   customerDetails: {
     mobileNumber:false,
-    nationality:'',
-    residentialStatus:'',
-    email:''
+    nationality:null,
+    residentialStatus:null,
+    email:null
   },
   productDetails: {
-    gender:'',
-    firstName:'',
-    lastName:'',
-    dob:'',
-    productName:'',
-    premiumType:'',
-    premiumPaymentTerm:'',
-    policyTerm:'',
-    modeOfPayment:''
+    gender:null,
+    firstName:null,
+    lastName:null,
+    dob:null,
+    productName:null,
+    premiumType:null,
+    premiumPaymentTerm:null,
+    policyTerm:null,
+    modeOfPayment:null
   },
   yblPersonalDetails: {
   },

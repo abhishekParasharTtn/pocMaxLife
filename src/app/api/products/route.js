@@ -14,10 +14,11 @@ export async function POST(req, res) {
         _formData
       );
 
+      console.log("productComponent", productComponent)
       components?.map((field) => {
         if (productComponent[field?.name]) {
           field.data = [];
-          field.data = productComponent[field?.name]?.values;
+          field.data = productComponent[field?.name]?.values || [];
         }
       });
     } catch (e) {

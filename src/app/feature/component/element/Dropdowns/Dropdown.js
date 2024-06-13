@@ -40,32 +40,33 @@ const Dropdown = ({
     );
   };
 
+
+
   return (
     <div className="select-wrapper w-full">
       <div
-        className={`relative mb-5 ${
-          disabled ? "select-disabled text-disable" : ""
-        }`}
+        className={`relative mb-5 ${disabled ? "select-disabled text-disable" : ""
+          }`}
       >
         <select
           value={selectedValue}
           onChange={handleChange}
           disabled={disabled}
-          className={`block py-3 bg-transparent w-full border-b-2 outline-none focus:border-primary ${
-            disabled ? "cursor-not-allowed" : "cursor-pointer"
-          }`}
+          className={`block py-3 bg-transparent w-full border-b-2 outline-none focus:border-primary ${disabled ? "cursor-not-allowed" : "cursor-pointer"
+            }`}
         >
           <option value="" disabled hidden></option>
-          {options?.map((option, index) => (
-            <option key={index} value={option.value || option.code}>
-              {option.label}
-            </option>
-          ))}
+          {
+            options.length === 0 ? <option disabled>No data</option>
+              : options?.map((option, index) => (
+                <option key={index} value={option.value || option.code}>
+                  {option.label}
+                </option>
+              ))}
         </select>
         <label
-          className={`absolute left-0 transition-all duration-200 ease-in-out transform origin-left ${
-            selectedValue ? "-top-2 text-md text-primary" : "bottom-0 text-lg"
-          } ${disabled ? "opacity-60" : ""}`}
+          className={`absolute left-0 transition-all duration-200 ease-in-out transform origin-left ${selectedValue ? "-top-2 text-md text-primary" : "bottom-0 text-lg"
+            } ${disabled ? "opacity-60" : ""}`}
         >
           {label ? label : "Premium Type"}
         </label>

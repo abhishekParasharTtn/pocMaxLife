@@ -1600,6 +1600,17 @@ const products = {
 
 export default products;
 
-
+export const defaultFields = {
+  "premiumType": {},
+  "premiumPaymentTerm": {},
+  "sumAssured": {},
+  "modeOfPayment": {},
+  "policyTerm": {},
+  "deathBenefitOption": {},
+  "smokingHabit": {},
+  "effectiveDateOfCoverage": {},
+  "GSTWaiverRequired": {},
+  "incomePayoutMode": {}
+}
 
 
