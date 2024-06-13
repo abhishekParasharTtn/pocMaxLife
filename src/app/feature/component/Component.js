@@ -34,7 +34,7 @@ const Component = ({
   page,
 }) => {
   const { form: { components } = {} } = form;
-  const formData = useSelector((state) => state.forms.productDetails);
+  const formData = useSelector((state) => state?.forms?.[page?.name]);
   const productName = formData?.productName || null;
   const premiumType = formData?.premiumType || null;
   const premiumPaymentTerm = formData?.premiumPaymentTerm || null;
@@ -59,13 +59,20 @@ const Component = ({
   const productDetail = async () => {
     const InsurerAge = (formData?.dob && getAge(formData?.dob)) || null;
     const _formData = { ...formData, InsurerAge, isPosSeller: "Yes" };
+    console.log(_formData, "::foms");
     const payload = {
-      key: "SSP",
+      key: _formData?.productName,
       formData: _formData,
       components: components,
     };
     // setLoader(true);
+    if (!payload.key) {
+      debugger;
+      setLoader(false);
+      return false;
+    }
     try {
+      debugger;
       const res = await fetch("http://localhost:3000/api/products", {
         method: "POST",
         body: JSON.stringify(payload),
@@ -87,9 +94,8 @@ const Component = ({
       setLoader(false);
     }
   };
-
   useEffect(() => {
-    if (formName === "productDetails") {
+    if (formName === "productDetails" && !disabled) {
       setLoader(true);
 
       const timer = setTimeout(() => {
