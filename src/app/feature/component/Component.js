@@ -3,6 +3,7 @@ import {useEffect,useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import FieldComponent from "@/app/feature/fieldComponents/fieldComponent";
 import { productService } from "@/app/services/productService/productService";
+import { isEmpty } from "lodash";
 
 function getAge(dateOfBirth) {
     // Create a Date object from the provided DOB
@@ -26,7 +27,8 @@ const Component = ({
     utmConfig,
     form = {},
     formName,
-    pageRoute
+    pageRoute,
+    dataConfigs
 
 }) => {
     const { form: { components } = {} } = form;
@@ -35,8 +37,18 @@ const Component = ({
     const premiumType = formData?.premiumType || null
     const premiumPaymentTerm = formData?.premiumPaymentTerm || null
     const policyTerm = formData?.policyTerm || null 
-
     const [data,setData] = useState(components);
+
+    const  replaceData = (components, dataConfigs) => {
+        const config = dataConfigs.dataConfigs[0];    
+        components.forEach(component => {
+            const dataSourceName = component.dataSourceName;
+            if (dataSourceName && config.hasOwnProperty(dataSourceName) && !isEmpty(config[dataSourceName])) {
+                component.data = config[dataSourceName];
+            }
+        });
+        return components
+    }
 
     const productDetail = async () => {
         const InsurerAge = formData?.dob && getAge(formData?.dob) || null;
@@ -56,7 +68,14 @@ const Component = ({
             }
           })
           const data = await res.json();
-          setData(data);
+           if(!isEmpty(data) && !isEmpty(dataConfigs)) { 
+            const dataMerged = replaceData(components,dataConfigs)
+            setData(dataMerged);
+           }
+           else if (!isEmpty(data)) {
+            setData(data);
+
+           }
         } catch (error) {
             console.log(error)
         }

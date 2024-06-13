@@ -8,6 +8,7 @@ const CustomerFormComponents = ({
   pages,
   formName,
   pageRoute,
+  dataConfigs
 }) => {
   return (
     <div className="">
@@ -28,6 +29,7 @@ const CustomerFormComponents = ({
                 form={form}
                 formName={formName}
                 pageRoute={pageRoute}
+                dataConfigs={dataConfigs}
               />
             </div>
           );

@@ -2,7 +2,7 @@ import React from "react";
 import Section from "../Section/Section";
 import { extractDetailsSection, extractRoute } from "@/app/services/util";
 
-const PersonalDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
+const PersonalDetailLayout = ({ themeConfig, utmConfig, page, formName,dataConfigs }) => {
   const pageRoute = {
     prev: page?.previous,
     next: page?.next,
@@ -21,6 +21,7 @@ const PersonalDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
                 section={section}
                 formName={formName}
                 pageRoute={pageRoute}
+                dataConfigs={dataConfigs}
                 // page={page}
               />
             );

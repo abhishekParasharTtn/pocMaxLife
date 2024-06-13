@@ -9,6 +9,7 @@ const PersonalFormComponents = ({
   pages,
   formName,
   pageRoute,
+  dataConfigs
 }) => {
   const router = useRouter();
   const backHandler = (e) => {
@@ -40,6 +41,7 @@ const PersonalFormComponents = ({
                   form={form}
                   formName={formName}
                   pageRoute={pageRoute}
+                  dataConfigs={dataConfigs}
                 />
               </div>
             );

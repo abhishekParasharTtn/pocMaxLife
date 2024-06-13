@@ -66,6 +66,7 @@ const Journey = ({
               utmConfig={utmConfig}
               themeConfig={themeConfig}
               page={page?.[0]}
+              dataConfigs={dataConfigs}
             />
           )
         )}

@@ -13,7 +13,8 @@ const FormWrapper = ({
     utmConfig,
     form,
     formName,
-    pageRoute
+    pageRoute,
+    dataConfigs
 }) => {
 
     const formData = useSelector((state) => state.forms.personalDetails) || {};
@@ -68,6 +69,7 @@ const FormWrapper = ({
                             form={form}
                             formName={formName}
                             pageRoute={pageRoute}
+                            dataConfigs={dataConfigs}
                         />
                     </fieldset>
                 </div>

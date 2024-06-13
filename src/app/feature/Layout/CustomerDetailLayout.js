@@ -2,7 +2,7 @@ import React from "react";
 import Section from "../Section/Section";
 import { extractDetailsSection, extractRoute } from "@/app/services/util";
 
-const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
+const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName,dataConfigs }) => {
   const pageRoute = {
     prev: page?.previous,
     next: page?.next,
@@ -18,6 +18,7 @@ const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName }) => {
           page={page}
           formName={formName}
           pageRoute={pageRoute}
+          dataConfigs={dataConfigs}
         />
       );
     });
