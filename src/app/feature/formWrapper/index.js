@@ -2,7 +2,7 @@ import Section from "@/app/feature/Section/Section";
 import React, { useEffect, useState } from "react";
 import Component from "@/app/feature/component/Component";
 import { useSelector } from "react-redux";
-import { productService } from "@/app/services/productService/productService";
+import { productPageService } from "@/app/services/ruleEngine/productPageService";
 const FORM_NAMES = {
     PRODUCT_FORM: "productDetails"
 }
@@ -14,44 +14,52 @@ const FormWrapper = ({
     form,
     formName,
     pageRoute,
-    dataConfigs
+    dataConfigs,
+    page
 }) => {
 
-    const formData = useSelector((state) => state.forms.personalDetails) || {};
-    const [showProductDetail, setShowProductDetail] = useState(false)
+    const formData = useSelector((state) => state.forms?.[page?.name]) || {};
+    const [visibility, setVisibility] = useState(form?.visibility);
+    const [isDisabled, setIsDisabled] = useState(form?.disable)
+    console.log("::formData", formData);
+    const myFunction = async () => {
+        try {
+            const _facts = {
+                firstName: false,
+                lastName: false,
+                dob: false,
+                gender: false
+            }
+            Object.keys(formData).forEach(key => {
+                if (formData?.[key]) {
+                    _facts[key] = "true"
+                } else {
+                    _facts[key] = "false"
+                }
+            });
+            if (form?.rules?.length > 0 || form?.rules?.length > 0) {
+                const rulesData = await productPageService.productFormRules(form.rules, _facts, form?.name);
+                if (rulesData && rulesData?.finalOutput?.length > 0) {
+                    rulesData?.finalOutput?.forEach(finalOutput => {
+                        setIsDisabled(finalOutput?.isDisable)
+                        setVisibility(finalOutput?.isVisible)
+                    });
+                } else {
+                    setIsDisabled(form?.visibility)
+                    setVisibility(form?.disable)
+                }
+            }
 
-    // const myFunction = async () => {
-    //     try {
-    //         const _facts = {
-    //             firstName: false,
-    //             lastName: false,
-    //             dob: false,
-    //             gender: false
-    //         }
-    //         Object.keys(formData).forEach(key => {
-    //             if (formData?.[key]) {
-    //                 _facts[key] = "true"
-    //             } else {
-    //                 _facts[key] = "false"
-    //             }
-    //         });
-    //         if (form?.rules?.length > 0 || form?.rules?.length > 0) {
-    //             const rulesData = await productService.productFormRules(form.rules, _facts, form?.name);
-    //             // console.log("::rulesData", _facts, rulesData);
-    //             setShowProductDetail(rulesData?.finalResult || false)
-    //         } else {
-    //             setShowProductDetail(false)
-    //         }
+        } catch (err) {
+            console.error(err)
+        }
+    };
+    useEffect(() => {
+        if (form?.rules?.length > 0) {
+            myFunction();
+        }
+    }, [formData]);
 
-    //     } catch (err) {
-    //         console.error(err)
-    //     }
-    // };
-    // useEffect(() => {
-    //     if (form?.name === FORM_NAMES.PRODUCT_FORM) {
-    //         myFunction();
-    //     }
-    // }, [formData]);
 
     return (
         <>
@@ -59,20 +67,28 @@ const FormWrapper = ({
                 // form?.name !== FORM_NAMES.PRODUCT_FORM ||
                 //     showProductDetail
                 //     ?
-                <div className="" >
-                    <fieldset
-                    // disabled={form?.name == FORM_NAMES.PRODUCT_FORM && !showProductDetail ? "disabled" : ""}
+                visibility && (
+                    <div
+                        className="form-container mb-5 border border-[#eee]"
+                        style={{ background: "#f9f9f9", padding: "20px 20px 40px" }}
                     >
-                        <Component
-                            themeConfig={themeConfig}
-                            utmConfig={utmConfig}
-                            form={form}
-                            formName={formName}
-                            pageRoute={pageRoute}
-                            dataConfigs={dataConfigs}
-                        />
-                    </fieldset>
-                </div>
+                        <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
+                        <fieldset
+                            disabled={isDisabled}
+                        >
+                            <Component
+                                themeConfig={themeConfig}
+                                utmConfig={utmConfig}
+                                form={form}
+                                formName={formName}
+                                pageRoute={pageRoute}
+                                disabled={isDisabled}
+                                page={page}
+                                dataConfigs={dataConfigs}
+                            />
+                        </fieldset>
+                    </div>
+                )
                 //  : null
             }
         </>

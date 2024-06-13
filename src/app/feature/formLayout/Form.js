@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import ButtonGroup from "../component/ButtonGroup";
 
-const Form = ({ themeConfig, utmConfig, section, formName, pageRoute,dataConfigs }) => {
+const Form = ({ themeConfig, utmConfig, section, formName, pageRoute, dataConfigs, page }) => {
   const personalFormComponents = dynamic(() =>
     import("../formComponent/personalFormComponents")
   );
@@ -29,6 +29,7 @@ const Form = ({ themeConfig, utmConfig, section, formName, pageRoute,dataConfigs
         formName={formName}
         pageRoute={pageRoute}
         dataConfigs={dataConfigs}
+        page={page}
       />
       {section?.button?.length > 0 ? (
         <div className="Section-footer flex flex-row-reverse">

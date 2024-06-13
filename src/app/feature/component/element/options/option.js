@@ -23,7 +23,8 @@ const Option = (props) => {
             defaultValue,
             
         } = {},formName,
-        journeyType
+        journeyType,
+        disabled
     } = props;
     const optionComponentMappings = {
         RadioGroup: RadioGroup,
@@ -44,6 +45,7 @@ const Option = (props) => {
             options={data}
             formName={formName}
             journeyType={journeyType}
+            disabled={disabled}
         />
     ) : (
         <h2>{`Missing component for type: ${componentType}`}</h2>
