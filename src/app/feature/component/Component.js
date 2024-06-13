@@ -60,7 +60,7 @@ const Component = ({
         }
        
         try {
-          const res = await fetch('http://localhost:3000/api/utms',{
+          const res = await fetch('http://localhost:3000/api/products',{
             method: 'POST',
             body: JSON.stringify(payload),
             headers: {
@@ -69,7 +69,7 @@ const Component = ({
           })
           const data = await res.json();
            if(!isEmpty(data) && !isEmpty(dataConfigs)) { 
-            const dataMerged = replaceData(components,dataConfigs)
+            const dataMerged = replaceData(data,dataConfigs)
             setData(dataMerged);
            }
            else if (!isEmpty(data)) {
