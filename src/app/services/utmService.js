@@ -231,11 +231,11 @@ export const utmService = {
       }, {});
 
       pageData.forEach((page) => {
-        page.sections.forEach((section) => {
-          section.forms.forEach((form) => {
-            form.form.components.forEach((component) => {
+        page?.sections?.forEach((section) => {
+          section?.forms?.forEach((form) => {
+            form?.form?.components?.forEach((component) => {
               if (component?.dataSourceName) {
-                const dataSource = configMap[component.dataSourceName];
+                const dataSource = configMap?.[component?.dataSourceName];
                 if (dataSource && dataSource.length > 0) {
                   component.data = dataSource;
                 }

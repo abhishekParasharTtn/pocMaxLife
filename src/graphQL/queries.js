@@ -337,6 +337,8 @@ export const queries = {
                 forms {
                   id
                   name
+                  visibility
+                  disable
                   form {
                     data {
                       attributes {
