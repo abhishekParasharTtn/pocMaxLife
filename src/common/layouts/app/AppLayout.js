@@ -12,7 +12,7 @@ export const AppLayout = ({
   pages,
   slug,
   fieldConfigData,
-  dataConfigs
+  dataConfigs,
 }) => {
   const layoutMappings = {
     default: DefaultAppLayout,

@@ -16,8 +16,8 @@ export const utmService = {
     }
   },
   transformOptions: function (options) {
-    return options.map((item) => {
-      if (item.data) {
+    return options?.map((item) => {
+      if (item?.data) {
         return {
           dataSourceName: item.dataSourceName,
           data: item.data.map((dataItem) => ({
@@ -31,8 +31,8 @@ export const utmService = {
   applyDataFilter: function (payload) {
     payload?.forEach((item) => {
       item?.sections?.forEach((section) => {
-        section.forms.forEach((form) => {
-          form.form.components.forEach((component) => {
+        section?.forms?.forEach((form) => {
+          form?.form?.components?.forEach((component) => {
             const dataFilter = component.dataFilter || [];
             if (dataFilter.length > 0) {
               const filteredData = component.data.filter((dataItem) => {
@@ -200,11 +200,11 @@ export const utmService = {
       "placeholder",
     ];
     if (formFieldConfigs) {
-      pageData.forEach((page) => {
-        page.sections.forEach((section) => {
-          section.forms.forEach((form) => {
-            form.form.components.forEach((component) => {
-              formFieldConfigs.forEach((config) => {
+      pageData?.forEach((page) => {
+        page?.sections?.forEach((section) => {
+          section?.forms?.forEach((form) => {
+            form?.form?.components?.forEach((component) => {
+              formFieldConfigs?.forEach((config) => {
                 if (component.name === config.fieldName.name) {
                   valueContains.forEach((prop) => {
                     if (config[prop] !== null && config[prop] !== undefined) {
