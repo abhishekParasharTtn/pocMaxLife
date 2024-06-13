@@ -4,7 +4,7 @@
 import _ from 'lodash';
 import productsData from './productJson.js';
 
-const INVALID_VALUE_ARRAY = ['Invalid operation format', 'Variable value or type issue', 'Invalid operation format'];
+const INVALID_VALUE_ARRAY = ['Invalid operation format', 'Variable value or type issue', 'Invalid operation format', 'Invalid Value'];
 
 export const functionMap = {
   calculateRange(args) {
@@ -141,6 +141,8 @@ export const functionMap = {
         if (Number.isNaN(parseFloat(paramsArray[i]))) {
           if (formData && formData[paramsArray[i]] != undefined) {
             paramsArray[i] = parseInt(formData[paramsArray[i]]);
+          } else {
+            paramsArray[i] = 0;
           }
         }
       }

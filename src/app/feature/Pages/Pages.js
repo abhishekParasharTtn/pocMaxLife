@@ -4,6 +4,7 @@ const Pages = ({
   themeConfig,
   utmConfig,
   page,
+  dataConfigs
 }) => {
   
 
@@ -27,6 +28,7 @@ const Pages = ({
       utmConfig={utmConfig}
       page={page}
       formName={page.name || ""}
+      dataConfigs={dataConfigs}
     />
   ) : (
     <h2>Page Layout is not defined...</h2>

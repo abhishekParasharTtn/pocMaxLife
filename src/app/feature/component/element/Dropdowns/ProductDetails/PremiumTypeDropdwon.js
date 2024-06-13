@@ -11,6 +11,7 @@ const PremiumTypeDropdown = ({productData, setProductData, name, title, label, o
                 return premiumType;
             }
         });
+        
         setProductData({...productData, premiumType: premiumType[0]});
     }
 

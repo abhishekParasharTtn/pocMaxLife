@@ -11,7 +11,7 @@ const Journey = ({
   utmConfig,
   slug,
   fieldConfigData,
-  dataConfigs
+  dataConfigs,
   // pageType,
   // pages
 }) => {
@@ -58,16 +58,15 @@ const Journey = ({
   return (
     <Provider store={store}>
       <div className="Journey-layout bg-light shadow-md rounded px-8 pt-6 pb-8 mb-4 flex justify-center min-h-[850px]">
-        {loading ? (
-          <Loader className="bg-default w-full" />
-        ) : (
-          page && (
-            <Page
-              utmConfig={utmConfig}
-              themeConfig={themeConfig}
-              page={page?.[0]}
-            />
-          )
+        {loading && <Loader />}
+
+        {page && (
+          <Page
+            utmConfig={utmConfig}
+            themeConfig={themeConfig}
+            page={page?.[0]}
+            dataConfigs={dataConfigs}
+          />
         )}
       </div>
     </Provider>

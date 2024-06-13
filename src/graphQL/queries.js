@@ -556,7 +556,7 @@ export const queries = {
             }
           }
         }
-        dataPremiumType {
+        dataPremiumTypes {
           data {
             attributes {
               name

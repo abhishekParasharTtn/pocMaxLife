@@ -14,6 +14,7 @@ const FormWrapper = ({
     form,
     formName,
     pageRoute,
+    dataConfigs,
     page
 }) => {
 
@@ -84,6 +85,7 @@ const FormWrapper = ({
                                 pageRoute={pageRoute}
                                 disabled={isDisabled}
                                 page={page}
+                                dataConfigs={dataConfigs}
                             />
                         </fieldset>
                     </div>
