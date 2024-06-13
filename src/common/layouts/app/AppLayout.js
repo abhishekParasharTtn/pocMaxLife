@@ -20,7 +20,7 @@ export const AppLayout = ({
   };
   const Layout =
     layoutMappings[utmConfig?.themeConfig?.name] || DefaultAppLayout;
-  const sectionObject = themeConfig.themeConfigs[0].sections[0];
+  const sectionObject = themeConfig?.themeConfigs[0]?.sections[0];
 
   return Layout ? (
     <Layout themeConfig={themeConfig} utmConfig={utmConfig}>

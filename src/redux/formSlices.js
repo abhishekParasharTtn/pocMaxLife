@@ -2,11 +2,27 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   personalDetails: {
+    gender:'',
+    firstName:'',
+    lastName:'',
+    dob:''
   },
   customerDetails: {
-    whatsappOptInStatus:false
+    mobileNumber:false,
+    nationality:'',
+    residentialStatus:'',
+    email:''
   },
   productDetails: {
+    gender:'',
+    firstName:'',
+    lastName:'',
+    dob:'',
+    productName:'',
+    premiumType:'',
+    premiumPaymentTerm:'',
+    policyTerm:'',
+    modeOfPayment:''
   },
   yblPersonalDetails: {
   },
