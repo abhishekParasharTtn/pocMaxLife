@@ -15,13 +15,16 @@ const FieldComponent = ({
     formName,
     pageRoute,
     utmConfig,
-    disabled
+    disabled,
+    page
 }) => {
 
     const [visibility, setVisibility] = useState(component?.visibility);
+    const [isDisabled, setIsDisabled] = useState(disabled);
     // const [isDiable, setIsDisable] = useState(false);
-    const formData = useSelector((state) => state.forms?.[formName]);
+    const formData = useSelector((state) => state.forms?.[page?.name]);
     // const isVis
+    console.log("FieldComponent ===================>", formData, component, page)
     const ComponentMappings = {
         ComponentUiOption: Option,
         ComponentFormInput: Input,
@@ -44,13 +47,13 @@ const FieldComponent = ({
                 nationality: true
             }
             // console.log("::component", component.rules, _facts);
-            Object.keys(formData).forEach(key => {
+            formData && Object.keys(formData).forEach(key => {
                 if (formData?.[key]) {
                     _facts[key] = formData?.[key]
                 }
             });
             const rulesData = await productPageService.productFormRules(component.rules, _facts, component?.name);
-            return rulesData?.finalResult;
+            return rulesData;
 
         } catch (err) {
             console.error(err)
@@ -58,12 +61,16 @@ const FieldComponent = ({
     };
     useEffect(() => {
         if (component?.rules?.length > 0) {
-            myFunction().then((output) => {
-                if (output) {
-                    // setVisibility(true)
+            myFunction().then((rulesData) => {
+                debugger
+                if (rulesData && rulesData?.finalOutput?.length > 0) {
+                    rulesData?.finalOutput?.forEach(finalOutput => {
+                        setIsDisabled(finalOutput?.isDisable)
+                        setVisibility(finalOutput?.isVisible)
+                    });
                 } else {
-                    // setVisibility(false)
-
+                    setIsDisabled(disabled)
+                    setVisibility(component?.visibility)
                 }
             });
         }
@@ -77,7 +84,7 @@ const FieldComponent = ({
             pageRoute={pageRoute}
             utmConfig={utmConfig}
             journeyType={journeyType}
-            disabled={disabled}
+            disabled={isDisabled}
         />
     ) : (
         <div>

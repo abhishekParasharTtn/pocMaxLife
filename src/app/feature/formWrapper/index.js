@@ -13,15 +13,16 @@ const FormWrapper = ({
     utmConfig,
     form,
     formName,
-    pageRoute
+    pageRoute,
+    page
 }) => {
 
-    const formData = useSelector((state) => state.forms.productDetails) || {};
+    const formData = useSelector((state) => state.forms?.[page?.name]) || {};
     const [visibility, setVisibility] = useState(form?.visibility);
     const [isDisabled, setIsDisabled] = useState(form?.disable)
+    console.log("::formData", formData);
     const myFunction = async () => {
         try {
-            console.log("::formData", formData);
             const _facts = {
                 firstName: false,
                 lastName: false,
@@ -37,10 +38,15 @@ const FormWrapper = ({
             });
             if (form?.rules?.length > 0 || form?.rules?.length > 0) {
                 const rulesData = await productPageService.productFormRules(form.rules, _facts, form?.name);
-                console.log("::rulesData", _facts, rulesData);
-                setIsDisabled(!rulesData?.finalResult)
-            } else {
-                // setShowProductDetail(false)
+                if (rulesData && rulesData?.finalOutput?.length > 0) {
+                    rulesData?.finalOutput?.forEach(finalOutput => {
+                        setIsDisabled(finalOutput?.isDisable)
+                        setVisibility(finalOutput?.isVisible)
+                    });
+                } else {
+                    setIsDisabled(form?.visibility)
+                    setVisibility(form?.disable)
+                }
             }
 
         } catch (err) {
@@ -53,7 +59,6 @@ const FormWrapper = ({
         }
     }, [formData]);
 
-    console.log("::isDisabled", form);
 
     return (
         <>
@@ -62,7 +67,11 @@ const FormWrapper = ({
                 //     showProductDetail
                 //     ?
                 visibility && (
-                    <div className="" >
+                    <div
+                        className="form-container mb-5 border border-[#eee]"
+                        style={{ background: "#f9f9f9", padding: "20px 20px 40px" }}
+                    >
+                        <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
                         <fieldset
                             disabled={isDisabled}
                         >
@@ -73,6 +82,7 @@ const FormWrapper = ({
                                 formName={formName}
                                 pageRoute={pageRoute}
                                 disabled={isDisabled}
+                                page={page}
                             />
                         </fieldset>
                     </div>

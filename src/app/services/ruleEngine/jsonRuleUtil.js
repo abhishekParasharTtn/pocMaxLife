@@ -62,9 +62,9 @@ const buildRuleCriteria = (rule) => {
     return null;
   }
   const outRules = [{ any: rule.any }, { all: rule.all || rule.all }];
-  const ruleOutput =
-    rule.ruleOutput &&
-    rule.ruleOutput.map((item) => ({ key: item.key, value: item.value }));
+  const ruleOutput = { ...rule.ruleOutput }
+  // rule.ruleOutput &&
+  // rule.ruleOutput.map((item) => ({ key: item.key, value: item.value }));
   const relationBetweenAnyAll = rule.relationBetweenAnyAll
     ? rule.relationBetweenAnyAll
     : relations.ALL;
@@ -119,7 +119,8 @@ const ruleEngine = async (rules, facts, name) => {
           : finalResult && ruleResult;
     }
     if (ruleResult) {
-      finalOutput = [...finalOutput, ...ruleOutput];
+      // finalOutput = [...finalOutput, ...ruleOutput];
+      finalOutput.push(ruleOutput);
     }
     i += 1;
   });

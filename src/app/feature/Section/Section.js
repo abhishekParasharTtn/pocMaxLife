@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 // import Button from '../component/element/Button/Button';
 const formLayout = dynamic(() => import("../formLayout/Form"));
 
-const Section = ({ utmConfig, section, formName, pageRoute }) => {
+const Section = ({ utmConfig, section, formName, pageRoute, page }) => {
   const sectionComponentMappings = {
     ComponentContainerFormContainer: formLayout,
   };
@@ -17,6 +17,7 @@ const Section = ({ utmConfig, section, formName, pageRoute }) => {
           formName={formName}
           pageRoute={pageRoute}
           utmConfig={utmConfig}
+          page={page}
         />
       ) : (
         <h2>{`Missing section for type:`}</h2>

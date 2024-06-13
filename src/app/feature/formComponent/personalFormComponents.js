@@ -6,7 +6,7 @@ const PersonalFormComponents = ({
   themeConfig,
   utmConfig,
   section,
-  pages,
+  page,
   formName,
   pageRoute,
 }) => {
@@ -28,11 +28,6 @@ const PersonalFormComponents = ({
         {section?.forms?.length > 0 &&
           section?.forms.map((form, index) => {
             return (
-              <div
-                className="form-container mb-5 border border-[#eee]"
-                style={{ background: "#f9f9f9", padding: "20px 20px 40px" }}
-              >
-                <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
                 <FormWrapper
                   key={index}
                   themeConfig={themeConfig}
@@ -40,8 +35,9 @@ const PersonalFormComponents = ({
                   form={form}
                   formName={formName}
                   pageRoute={pageRoute}
+                  page={page}
+
                 />
-              </div>
             );
           })}
       </div>

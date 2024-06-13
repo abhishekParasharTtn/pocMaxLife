@@ -26,7 +26,8 @@ const Component = ({
     form = {},
     formName,
     pageRoute,
-    disabled
+    disabled,
+    page
 
 }) => {
     const { form: { components } = {} } = form;
@@ -68,6 +69,7 @@ const Component = ({
                         pageRoute={pageRoute}
                         utmConfig={utmConfig}
                         disabled={disabled}
+                        page={page}
                     />
                 })
             }
