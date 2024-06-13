@@ -2,7 +2,14 @@ import React from "react";
 import Section from "../Section/Section";
 import { extractDetailsSection, extractRoute } from "@/app/services/util";
 
-const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName,dataConfigs }) => {
+const CustomerDetailLayout = ({
+  themeConfig,
+  utmConfig,
+  page,
+  formName,
+  dataConfigs,
+  setLoading,
+}) => {
   const pageRoute = {
     prev: page?.previous,
     next: page?.next,
@@ -11,6 +18,7 @@ const CustomerDetailLayout = ({ themeConfig, utmConfig, page, formName,dataConfi
     return page?.sections.map((section, index) => {
       return (
         <Section
+          setLoading={setLoading}
           key={index}
           themeConfig={themeConfig}
           utmConfig={utmConfig}

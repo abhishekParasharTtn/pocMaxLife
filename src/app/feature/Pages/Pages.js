@@ -1,29 +1,22 @@
 import Section from "../Section/Section";
-import dynamic from 'next/dynamic';
-const Pages = ({
-  themeConfig,
-  utmConfig,
-  page,
-  dataConfigs
-}) => {
-  
-
-  
+import dynamic from "next/dynamic";
+const Pages = ({ themeConfig, utmConfig, page, dataConfigs, setLoading }) => {
   const CustomerDetailLayout = dynamic(() =>
-    import('../Layout/CustomerDetailLayout')
+    import("../Layout/CustomerDetailLayout")
   );
   const PersonalDetailLayout = dynamic(() =>
-    import('../Layout/PersonalDetailLayout')
+    import("../Layout/PersonalDetailLayout")
   );
 
   const layoutMappings = {
     CustomerDetailsPageLayout: CustomerDetailLayout,
-    PersonalDetailsPageLayout: PersonalDetailLayout
+    PersonalDetailsPageLayout: PersonalDetailLayout,
   };
   const Layout = layoutMappings[page?.layout?.layout?.name] || null;
-  
+
   return Layout ? (
     <Layout
+      setLoading={setLoading}
       themeConfig={themeConfig}
       utmConfig={utmConfig}
       page={page}
@@ -33,6 +26,6 @@ const Pages = ({
   ) : (
     <h2>Page Layout is not defined...</h2>
   );
-}
+};
 
-export default Pages
+export default Pages;

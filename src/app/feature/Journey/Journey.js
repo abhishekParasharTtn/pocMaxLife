@@ -11,7 +11,7 @@ const Journey = ({
   utmConfig,
   slug,
   fieldConfigData,
-  dataConfigs
+  dataConfigs,
   // pageType,
   // pages
 }) => {
@@ -63,6 +63,7 @@ const Journey = ({
         ) : (
           page && (
             <Page
+              setLoading={setLoading}
               utmConfig={utmConfig}
               themeConfig={themeConfig}
               page={page?.[0]}

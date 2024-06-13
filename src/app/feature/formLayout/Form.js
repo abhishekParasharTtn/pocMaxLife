@@ -2,7 +2,15 @@ import React from "react";
 import dynamic from "next/dynamic";
 import ButtonGroup from "../component/ButtonGroup";
 
-const Form = ({ themeConfig, utmConfig, section, formName, pageRoute,dataConfigs }) => {
+const Form = ({
+  themeConfig,
+  utmConfig,
+  section,
+  formName,
+  pageRoute,
+  dataConfigs,
+  setLoading,
+}) => {
   const personalFormComponents = dynamic(() =>
     import("../formComponent/personalFormComponents")
   );
@@ -23,6 +31,7 @@ const Form = ({ themeConfig, utmConfig, section, formName, pageRoute,dataConfigs
   return FormMapping ? (
     <form onSubmit={handleFormSubmit}>
       <FormMapping
+        setLoading={setLoading}
         themeConfig={themeConfig}
         utmConfig={utmConfig}
         section={section}

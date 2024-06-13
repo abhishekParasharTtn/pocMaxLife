@@ -1,11 +1,11 @@
 const DefaultMainLayout = ({ children }) => {
-    return (
-      <>
-        <main className="mainContainer">
-          <div >{children}</div>
-        </main>
-      </>
-    )
-  }
-  
-  export default DefaultMainLayout
+  return (
+    <>
+      <main className="mainContainer relative">
+        <div>{children}</div>
+      </main>
+    </>
+  );
+};
+
+export default DefaultMainLayout;

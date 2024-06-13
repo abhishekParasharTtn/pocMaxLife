@@ -1,32 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  personalDetails: {
-  },
+  personalDetails: {},
   customerDetails: {
-    whatsappOptInStatus:false
+    whatsappOptInStatus: false,
   },
-  productDetails: {
-  },
-  yblPersonalDetails: {
-  },
+  productDetails: {},
+  yblPersonalDetails: {},
   yblCustomerDetails: {
-    whatsappOptInStatus:false
+    whatsappOptInStatus: false,
   },
-  yblProductDetails: {
-  },
-
+  yblProductDetails: {},
 };
 
 const formSlices = createSlice({
-  name: 'forms',
+  name: "forms",
   initialState,
   reducers: {
     setField: (state, action) => {
       const { fieldName, value, formName } = action.payload;
       state[formName][fieldName] = value;
     },
-
   },
 });
 

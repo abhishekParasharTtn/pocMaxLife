@@ -9,7 +9,8 @@ const PersonalFormComponents = ({
   pages,
   formName,
   pageRoute,
-  dataConfigs
+  dataConfigs,
+  setLoading,
 }) => {
   const router = useRouter();
   const backHandler = (e) => {
@@ -35,6 +36,7 @@ const PersonalFormComponents = ({
               >
                 <h1 className="text-lg mb-8 uppercase">{form?.form?.title}</h1>
                 <FormWrapper
+                  setLoading={setLoading}
                   key={index}
                   themeConfig={themeConfig}
                   utmConfig={utmConfig}

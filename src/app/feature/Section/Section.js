@@ -3,7 +3,14 @@ import dynamic from "next/dynamic";
 // import Button from '../component/element/Button/Button';
 const formLayout = dynamic(() => import("../formLayout/Form"));
 
-const Section = ({ utmConfig, section, formName, pageRoute,dataConfigs }) => {
+const Section = ({
+  utmConfig,
+  section,
+  formName,
+  pageRoute,
+  dataConfigs,
+  setLoading,
+}) => {
   const sectionComponentMappings = {
     ComponentContainerFormContainer: formLayout,
   };
@@ -13,6 +20,7 @@ const Section = ({ utmConfig, section, formName, pageRoute,dataConfigs }) => {
     <>
       {SectionComponent ? (
         <SectionComponent
+          setLoading={setLoading}
           section={section}
           formName={formName}
           pageRoute={pageRoute}
