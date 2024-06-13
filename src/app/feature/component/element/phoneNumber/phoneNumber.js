@@ -29,9 +29,12 @@ const PhoneCodeDropdown = ({ component, formName }) => {
   );
 
   const inputChangeHandler = (e, label) => {
-    const newValue = e.target.value;
-    setPhoneNo(newValue);
-    debouncedDispatch(newValue);
+    if(e.target.value.length < 11) {
+      const newValue = e.target.value;
+      setPhoneNo(newValue);
+      debouncedDispatch(newValue);
+    }
+    
   };
 
   return (
@@ -53,6 +56,9 @@ const PhoneCodeDropdown = ({ component, formName }) => {
               }}
               placeholder={""}
               className="block text-primary bg-transparent border-b-2 border-gray-300 w-full outline-none focus:border-primary"
+              type="number"
+              maxLength={10}
+              max={"9999999999"}
             />
             <span className="absolute left-2 bottom-2 opacity-50 cursor-text transform origin-left transition duration-200">
               {label.toUpperCase()}
