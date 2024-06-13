@@ -21,7 +21,7 @@ const FormWrapper = ({
     const formData = useSelector((state) => state.forms?.[page?.name]) || {};
     const [visibility, setVisibility] = useState(form?.visibility);
     const [isDisabled, setIsDisabled] = useState(form?.disable)
-    console.log("::formData", formData);
+    // console.log("::formData===================================kkkkkkkkkkkkkk", isDisabled);
     const myFunction = async () => {
         try {
             const _facts = {
@@ -37,16 +37,17 @@ const FormWrapper = ({
                     _facts[key] = "false"
                 }
             });
-            if (form?.rules?.length > 0 || form?.rules?.length > 0) {
+            if (form?.rules?.length > 0) {
                 const rulesData = await productPageService.productFormRules(form.rules, _facts, form?.name);
+                // console.log("==================>         ???", rulesData)
                 if (rulesData && rulesData?.finalOutput?.length > 0) {
                     rulesData?.finalOutput?.forEach(finalOutput => {
                         setIsDisabled(finalOutput?.isDisable)
                         setVisibility(finalOutput?.isVisible)
                     });
                 } else {
-                    setIsDisabled(form?.visibility)
-                    setVisibility(form?.disable)
+                    setIsDisabled(form?.disable)
+                    setVisibility(form?.visibility)
                 }
             }
 

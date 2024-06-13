@@ -20,11 +20,11 @@ const FieldComponent = ({
 }) => {
 
     const [visibility, setVisibility] = useState(component?.visibility);
-    const [isDisabled, setIsDisabled] = useState(disabled);
+    const [isDisabled, setIsDisabled] = useState(false);
     // const [isDiable, setIsDisable] = useState(false);
     const formData = useSelector((state) => state.forms?.[page?.name]);
     // const isVis
-    console.log("FieldComponent ===================>", formData, component, page)
+    console.log("FieldComponent ===================>", component?.name, isDisabled, disabled)
     const ComponentMappings = {
         ComponentUiOption: Option,
         ComponentFormInput: Input,
@@ -62,14 +62,13 @@ const FieldComponent = ({
     useEffect(() => {
         if (component?.rules?.length > 0) {
             myFunction().then((rulesData) => {
-                debugger
                 if (rulesData && rulesData?.finalOutput?.length > 0) {
                     rulesData?.finalOutput?.forEach(finalOutput => {
                         setIsDisabled(finalOutput?.isDisable)
                         setVisibility(finalOutput?.isVisible)
                     });
                 } else {
-                    setIsDisabled(disabled)
+                    setIsDisabled(false)
                     setVisibility(component?.visibility)
                 }
             });
@@ -84,7 +83,7 @@ const FieldComponent = ({
             pageRoute={pageRoute}
             utmConfig={utmConfig}
             journeyType={journeyType}
-            disabled={isDisabled}
+            disabled={isDisabled || disabled}
         />
     ) : (
         <div>

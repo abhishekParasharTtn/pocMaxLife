@@ -64,7 +64,7 @@ const Component = ({
       formData: _formData,
       components: components,
     };
-    setLoader(true);
+    // setLoader(true);
     try {
       const res = await fetch("http://localhost:3000/api/products", {
         method: "POST",
@@ -76,8 +76,8 @@ const Component = ({
       const data = await res.json();
       if (!isEmpty(data) && !isEmpty(dataConfigs)) {
         const dataMerged = replaceData(data, dataConfigs);
-        setLoader(false);
         setData(dataMerged);
+        setLoader(false);
       } else if (!isEmpty(data)) {
         setData(data);
         setLoader(false);
@@ -89,7 +89,14 @@ const Component = ({
   };
 
   useEffect(() => {
-    if (formName === "productDetails") productDetail();
+    if (formName === "productDetails") {
+      setLoader(true);
+
+      const timer = setTimeout(() => {
+        productDetail();
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
   }, [productName, premiumType, premiumPaymentTerm, policyTerm]);
 
   return (
