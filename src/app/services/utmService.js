@@ -29,8 +29,8 @@ export const utmService = {
     });
   },
   applyDataFilter: function (payload) {
-    payload.forEach((item) => {
-      item.sections.forEach((section) => {
+    payload?.forEach((item) => {
+      item?.sections?.forEach((section) => {
         section.forms.forEach((form) => {
           form.form.components.forEach((component) => {
             const dataFilter = component.dataFilter || [];
@@ -116,10 +116,10 @@ export const utmService = {
         return acc;
       }, {});
 
-      pageData.forEach((page) => {
-        page.sections.forEach((section) => {
-          section.forms.forEach((form) => {
-            form.form.components.forEach((component) => {
+      pageData?.forEach((page) => {
+        page?.sections?.forEach((section) => {
+          section?.forms?.forEach((form) => {
+            form?.form?.components?.forEach((component) => {
               if (
                 component.dataSourceName &&
                 optionsDataMap[component.dataSourceName]

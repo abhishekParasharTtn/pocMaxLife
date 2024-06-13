@@ -1,7 +1,7 @@
 const Loader = () => {
   return (
     <>
-      <div className="bg-fixed w-full flex justify-center items-center">
+      <div className="bg-fixed w-full flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 z-50 bg-[rgba(0,0,0,0.4)]">
         <svg
           aria-hidden="true"
           className="w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
