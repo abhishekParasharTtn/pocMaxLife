@@ -42,7 +42,7 @@ const Component = ({
   const [data, setData] = useState(components);
   const [loader, setLoader] = useState(false);
   const replaceData = (components, dataConfigs) => {
-    const config = dataConfigs.dataConfigs[0];
+    const config = dataConfigs?.dataConfigs[0];
     components.forEach((component) => {
       const dataSourceName = component.dataSourceName;
       if (
@@ -50,7 +50,9 @@ const Component = ({
         config?.hasOwnProperty(dataSourceName) &&
         !isEmpty(config[dataSourceName])
       ) {
-        component.data = config[dataSourceName];
+        // debugger
+        const _option = config[dataSourceName].filter(item1 => component?.data?.some(item2 => item1.label === item2.label));
+        component.data = _option;
       }
     });
     return components;
@@ -98,7 +100,7 @@ const Component = ({
 
       const timer = setTimeout(() => {
         productDetail();
-      }, 1000);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [productName, premiumType, premiumPaymentTerm, policyTerm]);
