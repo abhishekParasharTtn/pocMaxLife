@@ -74,7 +74,7 @@ const components = {
        customValue
       }
     }
-    roleOutput {
+    ruleOutput {
       value
       isVisible
       isDisable
@@ -133,7 +133,7 @@ const components = {
        customValue
       }
     }
-    roleOutput {
+    ruleOutput {
       value
       isVisible
       isDisable
@@ -247,7 +247,7 @@ const components = {
        customValue
       }
     }
-    roleOutput {
+    ruleOutput {
       value
       isVisible
       isDisable
@@ -405,7 +405,7 @@ export const queries = {
                     customValue
                   }
                 }
-                roleOutput {
+                ruleOutput {
                   value
                   isVisible
                   isDisable
