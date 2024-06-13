@@ -223,7 +223,7 @@ export const utmService = {
   },
   getDataConfigMergedData: function (pageData, dataConfigs) {
     if (dataConfigs) {
-      const configMap = dataConfigs.dataConfigs.reduce((map, config) => {
+      const configMap = dataConfigs?.dataConfigs?.reduce((map, config) => {
         Object.keys(config).forEach((key) => {
           map[key] = config[key];
         });
@@ -231,11 +231,11 @@ export const utmService = {
       }, {});
 
       pageData.forEach((page) => {
-        page.sections.forEach((section) => {
-          section.forms.forEach((form) => {
-            form.form.components.forEach((component) => {
-              if (component.dataSourceName) {
-                const dataSource = configMap[component.dataSourceName];
+        page?.sections?.forEach((section) => {
+          section?.forms?.forEach((form) => {
+            form?.form?.components?.forEach((component) => {
+              if (component?.dataSourceName) {
+                const dataSource = configMap?.[component?.dataSourceName];
                 if (dataSource && dataSource.length > 0) {
                   component.data = dataSource;
                 }
