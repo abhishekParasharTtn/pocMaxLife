@@ -43,7 +43,7 @@ const Component = ({
         const config = dataConfigs.dataConfigs[0];    
         components.forEach(component => {
             const dataSourceName = component.dataSourceName;
-            if (dataSourceName && config.hasOwnProperty(dataSourceName) && !isEmpty(config[dataSourceName])) {
+            if (dataSourceName && config?.hasOwnProperty(dataSourceName) && !isEmpty(config[dataSourceName])) {
                 component.data = config[dataSourceName];
             }
         });
