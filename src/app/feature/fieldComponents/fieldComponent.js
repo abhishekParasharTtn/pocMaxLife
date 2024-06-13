@@ -16,13 +16,10 @@ const FieldComponent = ({
     pageRoute,
     utmConfig,
     disabled
-
 }) => {
 
-    const [isVisible, setIsVisible] = useState(() => {
-        return (component.isVisibility || !component.hasOwnProperty("isVisibility")) && (component?.rules?.length === 0 || !component.hasOwnProperty("rules"))
-    });
-    const [isDiable, setIsDisable] = useState(false);
+    const [visibility, setVisibility] = useState(component?.visibility);
+    // const [isDiable, setIsDisable] = useState(false);
     const formData = useSelector((state) => state.forms?.[formName]);
     // const isVis
     const ComponentMappings = {
@@ -53,7 +50,7 @@ const FieldComponent = ({
                 }
             });
             const rulesData = await productPageService.productFormRules(component.rules, _facts, component?.name);
-            return rulesData?.finalResult
+            return rulesData?.finalResult;
 
         } catch (err) {
             console.error(err)
@@ -62,21 +59,18 @@ const FieldComponent = ({
     useEffect(() => {
         if (component?.rules?.length > 0) {
             myFunction().then((output) => {
-                console.log("======================>>>>>>>>>>>>", component, output)
                 if (output) {
-                    setIsVisible(true)
+                    // setVisibility(true)
                 } else {
-                    setIsVisible(false)
+                    // setVisibility(false)
 
                 }
             });
         }
     }, [formData]);
 
-    // console.log("================================", component?.name, isVisible);
 
-
-    return FieldComponent && isVisible ? (
+    return FieldComponent && (visibility || component?.__typename === "ComponentUiButton") ? (
         <FieldComponent
             component={component}
             formName={formName}

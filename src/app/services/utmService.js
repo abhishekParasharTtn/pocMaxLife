@@ -67,9 +67,9 @@ export const utmService = {
           .map((item) => transform(item))
           .filter((item) => item !== null);
       } else if (obj && typeof obj === "object") {
-        if (obj.visibility === false) {
-          return null;
-        }
+        // if (obj.visibility === false) {
+        //   return null;
+        // }
         const newObj = {};
         for (const key in obj) {
           if (key === "fieldName" && obj[key].name) {

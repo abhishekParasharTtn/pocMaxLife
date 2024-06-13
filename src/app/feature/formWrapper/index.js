@@ -17,8 +17,8 @@ const FormWrapper = ({
 }) => {
 
     const formData = useSelector((state) => state.forms.productDetails) || {};
-    const [showProductDetail, setShowProductDetail] = useState(false)
-
+    const [visibility, setVisibility] = useState(form?.visibility);
+    const [isDisabled, setIsDisabled] = useState(form?.disable)
     const myFunction = async () => {
         try {
             console.log("::formData", formData);
@@ -38,9 +38,9 @@ const FormWrapper = ({
             if (form?.rules?.length > 0 || form?.rules?.length > 0) {
                 const rulesData = await productPageService.productFormRules(form.rules, _facts, form?.name);
                 console.log("::rulesData", _facts, rulesData);
-                setShowProductDetail(rulesData?.finalResult || false)
+                setIsDisabled(!rulesData?.finalResult)
             } else {
-                setShowProductDetail(false)
+                // setShowProductDetail(false)
             }
 
         } catch (err) {
@@ -48,12 +48,12 @@ const FormWrapper = ({
         }
     };
     useEffect(() => {
-        if (form?.name === FORM_NAMES.PRODUCT_FORM) {
+        if (form?.rules?.length > 0) {
             myFunction();
         }
     }, [formData]);
 
-    const isDisabled = form?.name === FORM_NAMES.PRODUCT_FORM && !showProductDetail;
+    console.log("::isDisabled", form);
 
     return (
         <>
@@ -61,20 +61,22 @@ const FormWrapper = ({
                 // form?.name !== FORM_NAMES.PRODUCT_FORM ||
                 //     showProductDetail
                 //     ?
-                <div className="" >
-                    <fieldset
-                     disabled={isDisabled}
-                    >
-                        <Component
-                            themeConfig={themeConfig}
-                            utmConfig={utmConfig}
-                            form={form}
-                            formName={formName}
-                            pageRoute={pageRoute}
+                visibility && (
+                    <div className="" >
+                        <fieldset
                             disabled={isDisabled}
-                        />
-                    </fieldset>
-                </div>
+                        >
+                            <Component
+                                themeConfig={themeConfig}
+                                utmConfig={utmConfig}
+                                form={form}
+                                formName={formName}
+                                pageRoute={pageRoute}
+                                disabled={isDisabled}
+                            />
+                        </fieldset>
+                    </div>
+                )
                 //  : null
             }
         </>
