@@ -5,6 +5,7 @@ import FieldComponent from "@/app/feature/fieldComponents/fieldComponent";
 import { productService } from "@/app/services/productService/productService";
 import { isEmpty } from "lodash";
 import Loader from "./Loader/Loader";
+import ProductLoader from "./Loader/productLoader";
 
 function getAge(dateOfBirth) {
   // Create a Date object from the provided DOB
@@ -50,8 +51,9 @@ const Component = ({
         config?.hasOwnProperty(dataSourceName) &&
         !isEmpty(config[dataSourceName])
       ) {
-        // debugger
-        const _option = config[dataSourceName].filter(item1 => component?.data?.some(item2 => item1.label === item2.label));
+        const _option = config[dataSourceName].filter((item1) =>
+          component?.data?.some((item2) => item1.label === item2.label)
+        );
         component.data = _option;
       }
     });
@@ -106,25 +108,27 @@ const Component = ({
   }, [productName, premiumType, premiumPaymentTerm, policyTerm]);
 
   return (
-    <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-      {loader && <Loader />}
-
-      {data.length > 0 &&
-        data.map((component) => {
-          return (
-            <FieldComponent
-              key={component?.name}
-              component={component}
-              formName={formName}
-              pageRoute={pageRoute}
-              utmConfig={utmConfig}
-              data={data}
-              disabled={disabled}
-              page={page}
-            />
-          );
-        })}
-    </div>
+    <>
+      <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+        {form.form?.title === "Product Details" && loader && <ProductLoader />}
+        {data.length > 0 &&
+          data.map((component) => {
+            return (
+              <FieldComponent
+                loader={loader}
+                key={component?.name}
+                component={component}
+                formName={formName}
+                pageRoute={pageRoute}
+                utmConfig={utmConfig}
+                data={data}
+                disabled={disabled}
+                page={page}
+              />
+            );
+          })}
+      </div>
+    </>
   );
 };
 
