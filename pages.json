@@ -31,11 +31,13 @@
         },
         "forms": [
           {
-            "id": "1",
-            "name": "personalDetails",
+            "id": "5",
+            "name": "nomineeDetails",
+            "visibility": true,
+            "disable": false,
             "form": {
-              "name": "personalDetails",
-              "title": "Personal Details",
+              "name": "nomineeDetails",
+              "title": "Nominee Details",
               "subTitle": "fill all the personal details",
               "components": [
                 {
@@ -47,7 +49,8 @@
                   "suggestion": null,
                   "visibility": true,
                   "style": null,
-                  "defaultValue": null
+                  "defaultValue": null,
+                  "rules": []
                 },
                 {
                   "__typename": "ComponentFormInput",
@@ -58,7 +61,8 @@
                   "suggestion": null,
                   "visibility": true,
                   "style": null,
-                  "defaultValue": null
+                  "defaultValue": null,
+                  "rules": []
                 },
                 {
                   "__typename": "ComponentFormDobSingleInput",
@@ -66,13 +70,14 @@
                   "label": "Date of birth",
                   "placeholder": "DD/MM/YYYY",
                   "defaultValue": null,
-                  "visibility": true
+                  "visibility": true,
+                  "rules": []
                 },
                 {
                   "__typename": "ComponentUiOption",
                   "title": "Gender",
                   "description": null,
-                  "defaultValue": "F",
+                  "defaultValue": "M",
                   "dataSourceName": "dataGenders",
                   "componentType": "ButtonGroup",
                   "style": null,
@@ -93,356 +98,22 @@
                   ],
                   "data": [
                     {
-                      "name": "transgender",
-                      "label": "Transgender",
-                      "value": "T",
+                      "name": "male",
+                      "label": "Male",
+                      "value": "M",
+                      "icon": {}
+                    },
+                    {
+                      "name": "female",
+                      "label": "Female",
+                      "value": "F",
                       "icon": {}
                     }
                   ]
                 }
               ]
-            }
-          },
-          {
-            "id": "2",
-            "name": "productDetails",
-            "form": {
-              "name": "productDetails",
-              "title": "Product Details",
-              "subTitle": "fill all the product details",
-              "components": [
-                {
-                  "__typename": "ComponentUiOption",
-                  "title": "Product Name",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataProductNames",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Product Name",
-                  "placeholder": "Product Name",
-                  "name": "productName",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "maxLifeSmartSecurePlusPlan",
-                      "code": "SSPP",
-                      "productId": "154",
-                      "label": "Max Life Smart Secure Plus Plan"
-                    },
-                    {
-                      "name": "maxLifeSmartWealthAnnuityGuaranteedPensionPlan",
-                      "code": "SWAGPP",
-                      "productId": "210",
-                      "label": "Max Life Smart Wealth Annuity Guaranteed Pension Plan"
-                    },
-                    {
-                      "name": "maxLifeFlexiWealthPlusPlanSolution",
-                      "code": "FIP",
-                      "productId": "132",
-                      "label": "Max Life Flexi Wealth Plus Plan Solution"
-                    },
-                    {
-                      "name": "maxLifeSmartWealthPlanSolution",
-                      "code": "SWP",
-                      "productId": "133",
-                      "label": "Max Life Smart Wealth Plan Solution"
-                    },
-                    {
-                      "name": "maxLifeMonthlyIncomeAdvantagePlanSolution",
-                      "code": "MIAP",
-                      "productId": "74",
-                      "label": "Max Life Monthly Income Advantage Plan Solution"
-                    },
-                    {
-                      "name": "maxLifeSavingsAdvantagePlanSolutionPlus",
-                      "code": "SAP",
-                      "productId": "101",
-                      "label": "Max Life Savings Advantage Plan Solution Plus"
-                    },
-                    {
-                      "name": "maxLifeSmartWealthIncomePlanSolution",
-                      "code": "SWIP",
-                      "productId": "168",
-                      "label": "Max Life Smart Wealth Income Plan Solution"
-                    },
-                    {
-                      "name": "maxLifeFlexiWealthAdvantagePlanSolution",
-                      "code": "FWAP",
-                      "productId": "173",
-                      "label": "Max Life Flexi Wealth Advantage Plan Solution"
-                    },
-                    {
-                      "name": "maxLifeOnlineSavingsPlan",
-                      "code": "OSP",
-                      "productId": "100",
-                      "label": "Max Life Online Savings Plan"
-                    },
-                    {
-                      "name": "maxLifePlatinumWealthPlanPlusSolution",
-                      "code": "PWP",
-                      "productId": "78",
-                      "label": "Max Life Platinum Wealth Plan Plus Solution"
-                    },
-                    {
-                      "name": "maxLifeOnlineTermPlanPlus",
-                      "code": "OTP",
-                      "productId": "116",
-                      "label": "Max Life Online Term Plan Plus"
-                    },
-                    {
-                      "name": "foreverYoungPensionPlan",
-                      "code": "FYPP",
-                      "productId": "24",
-                      "label": "Forever Young Pension Plan"
-                    },
-                    {
-                      "name": "maxLifeForeverYoungPensionPlan",
-                      "code": "FYPP",
-                      "productId": "24",
-                      "label": "Max Life Forever Young Pension Plan"
-                    },
-                    {
-                      "name": "maxLifeFlexiWealthPlusPlan",
-                      "code": "FIP",
-                      "productId": "132",
-                      "label": "Max Life Flexi Wealth Plus Plan"
-                    },
-                    {
-                      "name": "maxLifeSmartWealthPlan",
-                      "code": "SWP",
-                      "productId": "133",
-                      "label": "Max Life Smart Wealth Plan"
-                    }
-                  ]
-                },
-                {
-                  "__typename": "ComponentUiOption",
-                  "title": "Premium Type",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPremiumTypes",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": null,
-                  "placeholder": "Premium Type",
-                  "name": "premiumType",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "regularPay",
-                      "label": "Regular Pay",
-                      "value": "Regular Pay"
-                    },
-                    {
-                      "name": "limitedPay",
-                      "label": "Limited Pay",
-                      "value": "Limited Pay"
-                    },
-                    {
-                      "name": "payTill60",
-                      "label": "Pay Till 60",
-                      "value": "payTill60"
-                    }
-                  ]
-                },
-                {
-                  "__typename": "ComponentUiOption",
-                  "title": "Premium Payment Term",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPremiumPaymentTerms",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Premium Payment Term",
-                  "placeholder": "Premium Payment Term",
-                  "name": "premiumPaymentTerm",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "fiveYear",
-                      "label": "5",
-                      "value": "5"
-                    },
-                    {
-                      "name": "sixYear",
-                      "label": "6",
-                      "value": "6"
-                    }
-                  ]
-                },
-                {
-                  "__typename": "ComponentUiOption",
-                  "title": "Policy Term",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPolicyTerms",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Policy Term",
-                  "placeholder": "Policy Term",
-                  "name": "policyTerm",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "tenYear",
-                      "label": "10",
-                      "value": "10"
-                    },
-                    {
-                      "name": "elevenYear",
-                      "label": "11",
-                      "value": "11"
-                    },
-                    {
-                      "name": "twelveYear",
-                      "label": "12",
-                      "value": "12"
-                    },
-                    {
-                      "name": "thirteenYear",
-                      "label": "13",
-                      "value": "13"
-                    },
-                    {
-                      "name": "fourteenYear",
-                      "label": "14",
-                      "value": "14"
-                    },
-                    {
-                      "name": "fifteenYear",
-                      "label": "15",
-                      "value": "15"
-                    },
-                    {
-                      "name": "sixteenYear",
-                      "label": "16",
-                      "value": "16"
-                    },
-                    {
-                      "name": "SeventeenYear",
-                      "label": "17",
-                      "value": "17"
-                    },
-                    {
-                      "name": "eighteenYear",
-                      "label": "18",
-                      "value": "18"
-                    },
-                    {
-                      "name": "nineteenYear",
-                      "label": "19",
-                      "value": "19"
-                    },
-                    {
-                      "name": "twentyYear",
-                      "label": "20",
-                      "value": "20"
-                    },
-                    {
-                      "name": "twentyOneYear",
-                      "label": "21",
-                      "value": "21"
-                    },
-                    {
-                      "name": "tweentyTwoYear",
-                      "label": "22",
-                      "value": "22"
-                    },
-                    {
-                      "name": "twentyTwoYear",
-                      "label": "22",
-                      "value": "22"
-                    },
-                    {
-                      "name": "twentyThreeYear",
-                      "label": "23",
-                      "value": "23"
-                    },
-                    {
-                      "name": "twentyFourYear",
-                      "label": "24",
-                      "value": "24"
-                    },
-                    {
-                      "name": "twentyFiveYear",
-                      "label": "25",
-                      "value": "25"
-                    },
-                    {
-                      "name": "twentySixYear",
-                      "label": "26",
-                      "value": "26"
-                    },
-                    {
-                      "name": "twentySevenYear",
-                      "label": "27",
-                      "value": "27"
-                    },
-                    {
-                      "name": "twentyEightYear",
-                      "label": "28",
-                      "value": "28"
-                    },
-                    {
-                      "name": "twentyNineYear",
-                      "label": "29",
-                      "value": "29"
-                    },
-                    {
-                      "name": "thirtyYear",
-                      "label": "30",
-                      "value": "30"
-                    }
-                  ]
-                },
-                {
-                  "__typename": "ComponentUiOption",
-                  "title": "Mode of Payment",
-                  "description": null,
-                  "defaultValue": null,
-                  "dataSourceName": "dataPaymentModes",
-                  "componentType": "Dropdown",
-                  "style": null,
-                  "visibility": true,
-                  "label": "Mode of Payment",
-                  "placeholder": "Mode of Payment",
-                  "name": "modeOfPayment",
-                  "popUp": {},
-                  "dataFilter": [],
-                  "data": [
-                    {
-                      "name": "annual",
-                      "label": "Annually",
-                      "code": "01"
-                    },
-                    {
-                      "name": "monthly",
-                      "label": "Monthly",
-                      "code": "03"
-                    },
-                    {
-                      "name": "quarterly",
-                      "label": "Quarterly",
-                      "code": "04"
-                    },
-                    {
-                      "name": "semi-annually",
-                      "label": "Semi-Annually",
-                      "code": "02"
-                    }
-                  ]
-                }
-              ]
-            }
+            },
+            "rules": []
           }
         ],
         "button": [

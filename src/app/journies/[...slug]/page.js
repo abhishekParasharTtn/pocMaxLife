@@ -5,46 +5,35 @@ import { use } from "react";
 const fs = require("fs");
 
 async function fetchData(params) {
+  console.log(params);
   const { slug } = params;
   const utmDetails = await utmService.getUtmDetails(slug);
-  console.log("utmDetails", utmDetails)
+  console.log("utmDetails", utmDetails);
   const themeConfig = await utmService.getThemeConfigData(utmDetails);
-  // const pagesData = await utmService.getpage(utmDetails, slug);
+  const pagesData = await utmService.getpage(utmDetails, slug);
   const fieldConfigData = await utmService.getFormFieldConfigs(utmDetails);
-  // const formFieldsMergedData = utmService.getFormFieldsMergedData(
-  //   pagesData,
-  //   fieldConfigData
-  // );
+  const formFieldsMergedData = utmService.getFormFieldsMergedData(
+    pagesData,
+    fieldConfigData
+  );
 
-  
   const dataConfigs = await utmService.getDataConfigs(
     utmDetails?.dataConfig?.name
   );
-  console.log("dataConfig", dataConfigs)
+  console.log("dataConfig", dataConfigs);
 
-  // const pages = utmService.getDataConfigMergedData(
-  //   formFieldsMergedData,
-  //   dataConfigs
-  // );
-  // fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
-  //   if (err) {
-  //     console.error("Error writing file", err);
-  //   } else {
-  //     console.log("Successfully wrote file");
-  //   }
-  // });
+  const pages = utmService.getDataConfigMergedData(
+    formFieldsMergedData,
+    dataConfigs
+  );
+  fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
+    if (err) {
+      console.error("Error writing file", err);
+    } else {
+      console.log("Successfully wrote file");
+    }
+  });
 
-  // const pages = utmService.getFormDataWithUpdatedDefaultValues(
-  //   pagesData,
-  //   fieldConfigData
-  // );
-  // fs.writeFile("themeConfig.json", JSON.stringify(themeConfig, null, 2), (err) => {
-  //   if (err) {
-  //     console.error("Error writing file", err);
-  //   } else {
-  //     console.log("Successfully wrote file");
-  //   }
-  // });
   return (
     <AppLayout
       themeConfig={themeConfig}
@@ -65,15 +54,16 @@ export default function DynamicPage({ params }) {
   return data;
 }
 
-// export async function generateStaticParams() {
-//   const response = await api.get("/api/utm-configs?populate=*", {
-//     cache: "no-store",
-//   });
+export async function generateStaticParams() {
+  const response = await api.get("/api/utm-configs?populate=*", {
+    cache: "no-store",
+  });
 
-//   const paths = response?.data?.flatMap((route) =>
-//     route?.attributes?.pages?.data?.map((page) => ({
-//       slug: [route.attributes.utmCode, page.attributes.slug],
-//     }))
-//   );
-//   return paths;
-// }
+  const paths = response?.data?.flatMap((route) =>
+    route?.attributes?.pages?.data?.map((page) => ({
+      slug: [route.attributes.utmCode, page.attributes.slug],
+    }))
+  );
+  console.log("paths", paths);
+  return paths;
+}
