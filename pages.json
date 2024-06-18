@@ -1,9 +1,9 @@
 [
   {
-    "name": "personalDetails",
-    "slug": "personal-details",
+    "name": "customerDetails",
+    "slug": "customer-details",
     "utmCode": "2222",
-    "next": "/customer-details",
+    "next": "/product-details",
     "previous": "/personal-details",
     "layout": {
       "margin": null,
@@ -11,121 +11,197 @@
       "style": null,
       "layoutOrder": [],
       "layout": {
-        "name": "PersonalDetailsPageLayout"
+        "name": "CustomerDetailsPageLayout"
       }
     },
     "sections": [
       {
         "__typename": "ComponentContainerFormContainer",
         "layout": {
-          "id": "5",
+          "id": "9",
           "margin": null,
           "padding": null,
           "style": null,
           "layoutOrder": [],
           "layout": {
-            "name": "PersonalDetailsFormLayout",
+            "name": "CustomerDetailsFormLayout",
             "__typename": "Layout",
             "type": "form"
           }
         },
         "forms": [
           {
-            "id": "5",
-            "name": "nomineeDetails",
+            "id": "4",
+            "name": "customerDetail",
             "visibility": true,
             "disable": false,
             "form": {
-              "name": "nomineeDetails",
-              "title": "Nominee Details",
-              "subTitle": "fill all the personal details",
+              "name": "customerDetails",
+              "title": "Customer Details",
+              "subTitle": "fill all the customer details",
               "components": [
                 {
-                  "__typename": "ComponentFormInput",
-                  "name": "firstName",
-                  "type": "text",
-                  "label": "First Name",
-                  "placeholder": "First Name",
-                  "suggestion": null,
-                  "visibility": true,
+                  "__typename": "ComponentUiOption",
+                  "title": "Residential Status for tax purposes",
+                  "description": null,
+                  "defaultValue": "indian",
+                  "dataSourceName": "dataResidentials",
+                  "componentType": "RadioGroup",
                   "style": null,
-                  "defaultValue": null,
-                  "rules": []
-                },
-                {
-                  "__typename": "ComponentFormInput",
-                  "name": "lastName",
-                  "type": "text",
-                  "label": "Last Name",
-                  "placeholder": "Last Name",
-                  "suggestion": null,
                   "visibility": true,
-                  "style": null,
-                  "defaultValue": null,
-                  "rules": []
-                },
-                {
-                  "__typename": "ComponentFormDobSingleInput",
-                  "name": "dob",
-                  "label": "Date of birth",
-                  "placeholder": "DD/MM/YYYY",
-                  "defaultValue": null,
-                  "visibility": true,
-                  "rules": []
+                  "label": null,
+                  "placeholder": null,
+                  "name": "residentialStatus",
+                  "popUp": {},
+                  "dataFilter": [],
+                  "data": [
+                    {
+                      "name": "indian",
+                      "value": "indian",
+                      "term": "Indian"
+                    },
+                    {
+                      "name": "nri",
+                      "value": "nri",
+                      "term": "NRI"
+                    }
+                  ]
                 },
                 {
                   "__typename": "ComponentUiOption",
-                  "title": "Gender",
+                  "title": "Nationality",
                   "description": null,
-                  "defaultValue": "M",
-                  "dataSourceName": "dataGenders",
-                  "componentType": "ButtonGroup",
+                  "defaultValue": "indian",
+                  "dataSourceName": "dataNationalities",
+                  "componentType": "RadioGroup",
                   "style": null,
                   "visibility": true,
-                  "label": "Gender",
-                  "placeholder": "Gender",
-                  "name": "gender",
+                  "label": null,
+                  "placeholder": null,
+                  "name": "nationality",
                   "popUp": {},
                   "dataFilter": [
                     {
                       "key": "name",
-                      "value": "male"
+                      "value": "indian"
                     },
                     {
                       "key": "name",
-                      "value": "female"
+                      "value": "nri"
+                    },
+                    {
+                      "key": "name",
+                      "value": "pioOci"
+                    },
+                    {
+                      "key": "name",
+                      "value": "foreignNational"
                     }
                   ],
                   "data": [
                     {
-                      "name": "male",
-                      "label": "Male",
-                      "value": "M",
-                      "icon": {}
+                      "name": "indian",
+                      "term": "Indian",
+                      "value": "indian"
                     },
                     {
-                      "name": "female",
-                      "label": "Female",
-                      "value": "F",
-                      "icon": {}
+                      "name": "nri",
+                      "term": "NRI",
+                      "value": "nri"
+                    },
+                    {
+                      "name": "foreignNational",
+                      "term": "Foreign National",
+                      "value": "foreignNational"
                     }
                   ]
+                },
+                {
+                  "__typename": "ComponentFormInput",
+                  "name": "email",
+                  "type": "email",
+                  "label": "email",
+                  "placeholder": "Email Address",
+                  "suggestion": null,
+                  "visibility": true,
+                  "style": null,
+                  "defaultValue": "test@abc.com",
+                  "rules": []
+                },
+                {
+                  "__typename": "ComponentFormPhoneNumber",
+                  "name": "mobileNumber",
+                  "label": "Mobile Number",
+                  "placeholder": "Mobile Number",
+                  "defaultValue": null,
+                  "visibility": true,
+                  "dataSourceName": "dataCountries",
+                  "dataFilter": [],
+                  "rules": [
+                    {
+                      "id": "5",
+                      "relationBetweenAnyAll": "all",
+                      "relationWithNextRule": "all",
+                      "any": [
+                        {
+                          "id": "17",
+                          "fact": {
+                            "name": "nationality"
+                          },
+                          "operator": "equal",
+                          "customValue": "nri",
+                          "value": null,
+                          "values": []
+                        }
+                      ],
+                      "all": [],
+                      "ruleOutput": {
+                        "value": null,
+                        "isVisible": false,
+                        "isDisable": false
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "name": "India",
+                      "shortName": "IND",
+                      "code": "+91"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "ComponentUiToggleSwitch",
+                  "name": "whatsappOptInStatus",
+                  "label": "My customer would like to receive updates via WhatsApp",
+                  "defaultValue": null
+                },
+                {
+                  "__typename": "ComponentUiCheckbox",
+                  "name": "acceptanceDeclaration",
+                  "label": "I hereby consent to and authorize Max Life Insurance and its representatives by submitting my details to contact me through call, SMS or E-mail overriding my DND registration. I further consent to share my information on confidential basis with third parties for KYC, bank details verification, evaluating and processing this proposal.",
+                  "defaultValue": null
+                },
+                {
+                  "__typename": "ComponentUiButton",
+                  "name": "save",
+                  "type": "button",
+                  "label": "save",
+                  "link": null
+                },
+                {
+                  "__typename": "ComponentUiButton",
+                  "name": "proceed",
+                  "type": "submit",
+                  "label": "Proceed",
+                  "link": null
                 }
               ]
             },
             "rules": []
           }
         ],
-        "button": [
-          {
-            "id": "3",
-            "name": "proceedBtn",
-            "type": "submit",
-            "label": "Proceed",
-            "link": null,
-            "__typename": "ComponentUiButton"
-          }
-        ]
+        "button": []
       }
     ]
   }

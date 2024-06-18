@@ -13,6 +13,7 @@ export const AppLayout = ({
   slug,
   fieldConfigData,
   dataConfigs,
+  pageData,
 }) => {
   const layoutMappings = {
     default: DefaultAppLayout,
@@ -34,6 +35,7 @@ export const AppLayout = ({
           slug={slug}
           fieldConfigData={fieldConfigData}
           dataConfigs={dataConfigs}
+          pageData={pageData}
         />
       </DefaultMainLayout>
       <Footer />

@@ -22,11 +22,11 @@ async function fetchData(params) {
   );
   console.log("dataConfig", dataConfigs);
 
-  const pages = utmService.getDataConfigMergedData(
+  const pageData = utmService.getDataConfigMergedData(
     formFieldsMergedData,
     dataConfigs
   );
-  fs.writeFile("pages.json", JSON.stringify(pages, null, 2), (err) => {
+  fs.writeFile("pages.json", JSON.stringify(pageData, null, 2), (err) => {
     if (err) {
       console.error("Error writing file", err);
     } else {
@@ -42,6 +42,7 @@ async function fetchData(params) {
       slug={slug}
       fieldConfigData={fieldConfigData}
       dataConfigs={dataConfigs}
+      pageData={pageData}
       // showNavigation={page?.journeyInfo?.config?.showNavigation}
       // groupType={page?.route?.meta?.groupType}
       // pages={pages}
